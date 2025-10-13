@@ -1,0 +1,289 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import LogoCarousel from '~/components/LogoCarousel.astro';
+import SpecializationCards from '~/components/SpecializationCards.astro';
+import BackgroundImage from '~/components/BackgroundImage.astro';
+
+const currentLocale = Astro.currentLocale;
+
+const metadata = {
+  title: 'AIRconsulting - Desarrollo Web y Marketing Digital',
+  ignoreTitleTemplate: true,
+  description: 'AIRconsulting: Especialistas en desarrollo web profesional, gestión de redes sociales y posicionamiento SEO. Lleva tu empresa al siguiente nivel digital.',
+  keywords: ['desarrollo web', 'marketing digital', 'SEO', 'redes sociales', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager'],
+};
+---
+
+<Layout metadata={metadata}>
+  <section id="inicio" class="relative min-h-screen md:min-h-screen overflow-hidden bg-black">
+    <!-- Imagen de fondo estática -->
+    <BackgroundImage src="/images/estelas.jpg" />
+    <!-- Capa de oscurecimiento -->
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+    <!-- Contenido del Hero -->
+    <div class="relative z-20 flex items-center justify-center min-h-screen pt-16 md:pt-16">
+      <div class="text-center px-4 sm:px-6">
+        <h1 class="text-white text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 drop-shadow-lg">
+          AIRconsulting – Desarrollo Web y Marketing Digital
+        </h1>
+        <p class="text-white text-xl md:text-xl font-light mb-8 md:mb-12 drop-shadow-md">
+          Desarrollo web profesional, gestión de redes sociales y posicionamiento SEO
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+           <a
+             href="#desarrollo-web"
+             class="inline-block px-6 py-3 md:px-8 md:py-4 bg-black border border-white text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg"
+           >
+             Descubre Nuestros Servicios
+           </a>
+           <a href="#contacto" class="inline-block px-6 py-3 md:px-8 md:py-4 bg-black border border-white text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300">
+             Cotiza tu Proyecto
+           </a>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Development Section -->
+  <section id="desarrollo-web" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/interface.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
+      <div class="text-left max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Desarrollo Web Profesional y Optimizado</h2>
+        <p class="text-lg md:text-xl text-white">Tu página web es tu principal escaparate al mundo. Creamos sitios web atractivos, intuitivos y optimizados para los motores de búsqueda (SEO). Desde webs corporativas hasta plataformas de e-commerce, nos aseguramos de que tu presencia online sea profesional, responsive (adaptable a todos los dispositivos) y esté diseñada para convertir visitantes en clientes.</p>
+      </div>
+      <div class="absolute bottom-10 right-10">
+        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu Web →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Management Section -->
+  <section id="redes-sociales" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/viersocial.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
+      <div class="text-left max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gestión de Redes Sociales (Community Manager)</h2>
+        <p class="text-lg md:text-xl text-white">Construimos y gestionamos comunidades online activas y comprometidas en torno a tu marca. Nuestro equipo de community managers se encarga de desarrollar una estrategia de contenidos relevante, interactuar con tu audiencia y potenciar la reputación de tu marca en las plataformas sociales clave para tu sector. No se trata solo de publicar, sino de conectar y crear relaciones duraderas.</p>
+      </div>
+      <div class="absolute bottom-10 right-10">
+        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu Estrategia →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEO Section -->
+  <section id="seo" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/dolares.png');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
+      <div class="text-left max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Posicionamiento en Buscadores (SEO)</h2>
+        <p class="text-lg md:text-xl text-white">Aumentamos tu visibilidad en Google y otros motores de búsqueda para que tus clientes potenciales te encuentren justo cuando te necesitan. A través de un análisis exhaustivo de palabras clave, optimización técnica de tu web y estrategias de contenido efectivas, trabajamos para posicionar tu negocio en los primeros resultados de búsqueda, atrayendo tráfico de calidad y aumentando las oportunidades de venta.</p>
+      </div>
+      <div class="absolute bottom-10 right-10">
+        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu SEO →</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <LogoCarousel />
+
+  <!-- Separator -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+
+
+  <section class="py-20 bg-black text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Hagamos realidad tu transformación digital.
+      </h2>
+      <p class="text-gray-300 text-lg md:text-xl mb-8">
+        Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel.
+      </p>
+      <a href="#contacto" class="inline-block px-8 py-4 bg-black border border-white text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+        Hablemos de tu proyecto
+      </a>
+    </div>
+  </section>
+  <!-- Separator -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+
+  <!-- Manifesto Section -->
+  <section class="relative h-screen bg-black flex items-center justify-center">
+    <!-- Imagen de fondo -->
+    <BackgroundImage src="/images/manifiesto.jpg" />
+    <!-- Capa de oscurecimiento -->
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-4 md:pt-8">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Nuestra Esencia</h2>
+      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+        En AIRconsulting creemos que cada proyecto es una oportunidad para conectar empresas con sus clientes a través de soluciones digitales innovadoras.
+      </p>
+      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+        Nos mueve la excelencia en todo lo que hacemos: desde desarrollo web y gestión de redes sociales hasta posicionamiento SEO y estrategias de marketing digital.
+      </p>
+      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+        Nuestra pasión por la tecnología y la consultoría cercana nos impulsa a innovar, combinando estrategia, creatividad y resultados medibles en cada proyecto.
+      </p>
+      <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+        AIRconsulting no es solo una agencia; es tu socio estratégico para llevar tu empresa al siguiente nivel en el entorno digital.
+      </p>
+      <div class="mt-12">
+        <a href="#contacto" class="inline-block px-8 py-4 bg-black border border-white text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300">
+          Cotiza con AIRconsulting
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Separator -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+
+  <SpecializationCards locale={currentLocale} />
+
+  <!-- Separator -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+
+  <!-- Contact Section -->
+  <section id="contacto" class="py-20 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-black text-center mb-4">¿Llevamos tu empresa al siguiente nivel?</h2>
+      <p class="text-gray-600 text-center text-lg md:text-xl mb-12">
+        Envíanos tu idea y hagámosla realidad.
+      </p>
+      <div class="text-center mb-8">
+        <button id="toggle-form" class="px-6 py-2 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition">Ocultar Formulario</button>
+      </div>
+      <div id="contact-form" class="bg-white p-8 rounded-lg shadow-lg">
+        <form id="contact-form-element" name="contact" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact" />
+          <div style="display:none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2 font-semibold">¿Qué tipo de proyecto te interesa?</label>
+            <select name="servicio" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+              <option value="">Selecciona el servicio que buscas</option>
+              <option>Desarrollo Web</option>
+              <option>Gestión de Redes Sociales</option>
+              <option>SEO</option>
+              <option>Marketing Digital</option>
+              <option>Consultoría Digital</option>
+              <option>Otros</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2 font-semibold">Nombre</label>
+            <input type="text" name="name" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2 font-semibold">Email</label>
+            <input type="email" name="email" id="email" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <span id="email-error" class="text-red-500 text-sm"></span>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2 font-semibold">Mensaje</label>
+            <textarea name="message" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+          </div>
+          <div id="form-messages" class="text-center"></div>
+          <div class="text-center">
+            <button type="submit" id="submit-btn" class="px-8 py-3 bg-black border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition transform hover:scale-105 shadow-md">Enviar solicitud</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+
+
+     // Toggle contact form
+     document.getElementById('toggle-form')?.addEventListener('click', () => {
+       const form = document.getElementById('contact-form');
+       if (form) {
+         form.style.display = form.style.display === 'none' ? 'block' : 'none';
+         const btn = document.getElementById('toggle-form');
+         if (btn) {
+           btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
+         }
+       }
+     });
+
+     // Toggle logos
+     document.getElementById('toggle-logos')?.addEventListener('click', () => {
+       const container = document.getElementById('logos-container');
+       const btn = document.getElementById('toggle-logos') as HTMLButtonElement;
+       if (container && btn) {
+         container.style.display = container.style.display === 'none' ? 'block' : 'none';
+         btn.textContent = container.style.display === 'none' ? (btn.dataset.show || '') : (btn.dataset.hide || '');
+       }
+     });
+
+
+     // Form validation and submission
+     document.getElementById('contact-form-element')?.addEventListener('submit', async function(e) {
+       e.preventDefault();
+       const form = e.target as HTMLFormElement;
+       const formData = new FormData(form);
+       const messagesDiv = document.getElementById('form-messages') as HTMLDivElement;
+       const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+       const emailError = document.getElementById('email-error') as HTMLSpanElement;
+
+       // Clear previous messages
+       if (messagesDiv) messagesDiv.innerHTML = '';
+       if (emailError) emailError.textContent = '';
+
+       // Validate email
+       const email = (document.getElementById('email') as HTMLInputElement).value;
+       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       if (!emailRegex.test(email)) {
+         if (emailError) emailError.textContent = 'Por favor, ingresa un email válido.';
+         return;
+       }
+
+       // Check required fields
+       const requiredFields = ['servicio', 'name', 'email', 'message'];
+       for (const field of requiredFields) {
+         if (!formData.get(field)) {
+           if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Por favor, completa todos los campos requeridos.</p>';
+           return;
+         }
+       }
+
+       // Disable button
+       if (submitBtn) {
+         submitBtn.disabled = true;
+         submitBtn.textContent = 'Enviando...';
+       }
+
+       try {
+         const response = await fetch('/', {
+           method: 'POST',
+           body: formData,
+         });
+
+         if (response.ok) {
+           // Success
+           form.style.display = 'none';
+           if (messagesDiv) messagesDiv.innerHTML = '<p class="text-green-500 text-lg font-semibold">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.</p>';
+         } else {
+           throw new Error('Error en el envío');
+         }
+       } catch {
+         // Error
+         if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Hubo un error al enviar el mensaje. Por favor, intenta de nuevo más tarde.</p>';
+       } finally {
+         // Re-enable button
+         if (submitBtn) {
+           submitBtn.disabled = false;
+           submitBtn.textContent = 'Enviar';
+         }
+       }
+     });
+   </script>
+</Layout>

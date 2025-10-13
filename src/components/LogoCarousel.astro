@@ -1,0 +1,66 @@
+---
+import Image from '~/components/common/Image.astro';
+
+const currentLocale = Astro.currentLocale;
+const isEnglish = currentLocale === 'en';
+
+const areas = [
+  { image: '/images/5.png', name: 'Retórica Fest', slug: 'festivales' },
+  { image: '/images/1.png', name: 'Retórica Party', slug: 'party' },
+  { image: '/images/2.png', name: 'Retórica Prom', slug: 'prom' },
+  { image: '/images/3.png', name: 'Retórica Nodo', slug: 'nodo' },
+  { image: '/images/4.png', name: 'Retórica Spot', slug: 'spot' },
+];
+
+const carouselTexts = isEnglish ? {
+  title: 'OUR AREAS OF RHETORIC',
+  subtitle: 'Discover our areas of specialization in events, marketing and communication that transform ideas into results.'
+} : {
+  title: 'Universo Retórica',
+  subtitle: 'Descubre nuestras áreas de especialización en eventos, marketing y comunicación que transforman ideas en resultados.'
+};
+---
+
+<section class="pt-32 pb-20 bg-black">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6">
+     <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-4">{carouselTexts.title}</h2>
+    <div class="logo-container max-w-6xl mx-auto mt-12">
+    <!-- Fixed Grid for all devices -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 justify-items-center">
+      {areas.map((area) => (
+        <a href={`#${area.slug}`} class="flex flex-col items-center hover:scale-110 transition-transform duration-300">
+          <div class="circular-frame mb-4">
+            <Image
+              src={area.image}
+              alt={area.name}
+              width={180}
+              height={180}
+              class="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h3 class="text-white text-lg font-semibold text-center">{area.name}</h3>
+        </a>
+      ))}
+    </div>
+   </div>
+ </div>
+</section>
+
+<style>
+  .circular-frame {
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px white, 0 6px 12px rgba(0, 0, 0, 0.6);
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    background-color: black;
+  }
+
+  @media (min-width: 768px) {
+    .circular-frame {
+      width: 180px;
+      height: 180px;
+    }
+  }
+</style>
