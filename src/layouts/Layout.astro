@@ -11,6 +11,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import CustomCursor from '~/components/CustomCursor.tsx';
 
 import { ClientRouter } from 'astro:transitions';
 
@@ -39,6 +40,7 @@ const { language, textDirection } = I18N;
   <body class="antialiased text-page bg-page tracking-tight scroll-smooth">
     <slot />
     <BasicScripts />
+    <CustomCursor client:load />
 
     <!-- <script src="//code.tidio.co/778le8yt1onvopogbc5xeu0hkcjq2ur6.js" async></script> -->
     </body>

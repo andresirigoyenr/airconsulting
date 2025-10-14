@@ -1,172 +1,273 @@
+
+
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import LogoCarousel from '~/components/LogoCarousel.astro';
-import SpecializationCards from '~/components/SpecializationCards.astro';
-import BackgroundImage from '~/components/BackgroundImage.astro';
+import AnimatedCodeBackground from '~/components/AnimatedCodeBackground.tsx';
+import ProcessSection from '~/components/ProcessSection.tsx';
+import ServicesSection from '~/components/ServicesSection.tsx';
 
-const currentLocale = Astro.currentLocale;
 
 const metadata = {
-  title: 'AIRconsulting - Desarrollo Web y Marketing Digital',
+  title: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting',
   ignoreTitleTemplate: true,
-  description: 'AIRconsulting: Especialistas en desarrollo web profesional, gestión de redes sociales y posicionamiento SEO. Lleva tu empresa al siguiente nivel digital.',
-  keywords: ['desarrollo web', 'marketing digital', 'SEO', 'redes sociales', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager'],
+  description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!',
+  keywords: ['agencia marketing digital Cádiz', 'desarrollo web Cádiz', 'SEO Cádiz', 'redes sociales Cádiz', 'agencia de marketing para empresas en Chile', 'servicios de SEO internacional para Latinoamérica', 'desarrollo web para empresas de logística', 'estrategia digital para medios de comunicación', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager'],
 };
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AIR Consulting",
+    "description": "Agencia de marketing digital con experiencia internacional. Especializada en desarrollo web, gestión de redes sociales y posicionamiento SEO para empresas en España y Latinoamérica",
+    "url": "https://airconsulting.es",
+    "logo": "https://airconsulting.es/images/logo.png",
+    "image": "https://airconsulting.es/images/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cádiz",
+      "addressRegion": "Andalucía",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "36.5271",
+      "longitude": "-6.2886"
+    },
+    "telephone": "+34-XXX-XXX-XXX",
+    "email": "info@airconsulting.es",
+    "priceRange": "$$",
+    "serviceType": ["Desarrollo Web", "Marketing Digital", "SEO", "Gestión de Redes Sociales"],
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "España"
+      },
+      {
+        "@type": "Country",
+        "name": "Chile"
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Andrés Irigoyen",
+      "jobTitle": "Fundador y Estratega Digital"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/andres-irigoyen"
+    ]
+  }
+  </script>
   <section id="inicio" class="relative min-h-screen md:min-h-screen overflow-hidden bg-black">
-    <!-- Imagen de fondo estática -->
-    <BackgroundImage src="/images/estelas.jpg" />
+    <!-- Fondo animado de código -->
+    <AnimatedCodeBackground client:load />
     <!-- Capa de oscurecimiento -->
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
+    <div class="absolute inset-0 bg-black/85 z-10"></div>
+    <!-- Gradiente de transición -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-20"></div>
+
 
     <!-- Contenido del Hero -->
-    <div class="relative z-20 flex items-center justify-center min-h-screen pt-16 md:pt-16">
-      <div class="text-center px-4 sm:px-6">
-        <h1 class="text-white text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 drop-shadow-lg">
-          AIRconsulting – Desarrollo Web y Marketing Digital
-        </h1>
-        <p class="text-white text-xl md:text-xl font-light mb-8 md:mb-12 drop-shadow-md">
-          Desarrollo web profesional, gestión de redes sociales y posicionamiento SEO
-        </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-           <a
-             href="#desarrollo-web"
-             class="inline-block px-6 py-3 md:px-8 md:py-4 bg-black border border-white text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg"
-           >
-             Descubre Nuestros Servicios
-           </a>
-           <a href="#contacto" class="inline-block px-6 py-3 md:px-8 md:py-4 bg-black border border-white text-white font-bold text-base md:text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300">
-             Cotiza tu Proyecto
-           </a>
-         </div>
+    <div class="relative z-20 flex items-center min-h-screen px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto w-full items-center">
+        <!-- Lado Izquierdo: Contenido Principal -->
+        <div class="flex flex-col justify-center fade-in">
+          <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-10 drop-shadow-lg uppercase leading-tight">
+            ESTRATEGIAS DIGITALES<br>QUE CRUZAN FRONTERAS
+          </h1>
+          <div class="flex flex-col sm:flex-row gap-6">
+            <button style="background-color: #FF5733; color: white; padding: 16px 32px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; min-height: 44px;" class="transition-all duration-300 shadow-lg">
+              Pide tu consultoría
+            </button>
+          </div>
+        </div>
+
+        <!-- Lado Derecho: Texto Descriptivo -->
+        <div class="flex flex-col justify-center text-left lg:text-right slide-in-right">
+          <p class="text-white text-lg sm:text-xl md:text-2xl leading-relaxed drop-shadow-md max-w-lg lg:max-w-none">
+            En AIR Consulting entendemos que no hay dos negocios iguales. Por eso, ofrecemos un conjunto de servicios diseñados para abordar tus desafíos y objetivos únicos. Nuestro equipo de expertos combina creatividad y datos para construir estrategias que, simplemente, funcionan.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Web Development Section -->
-  <section id="desarrollo-web" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/interface.jpg');">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
-      <div class="text-left max-w-2xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Desarrollo Web Profesional y Optimizado</h2>
-        <p class="text-lg md:text-xl text-white">Tu página web es tu principal escaparate al mundo. Creamos sitios web atractivos, intuitivos y optimizados para los motores de búsqueda (SEO). Desde webs corporativas hasta plataformas de e-commerce, nos aseguramos de que tu presencia online sea profesional, responsive (adaptable a todos los dispositivos) y esté diseñada para convertir visitantes en clientes.</p>
-      </div>
-      <div class="absolute bottom-10 right-10">
-        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu Web →</a>
-      </div>
-    </div>
-  </section>
+  <!-- Parte 1: Nuestra Filosofía - Sticky Layout -->
+  <section class="relative py-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
+    <!-- Darkening layer for readability -->
+    <div class="absolute inset-0 bg-black/80 z-10"></div>
 
-  <!-- Social Media Management Section -->
-  <section id="redes-sociales" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/viersocial.jpg');">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
-      <div class="text-left max-w-2xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gestión de Redes Sociales (Community Manager)</h2>
-        <p class="text-lg md:text-xl text-white">Construimos y gestionamos comunidades online activas y comprometidas en torno a tu marca. Nuestro equipo de community managers se encarga de desarrollar una estrategia de contenidos relevante, interactuar con tu audiencia y potenciar la reputación de tu marca en las plataformas sociales clave para tu sector. No se trata solo de publicar, sino de conectar y crear relaciones duraderas.</p>
-      </div>
-      <div class="absolute bottom-10 right-10">
-        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu Estrategia →</a>
-      </div>
-    </div>
-  </section>
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <!-- Columna Izquierda: Imagen Sticky -->
+        <div class="sticky top-20 zoom-in">
+          <picture>
+            <source media="(max-width: 768px)" srcset="/images/bgcode-mobile.webp" type="image/webp">
+            <source media="(min-width: 769px)" srcset="/images/bgcode.jpg" type="image/jpeg">
+            <img src="/images/bgcode.jpg" alt="Andrés Irigoyen trabajando en desarrollo web y marketing digital en Cádiz" class="w-full h-auto rounded-lg shadow-lg" />
+          </picture>
+        </div>
 
+        <!-- Columna Derecha: Contenido que fluye -->
+        <div class="space-y-24">
+          <!-- Primera parte: Tu socio digital -->
+          <div class="fade-in">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+              Resultados Probados en España y Latinoamérica.
+            </h2>
+            <p class="text-gray-300 text-lg sm:text-xl md:text-2xl leading-relaxed">
+              AIR Consulting nació de una convicción: las empresas y marcas de Cádiz merecen una presencia digital que no solo compita, sino que destaque a cualquier nivel. No somos simples ejecutores; somos estrategas y creativos que se sumergen en tu negocio para entenderlo como si fuera nuestro. Creemos en el trabajo bien hecho, en la comunicación transparente y en construir relaciones a largo plazo. Tu éxito es nuestra mejor carta de presentación.
+            </p>
+          </div>
 
-  <!-- SEO Section -->
-  <section id="seo" class="relative h-screen bg-cover bg-center" style="background-image: url('/images/dolares.png');">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
-      <div class="text-left max-w-2xl">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Posicionamiento en Buscadores (SEO)</h2>
-        <p class="text-lg md:text-xl text-white">Aumentamos tu visibilidad en Google y otros motores de búsqueda para que tus clientes potenciales te encuentren justo cuando te necesitan. A través de un análisis exhaustivo de palabras clave, optimización técnica de tu web y estrategias de contenido efectivas, trabajamos para posicionar tu negocio en los primeros resultados de búsqueda, atrayendo tráfico de calidad y aumentando las oportunidades de venta.</p>
-      </div>
-      <div class="absolute bottom-10 right-10">
-        <a href="#contacto" class="text-white font-semibold hover:text-orange-500 transition-all duration-300">Cotiza tu SEO →</a>
+        </div>
       </div>
     </div>
   </section>
 
 
+  <!-- Parte 2: Nuestra Metodología - Continuación del flujo -->
+  <section class="relative py-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
+    <!-- Darkening layer for readability -->
+    <div class="absolute inset-0 bg-black/85 z-10"></div>
 
-  <LogoCarousel />
+    <!-- Animated background particles -->
+    <div class="absolute inset-0 z-5">
+      <div class="particle particle-6"></div>
+      <div class="particle particle-7"></div>
+      <div class="particle particle-8"></div>
+      <div class="particle particle-9"></div>
+      <div class="particle particle-10"></div>
+    </div>
 
-  <!-- Separator -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+    <div class="relative z-20">
+      <ProcessSection client:load />
+    </div>
+  </section>
 
 
-  <section class="py-20 bg-black text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Hagamos realidad tu transformación digital.
-      </h2>
-      <p class="text-gray-300 text-lg md:text-xl mb-8">
-        Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel.
+  <!-- Parte 3: El Fundador - Final del flujo -->
+  <section class="relative py-32 fade-in-section overflow-hidden" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
+    <!-- Darkening layer for readability -->
+    <div class="absolute inset-0 bg-black/80 z-10"></div>
+
+    <!-- Animated background particles -->
+    <div class="absolute inset-0 z-5">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+    </div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left Column: Image -->
+        <div class="fade-in">
+          <picture>
+            <source media="(max-width: 768px)" srcset="/images/bgcode-mobile.webp" type="image/webp">
+            <source media="(min-width: 769px)" srcset="/images/bgcode.jpg" type="image/jpeg">
+            <img src="/images/bgcode.jpg" alt="Andrés Irigoyen, fundador y estratega digital de AIR Consulting en Cádiz" class="w-64 h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-2xl" />
+          </picture>
+        </div>
+
+        <!-- Right Column: Content -->
+        <div class="text-left">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-10 slide-in-up">
+            El Fundador
+          </h2>
+          <div class="fade-in">
+            <h4 class="text-3xl sm:text-4xl font-semibold text-white mb-4">Andrés Irigoyen R.</h4>
+            <p class="text-orange-500 font-medium text-xl sm:text-2xl mb-8">Fundador & Estratega Digital</p>
+            <p class="text-gray-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
+              Apasionado por la tecnología y la comunicación. Mi misión es ayudar a las empresas locales a desplegar todo su potencial en el entorno digital.
+            </p>
+            <a href="https://www.linkedin.com/in/andres-irigoyen" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 border border-orange-500 text-orange-500 font-semibold rounded-full transition-all duration-300 text-lg min-h-[44px] min-w-[44px] flex items-center justify-center">
+              Conecta conmigo en LinkedIn →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- Text Mask CTA Section -->
+  <section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
+    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask'); -webkit-mask: url('#text-mask');"></div>
+    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">HABLEMOS DE DATOS EN CÁDIZ</h2>
+      <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
+        Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel con resultados medibles.
       </p>
-      <a href="#contacto" class="inline-block px-8 py-4 bg-black border border-white text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+      <a href="#contacto" class="inline-block px-8 sm:px-10 py-4 sm:py-5 bg-black border border-white text-white font-bold text-lg sm:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[44px] min-w-[44px] flex items-center justify-center">
         Hablemos de tu proyecto
       </a>
     </div>
-  </section>
-  <!-- Separator -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
-
-  <!-- Manifesto Section -->
-  <section class="relative h-screen bg-black flex items-center justify-center">
-    <!-- Imagen de fondo -->
-    <BackgroundImage src="/images/manifiesto.jpg" />
-    <!-- Capa de oscurecimiento -->
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
-    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-4 md:pt-8">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Nuestra Esencia</h2>
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-        En AIRconsulting creemos que cada proyecto es una oportunidad para conectar empresas con sus clientes a través de soluciones digitales innovadoras.
-      </p>
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-        Nos mueve la excelencia en todo lo que hacemos: desde desarrollo web y gestión de redes sociales hasta posicionamiento SEO y estrategias de marketing digital.
-      </p>
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-        Nuestra pasión por la tecnología y la consultoría cercana nos impulsa a innovar, combinando estrategia, creatividad y resultados medibles en cada proyecto.
-      </p>
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
-        AIRconsulting no es solo una agencia; es tu socio estratégico para llevar tu empresa al siguiente nivel en el entorno digital.
-      </p>
-      <div class="mt-12">
-        <a href="#contacto" class="inline-block px-8 py-4 bg-black border border-white text-white font-bold text-lg rounded-full hover:bg-white hover:text-black transition-all duration-300">
-          Cotiza con AIRconsulting
-        </a>
-      </div>
-    </div>
+    <!-- SVG Mask Definition -->
+    <svg width="0" height="0">
+      <defs>
+        <mask id="text-mask">
+          <rect width="100%" height="100%" fill="black"/>
+          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">HABLEMOS DE DATOS</text>
+        </mask>
+      </defs>
+    </svg>
   </section>
 
-  <!-- Separator -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+  <ServicesSection client:load />
 
-  <SpecializationCards locale={currentLocale} />
+  <!-- Text Mask CTA Section -->
+<section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
+  <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
+  <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">RESULTADOS MEDIBLES EN CÁDIZ</h2>
+    <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
+      Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
+    </p>
+    <a href="#contacto" class="inline-block px-8 sm:px-10 py-4 sm:py-5 bg-black border border-white text-white font-bold text-lg sm:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[44px] min-w-[44px] flex items-center justify-center">
+      Ver nuestros resultados
+    </a>
+  </div>
+  <!-- SVG Mask Definition -->
+  <svg width="0" height="0">
+    <defs>
+      <mask id="text-mask-results">
+        <rect width="100%" height="100%" fill="black"/>
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">RESULTADOS MEDIBLES</text>
+      </mask>
+    </defs>
+  </svg>
+</section>
 
-  <!-- Separator -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
 
   <!-- Contact Section -->
-  <section id="contacto" class="py-20 bg-gray-100">
+  <section id="contacto" class="py-40 bg-gray-100 fade-in-section">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-4xl md:text-5xl font-bold text-black text-center mb-4">¿Llevamos tu empresa al siguiente nivel?</h2>
-      <p class="text-gray-600 text-center text-lg md:text-xl mb-12">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black text-center mb-6 slide-in-up">¿Llevamos tu empresa en Cádiz al siguiente nivel?</h2>
+      <p class="text-gray-600 text-center text-lg sm:text-xl md:text-2xl mb-16 slide-in-up">
         Envíanos tu idea y hagámosla realidad.
       </p>
-      <div class="text-center mb-8">
-        <button id="toggle-form" class="px-6 py-2 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition">Ocultar Formulario</button>
+      <div class="text-center mb-10 slide-in-up">
+        <button id="toggle-form" class="px-8 py-3 bg-orange-500 text-white font-semibold rounded-full transition min-h-[44px] min-w-[44px] flex items-center justify-center">Ocultar Formulario</button>
       </div>
-      <div id="contact-form" class="bg-white p-8 rounded-lg shadow-lg">
+      <div id="contact-form" class="bg-white p-8 rounded-lg shadow-lg slide-in-up">
         <form id="contact-form-element" name="contact" class="space-y-6">
           <input type="hidden" name="form-name" value="contact" />
           <div style="display:none;">
             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
           </div>
           <div>
-            <label class="block text-gray-700 mb-2 font-semibold">¿Qué tipo de proyecto te interesa?</label>
-            <select name="servicio" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <label class="block text-gray-700 mb-3 font-semibold text-lg">¿Qué tipo de proyecto te interesa?</label>
+            <select name="servicio" required class="w-full p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg min-h-[44px]">
               <option value="">Selecciona el servicio que buscas</option>
               <option>Desarrollo Web</option>
               <option>Gestión de Redes Sociales</option>
@@ -177,21 +278,21 @@ const metadata = {
             </select>
           </div>
           <div>
-            <label class="block text-gray-700 mb-2 font-semibold">Nombre</label>
-            <input type="text" name="name" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <label class="block text-gray-700 mb-3 font-semibold text-lg">Nombre</label>
+            <input type="text" name="name" required class="w-full p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg min-h-[44px]" />
           </div>
           <div>
-            <label class="block text-gray-700 mb-2 font-semibold">Email</label>
-            <input type="email" name="email" id="email" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" />
+            <label class="block text-gray-700 mb-3 font-semibold text-lg">Email</label>
+            <input type="email" name="email" id="email" required class="w-full p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg min-h-[44px]" />
             <span id="email-error" class="text-red-500 text-sm"></span>
           </div>
           <div>
-            <label class="block text-gray-700 mb-2 font-semibold">Mensaje</label>
-            <textarea name="message" required class="w-full p-3 border border-gray-300 text-gray-900 rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+            <label class="block text-gray-700 mb-3 font-semibold text-lg">Mensaje</label>
+            <textarea name="message" required class="w-full p-4 border border-gray-300 text-gray-900 rounded-md h-40 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg min-h-[44px]"></textarea>
           </div>
           <div id="form-messages" class="text-center"></div>
           <div class="text-center">
-            <button type="submit" id="submit-btn" class="px-8 py-3 bg-black border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition transform hover:scale-105 shadow-md">Enviar solicitud</button>
+            <button type="submit" id="submit-btn" class="px-10 py-4 bg-black border border-white text-white font-bold rounded-full transition-all duration-300 shadow-md text-lg min-h-[44px] min-w-[44px] flex items-center justify-center">Enviar solicitud</button>
           </div>
         </form>
       </div>
@@ -199,31 +300,195 @@ const metadata = {
   </section>
 
   <script>
+    // Intersection Observer for scroll animations - Optimized
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
 
+    // Observe all elements with animation classes
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .fade-in-up, .fade-in-section, .zoom-in, .slide-and-fade-reveal');
+      animatedElements.forEach(el => observer.observe(el));
+
+      // Page transition effect
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target && !target.closest('#contact-form')) {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            if (href) {
+              // Fade out effect
+              document.body.style.transition = 'opacity 0.15s ease-out';
+              document.body.style.opacity = '0';
+
+              setTimeout(() => {
+                window.location.hash = href;
+                document.body.style.opacity = '1';
+              }, 150);
+            }
+          }
+        });
+      });
+    });
 
      // Toggle contact form
-     document.getElementById('toggle-form')?.addEventListener('click', () => {
-       const form = document.getElementById('contact-form');
-       if (form) {
-         form.style.display = form.style.display === 'none' ? 'block' : 'none';
-         const btn = document.getElementById('toggle-form');
-         if (btn) {
-           btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
+      document.getElementById('toggle-form')?.addEventListener('click', () => {
+        const form = document.getElementById('contact-form');
+        if (form) {
+          form.style.display = form.style.display === 'none' ? 'block' : 'none';
+          const btn = document.getElementById('toggle-form');
+          if (btn) {
+            btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
+          }
+        }
+      });
+
+
+
+
+     // Portfolio Section
+     const clientCards = document.querySelectorAll('.client-card');
+     const clientName = document.getElementById('client-name') as HTMLElement;
+     const clientChallenge = document.getElementById('client-challenge') as HTMLElement;
+     const clientSolution = document.getElementById('client-solution') as HTMLElement;
+     const clientResults = document.getElementById('client-results') as HTMLElement;
+
+     interface PortfolioItem {
+       name: string;
+       challenge: string;
+       solution: string;
+       results: { value: string; label: string }[];
+     }
+
+     const portfolioData: Record<string, PortfolioItem> = {
+       client1: {
+         name: 'Cliente 1',
+         challenge: 'Su visibilidad online era nula y no conseguían clientes a través de Google.',
+         solution: 'Desarrollamos una estrategia de SEO Local y optimizamos su web para la conversión.',
+         results: [
+           { value: '+150%', label: 'Aumento de tráfico orgánico' },
+           { value: 'Top 3', label: 'En búsquedas locales clave' },
+           { value: '+40%', label: 'En solicitudes de contacto' }
+         ]
+       },
+       client2: {
+         name: 'Cliente 2',
+         challenge: 'Necesitaban aumentar su presencia en redes sociales y engagement con su audiencia.',
+         solution: 'Implementamos una estrategia de contenido personalizado y gestión profesional de comunidades.',
+         results: [
+           { value: '+300%', label: 'Aumento en seguidores' },
+           { value: '+180%', label: 'Incremento en interacciones' },
+           { value: '+25%', label: 'En conversiones desde redes' }
+         ]
+       },
+       client3: {
+         name: 'Cliente 3',
+         challenge: 'Su sitio web no convertía visitantes en clientes potenciales.',
+         solution: 'Rediseñamos completamente la experiencia de usuario y optimizamos para conversiones.',
+         results: [
+           { value: '+200%', label: 'Aumento en conversiones' },
+           { value: '+120%', label: 'Mejora en tiempo de carga' },
+           { value: '+60%', label: 'Reducción en tasa de rebote' }
+         ]
+       },
+       client4: {
+         name: 'Cliente 4',
+         challenge: 'No aparecían en las primeras posiciones de búsqueda local.',
+         solution: 'Optimizamos su perfil de Google My Business y estrategia SEO local.',
+         results: [
+           { value: 'Top 5', label: 'Posición en búsquedas locales' },
+           { value: '+250%', label: 'Aumento en llamadas' },
+           { value: '+90%', label: 'Más visitas al local' }
+         ]
+       },
+       client5: {
+         name: 'Cliente 5',
+         challenge: 'Necesitaban una identidad digital coherente y moderna.',
+         solution: 'Creamos una estrategia de branding digital completa con web y redes sociales.',
+         results: [
+           { value: '+400%', label: 'Reconocimiento de marca' },
+           { value: '+150%', label: 'Tráfico a la web' },
+           { value: '+35%', label: 'Incremento en ventas' }
+         ]
+       }
+     };
+
+     clientCards.forEach(card => {
+       card.addEventListener('click', () => {
+         const client = card.getAttribute('data-client');
+         if (client && portfolioData[client]) {
+           const data = portfolioData[client];
+
+           // Update content with fade effect
+           const content = document.getElementById('portfolio-content') as HTMLElement;
+           if (content) {
+             content.style.opacity = '0';
+             content.style.transform = 'translateY(20px)';
+             content.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
+           }
+           setTimeout(() => {
+             if (clientName) clientName.textContent = data.name;
+             if (clientChallenge) clientChallenge.textContent = data.challenge;
+             if (clientSolution) clientSolution.textContent = data.solution;
+
+             if (clientResults) {
+               clientResults.innerHTML = data.results.map(result => `
+                 <div class="bg-gray-800 p-6 rounded-lg text-center animate-count">
+                   <div class="text-3xl md:text-4xl font-bold text-orange-500 mb-2 counter" data-target="${result.value}">${result.value}</div>
+                   <div class="text-white text-sm">${result.label}</div>
+                 </div>
+               `).join('');
+             }
+
+             if (content) {
+               content.style.opacity = '1';
+               content.style.transform = 'translateY(0)';
+             }
+
+             // Trigger counter animation
+             setTimeout(() => {
+               animateCounters();
+             }, 100);
+           }, 300);
          }
-       }
+       });
      });
 
-     // Toggle logos
-     document.getElementById('toggle-logos')?.addEventListener('click', () => {
-       const container = document.getElementById('logos-container');
-       const btn = document.getElementById('toggle-logos') as HTMLButtonElement;
-       if (container && btn) {
-         container.style.display = container.style.display === 'none' ? 'block' : 'none';
-         btn.textContent = container.style.display === 'none' ? (btn.dataset.show || '') : (btn.dataset.hide || '');
-       }
-     });
+     // Counter animation function
+     function animateCounters() {
+       const counters = document.querySelectorAll('.counter');
+       counters.forEach(counter => {
+         const target = counter.getAttribute('data-target');
+         if (target) {
+           const targetValue = parseInt(target.replace(/[^\d]/g, '')) || 0;
+           const isPercentage = target.includes('%');
+           const duration = 1000; // 1 second
+           const start = 0;
+           const increment = targetValue / (duration / 16); // 60fps
+           let current = start;
 
+           const timer = setInterval(() => {
+             current += increment;
+             if (current >= targetValue) {
+               current = targetValue;
+               clearInterval(timer);
+             }
+             counter.textContent = isPercentage ? `${Math.floor(current)}%` : Math.floor(current).toString();
+           }, 16);
+         }
+       });
+     }
 
      // Form validation and submission
      document.getElementById('contact-form-element')?.addEventListener('submit', async function(e) {
@@ -286,4 +551,322 @@ const metadata = {
        }
      });
    </script>
+
+ <style>
+   /* Scroll Animation Styles - Optimized for Performance */
+   .fade-in {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .fade-in.animate {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+   .zoom-in {
+     opacity: 0;
+     transform: scale(0.95);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .zoom-in.animate {
+     opacity: 1;
+     transform: scale(1);
+   }
+
+   .slide-in-left {
+     opacity: 0;
+     transform: translateX(-30px);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .slide-in-left.animate {
+     opacity: 1;
+     transform: translateX(0);
+   }
+
+   .slide-in-right {
+     opacity: 0;
+     transform: translateX(30px);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .slide-in-right.animate {
+     opacity: 1;
+     transform: translateX(0);
+   }
+
+   .slide-in-up {
+     opacity: 0;
+     transform: translateY(30px);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .slide-in-up.animate {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+   .fade-in-up {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+   }
+
+   .fade-in-up.animate {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+   .fade-in-section {
+     opacity: 0;
+     transition: opacity 0.2s ease-out;
+   }
+
+   .fade-in-section.animate {
+     opacity: 1;
+   }
+
+   /* Staggered animation delays - Optimized for Speed */
+   .fade-in-up:nth-child(1) { transition-delay: 0.02s; }
+   .fade-in-up:nth-child(2) { transition-delay: 0.04s; }
+   .fade-in-up:nth-child(3) { transition-delay: 0.06s; }
+   .fade-in-up:nth-child(4) { transition-delay: 0.08s; }
+   .fade-in-up:nth-child(5) { transition-delay: 0.10s; }
+   .fade-in-up:nth-child(6) { transition-delay: 0.12s; }
+
+   /* Slide and Fade Reveal Effect - Optimized */
+   .slide-and-fade-reveal {
+     opacity: 0;
+     transform: translateY(60px) scale(0.95);
+     transition: all 0.25s ease-out;
+   }
+
+   .slide-and-fade-reveal.animate {
+     opacity: 1;
+     transform: translateY(0) scale(1);
+   }
+
+   /* Parallax effect */
+   .parallax-bg {
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     transform: translateZ(0);
+   }
+
+   @media (max-width: 768px) {
+     .parallax-bg {
+       background-attachment: scroll;
+     }
+   }
+
+   /* Parallax section with pulsing animation */
+   .parallax-section {
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+     animation: pulse-background 6s ease-in-out infinite;
+   }
+
+   @keyframes pulse-background {
+     0%, 100% { filter: brightness(1); }
+     50% { filter: brightness(1.05); }
+   }
+
+   .pulsing-bg {
+     animation: pulse-background 6s ease-in-out infinite;
+   }
+
+   @media (max-width: 768px) {
+     .parallax-section {
+       background-attachment: scroll;
+     }
+   }
+
+   /* Text mask effect */
+   .text-mask-section {
+     position: relative;
+     overflow: hidden;
+   }
+
+   .text-mask-section .text-mask-title {
+     font-family: 'Courier New', monospace;
+     letter-spacing: 2px;
+     text-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
+   }
+
+   .text-mask-svg {
+     font-family: 'Courier New', monospace;
+     letter-spacing: 2px;
+   }
+
+   /* SVG Animation */
+   .animate-draw {
+     stroke-dasharray: 1000;
+     stroke-dashoffset: 1000;
+     animation: draw 2s ease-in-out forwards;
+   }
+
+   @keyframes draw {
+     to {
+       stroke-dashoffset: 0;
+     }
+   }
+
+   /* Logo carousel animation */
+   .animate-slide {
+     animation: slide 20s linear infinite;
+   }
+
+   @keyframes slide {
+     0% {
+       transform: translateX(0);
+     }
+     100% {
+       transform: translateX(-100%);
+     }
+   }
+
+   /* Client carousel animation */
+   .animate-carousel {
+     animation: carousel 25s linear infinite;
+   }
+
+   @keyframes carousel {
+     0% {
+       transform: translateX(0);
+     }
+     100% {
+       transform: translateX(-100%);
+     }
+   }
+
+   /* Counter animation */
+   .animate-count {
+     animation: countIn 0.5s ease-out;
+   }
+
+   @keyframes countIn {
+     0% {
+       opacity: 0;
+       transform: scale(0.8);
+     }
+     100% {
+       opacity: 1;
+       transform: scale(1);
+     }
+   }
+
+   /* Interactive Services Section */
+   .service-item.active {
+     background-color: rgba(255, 87, 51, 0.1);
+     border-left: 4px solid #FF5733;
+   }
+
+   .service-item.active span:first-child {
+     color: #FF5733;
+   }
+
+   /* Particle animations for founder section */
+   .particle {
+     position: absolute;
+     background: rgba(255, 87, 51, 0.3);
+     border-radius: 50%;
+     pointer-events: none;
+   }
+
+   .particle-1 {
+     width: 4px;
+     height: 4px;
+     top: 20%;
+     left: 10%;
+     animation: float 6s ease-in-out infinite;
+   }
+
+   .particle-2 {
+     width: 6px;
+     height: 6px;
+     top: 60%;
+     right: 15%;
+     animation: float 8s ease-in-out infinite reverse;
+   }
+
+   .particle-3 {
+     width: 3px;
+     height: 3px;
+     top: 40%;
+     left: 70%;
+     animation: float 7s ease-in-out infinite;
+   }
+
+   .particle-4 {
+     width: 5px;
+     height: 5px;
+     bottom: 30%;
+     right: 25%;
+     animation: float 9s ease-in-out infinite reverse;
+   }
+
+   .particle-5 {
+     width: 4px;
+     height: 4px;
+     top: 80%;
+     left: 40%;
+     animation: float 5s ease-in-out infinite;
+   }
+
+   .particle-6 {
+     width: 3px;
+     height: 3px;
+     top: 15%;
+     left: 20%;
+     animation: float 7s ease-in-out infinite;
+   }
+
+   .particle-7 {
+     width: 5px;
+     height: 5px;
+     top: 45%;
+     right: 30%;
+     animation: float 6s ease-in-out infinite reverse;
+   }
+
+   .particle-8 {
+     width: 4px;
+     height: 4px;
+     bottom: 25%;
+     left: 60%;
+     animation: float 8s ease-in-out infinite;
+   }
+
+   .particle-9 {
+     width: 3px;
+     height: 3px;
+     top: 70%;
+     right: 10%;
+     animation: float 9s ease-in-out infinite reverse;
+   }
+
+   .particle-10 {
+     width: 4px;
+     height: 4px;
+     bottom: 40%;
+     left: 15%;
+     animation: float 6.5s ease-in-out infinite;
+   }
+
+   @keyframes float {
+     0%, 100% {
+       opacity: 0.3;
+       transform: translateY(0px) scale(1);
+     }
+     50% {
+       opacity: 0.8;
+       transform: translateY(-20px) scale(1.2);
+     }
+   }
+ </style>
 </Layout>

@@ -4,43 +4,33 @@
 const currentLocale = Astro.currentLocale;
 const isEnglish = currentLocale === 'en';
 
-const contactText = isEnglish ? 'CONTACT' : 'CONTACTO';
-
 const navItems = isEnglish ? [
-  { href: '#inicio', text: 'HOME' },
-  { href: '#festivales', text: 'FEST' },
-  { href: '#party', text: 'PARTY' },
-  { href: '#prom', text: 'PROM' },
-  { href: '#nodo', text: 'NODO' },
-  { href: '#spot', text: 'SPOT' },
-  { href: '#contacto', text: 'FORM' },
+  { href: '#about', text: 'ABOUT US' },
+  { href: '#services', text: 'SERVICES' },
+  { href: '#case-studies', text: 'CASE STUDIES' },
+  { href: '/blog', text: 'BLOG' },
 ] : [
-  { href: '#inicio', text: 'INICIO' },
-  { href: '#festivales', text: 'FEST' },
-  { href: '#party', text: 'PARTY' },
-  { href: '#prom', text: 'PROM' },
-  { href: '#nodo', text: 'NODO' },
-  { href: '#spot', text: 'SPOT' },
-  { href: '#contacto', text: 'FORMULARIO' },
+  { href: '#sobre-nosotros', text: 'SOBRE NOSOTROS' },
+  { href: '#servicios', text: 'SERVICIOS' },
+  { href: '#casos-exito', text: 'CASOS DE ÉXITO' },
+  { href: '/blog', text: 'BLOG' },
 ];
 ---
 
-<header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-primary/20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between py-6">
-      <a href="/" class="flex items-center" id="logo-link">
-        <img src="/images/retorica.png" alt="Retórica Logo" class="h-16 w-auto animate-fade-in" />
-      </a>
+<header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6">
+     <div class="flex items-center justify-between py-8">
+       <a href="/" class="flex items-center" id="logo-link">
+         <img src="/images/logo.png" alt="AIRconsulting - Agencia de marketing digital en Cádiz" class="h-20 w-auto animate-fade-in" />
+       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-4">
-        {navItems.map((item, index) => (
-          <>
-            <a href={item.href} class="text-white hover:text-yellow-400 transition-colors duration-200 uppercase">{item.text}</a>
-            {(index === 0 || index === 5) && index < navItems.length - 1 && <span class="text-white/50">|</span>}
-          </>
-        ))}
-      </nav>
+       <!-- Desktop Navigation -->
+       <nav class="hidden md:flex items-center space-x-8">
+         {navItems.map((item) => (
+           <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-xl font-light tracking-wider">{item.text}</a>
+         ))}
+         <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-xl">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
+       </nav>
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden text-white p-2">
@@ -49,20 +39,13 @@ const navItems = isEnglish ? [
         </svg>
       </button>
 
-      <!-- Contact Button -->
-      <button id="contact-btn" class="hidden md:inline-block text-white hover:text-yellow-400 hover:bg-yellow-400/10 transition px-2 py-1 rounded uppercase">{contactText}</button>
-
-      <!-- Language Selector -->
-      <a href={isEnglish ? '/' : '/en'} class="hidden md:inline-block text-white hover:text-yellow-400 transition px-0 text-lg">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
-
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-black border-t border-primary/20 hidden z-50">
-        <div class="flex flex-col py-4">
+      <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/80 backdrop-blur-md hidden z-50 flex items-center justify-center">
+        <div class="flex flex-col space-y-8 text-center">
           {navItems.map((item) => (
-            <a href={item.href} class="text-white py-2 px-4 hover:bg-yellow-500 transition">{item.text}</a>
+            <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-xl font-light tracking-wider" onclick="closeMobileMenu()">{item.text}</a>
           ))}
-          <a href="#contacto" class="text-white py-2 px-4 hover:bg-yellow-500 transition">{contactText}</a>
-          <a href={isEnglish ? '/' : '/en'} class="text-white py-2 px-4 hover:bg-yellow-500 transition">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
+          <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-2xl" onclick="closeMobileMenu()">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
         </div>
       </div>
 
@@ -74,29 +57,6 @@ const navItems = isEnglish ? [
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Contact button - scroll to footer
-  const contactBtn = document.getElementById('contact-btn') as HTMLButtonElement | null;
-  if (contactBtn) {
-    contactBtn.addEventListener('click', () => {
-      const footer = document.querySelector('footer');
-      if (footer) {
-        footer.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-
-  // Mobile contact link - scroll to footer
-  const mobileContactLink = document.querySelector('#mobile-menu a[href="#contacto"]');
-  if (mobileContactLink) {
-    mobileContactLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      const footer = document.querySelector('footer');
-      if (footer) {
-        footer.scrollIntoView({ behavior: 'smooth' });
-      }
-      closeMobileMenu();
-    });
-  }
 
   // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn') as HTMLButtonElement | null;
@@ -104,13 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    });
+  }
+
+  // Desktop navigation accordion toggle
+  const desktopNavToggle = document.getElementById('desktop-nav-toggle') as HTMLButtonElement | null;
+  const desktopNav = document.getElementById('desktop-nav') as HTMLDivElement | null;
+  if (desktopNavToggle && desktopNav) {
+    desktopNavToggle.addEventListener('click', () => {
+      desktopNav.classList.toggle('hidden');
     });
   }
 
   // Close mobile menu on link click
   const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
   mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+      document.body.classList.remove('overflow-hidden');
+    });
   });
 
   // Logo click to refresh page
@@ -127,6 +100,7 @@ function closeMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement | null;
   if (mobileMenu) {
     mobileMenu.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
   }
 }
 </script>
