@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ProcessSection: React.FC = () => {
+  const [_activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.querySelector('.process-section');
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
+
+      // Reduced sensitivity: divide by 0.15 instead of 0.25 for faster transitions
+      const stepIndex = Math.floor(scrollProgress / 0.15);
+      setActiveStep(Math.min(stepIndex, steps.length - 1));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const steps = [
     {
       number: '01',
@@ -46,7 +65,7 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="process-section relative py-32 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Darkening layer for readability */}
       <div className="absolute inset-0 bg-black/85 z-10"></div>
 
@@ -61,7 +80,7 @@ const ProcessSection: React.FC = () => {
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-16"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -88,10 +107,10 @@ const ProcessSection: React.FC = () => {
               </div>
 
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                <h3 className="text-xl md:text-2xl font-semibold font-sans text-white mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-sans">
                   {step.description}
                 </p>
               </div>

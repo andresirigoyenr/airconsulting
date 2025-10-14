@@ -94,7 +94,7 @@ const metadata = {
   </section>
 
   <!-- Parte 1: Nuestra Filosofía - Sticky Layout -->
-  <section class="relative py-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
+  <section id="sobre-nosotros" class="relative py-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
     <!-- Darkening layer for readability -->
     <div class="absolute inset-0 bg-black/80 z-10"></div>
 
@@ -127,7 +127,9 @@ const metadata = {
   </section>
 
 
-  <ServicesSection client:load />
+  <section id="servicios">
+    <ServicesSection client:load />
+  </section>
 
 
   <!-- Parte 2: Nuestra Metodología - Continuación del flujo -->
@@ -151,10 +153,10 @@ const metadata = {
 
 
   <!-- Text Mask CTA Section -->
-<section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-  <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
-  <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
-    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">RESULTADOS MEDIBLES EN CÁDIZ</h2>
+  <section id="casos-exito" class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
+    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
+    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 text-mask-title">RESULTADOS MEDIBLES EN CÁDIZ</h2>
     <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
       Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
     </p>
@@ -225,7 +227,7 @@ const metadata = {
   <section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
     <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask'); -webkit-mask: url('#text-mask');"></div>
     <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">HABLEMOS DE DATOS EN CÁDIZ</h2>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 text-mask-title">HABLEMOS DE DATOS EN CÁDIZ</h2>
       <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
         Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel con resultados medibles.
       </p>
@@ -247,13 +249,10 @@ const metadata = {
   <!-- Contact Section -->
   <section id="contacto" class="py-40 bg-gray-100 fade-in-section">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black text-center mb-6 slide-in-up">¿Llevamos tu empresa en Cádiz al siguiente nivel?</h2>
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black text-center mb-6 slide-in-up">Hablemos de tu proyecto</h2>
       <p class="text-gray-600 text-center text-lg sm:text-xl md:text-2xl mb-16 slide-in-up">
         Envíanos tu idea y hagámosla realidad.
       </p>
-      <div class="text-center mb-10 slide-in-up">
-        <button id="toggle-form" class="px-8 py-3 bg-orange-500 text-white font-semibold rounded-full transition min-h-[44px] min-w-[44px] flex items-center justify-center">Ocultar Formulario</button>
-      </div>
       <div id="contact-form" class="bg-white p-8 rounded-lg shadow-lg slide-in-up">
         <form id="contact-form-element" name="contact" class="space-y-6">
           <input type="hidden" name="form-name" value="contact" />
@@ -314,7 +313,7 @@ const metadata = {
       const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .fade-in-up, .fade-in-section, .zoom-in, .slide-and-fade-reveal');
       animatedElements.forEach(el => observer.observe(el));
 
-      // Page transition effect
+      // Smooth scroll for anchor links
       const links = document.querySelectorAll('a[href^="#"]');
       links.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -323,31 +322,19 @@ const metadata = {
             e.preventDefault();
             const href = link.getAttribute('href');
             if (href) {
-              // Fade out effect
-              document.body.style.transition = 'opacity 0.15s ease-out';
-              document.body.style.opacity = '0';
-
-              setTimeout(() => {
-                window.location.hash = href;
-                document.body.style.opacity = '1';
-              }, 150);
+              const targetElement = document.querySelector(href);
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
             }
           }
         });
       });
     });
 
-     // Toggle contact form
-       document.getElementById('toggle-form')?.addEventListener('click', () => {
-         const form = document.getElementById('contact-form');
-         if (form) {
-           form.style.display = form.style.display === 'none' ? 'block' : 'none';
-           const btn = document.getElementById('toggle-form');
-           if (btn) {
-             btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
-           }
-         }
-       });
 
 
 
