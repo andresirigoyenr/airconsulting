@@ -65,7 +65,7 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="process-section relative py-32 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="process-section relative py-32 pb-40 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Darkening layer for readability */}
       <div className="absolute inset-0 bg-black/85 z-10"></div>
 

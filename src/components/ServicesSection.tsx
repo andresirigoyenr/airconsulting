@@ -156,16 +156,6 @@ const ServicesSection: React.FC = () => {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="min-h-[600px] flex flex-col justify-center"
               >
-                {/* Icon */}
-                <motion.div
-                  className="mb-8"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  {currentData.visual}
-                </motion.div>
-
                 {/* Title */}
                 <motion.h3
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
