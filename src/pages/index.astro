@@ -1,6 +1,5 @@
-
-
 ---
+
 import Layout from '~/layouts/PageLayout.astro';
 import AnimatedCodeBackground from '~/components/AnimatedCodeBackground.tsx';
 import ProcessSection from '~/components/ProcessSection.tsx';
@@ -128,6 +127,9 @@ const metadata = {
   </section>
 
 
+  <ServicesSection client:load />
+
+
   <!-- Parte 2: Nuestra Metodología - Continuación del flujo -->
   <section class="relative py-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
     <!-- Darkening layer for readability -->
@@ -146,6 +148,30 @@ const metadata = {
       <ProcessSection client:load />
     </div>
   </section>
+
+
+  <!-- Text Mask CTA Section -->
+<section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
+  <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
+  <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">RESULTADOS MEDIBLES EN CÁDIZ</h2>
+    <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
+      Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
+    </p>
+    <a href="#contacto" class="inline-block px-8 sm:px-10 py-4 sm:py-5 bg-black border border-white text-white font-bold text-lg sm:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[44px] min-w-[44px] flex items-center justify-center">
+      Ver nuestros resultados
+    </a>
+  </div>
+  <!-- SVG Mask Definition -->
+  <svg width="0" height="0">
+    <defs>
+      <mask id="text-mask-results">
+        <rect width="100%" height="100%" fill="black"/>
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">RESULTADOS MEDIBLES</text>
+      </mask>
+    </defs>
+  </svg>
+</section>
 
 
   <!-- Parte 3: El Fundador - Final del flujo -->
@@ -195,11 +221,6 @@ const metadata = {
 
 
 
-
-
-
-
-
   <!-- Text Mask CTA Section -->
   <section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
     <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask'); -webkit-mask: url('#text-mask');"></div>
@@ -222,32 +243,6 @@ const metadata = {
       </defs>
     </svg>
   </section>
-
-  <ServicesSection client:load />
-
-  <!-- Text Mask CTA Section -->
-<section class="relative py-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-  <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
-  <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
-    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent mb-8 text-mask-title" style="background: linear-gradient(45deg, #FF5733, #FFC300); -webkit-background-clip: text; background-clip: text;">RESULTADOS MEDIBLES EN CÁDIZ</h2>
-    <p class="text-white text-lg sm:text-xl md:text-2xl mb-10 slide-in-up">
-      Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
-    </p>
-    <a href="#contacto" class="inline-block px-8 sm:px-10 py-4 sm:py-5 bg-black border border-white text-white font-bold text-lg sm:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[44px] min-w-[44px] flex items-center justify-center">
-      Ver nuestros resultados
-    </a>
-  </div>
-  <!-- SVG Mask Definition -->
-  <svg width="0" height="0">
-    <defs>
-      <mask id="text-mask-results">
-        <rect width="100%" height="100%" fill="black"/>
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">RESULTADOS MEDIBLES</text>
-      </mask>
-    </defs>
-  </svg>
-</section>
-
 
   <!-- Contact Section -->
   <section id="contacto" class="py-40 bg-gray-100 fade-in-section">
@@ -343,530 +338,530 @@ const metadata = {
     });
 
      // Toggle contact form
-      document.getElementById('toggle-form')?.addEventListener('click', () => {
-        const form = document.getElementById('contact-form');
-        if (form) {
-          form.style.display = form.style.display === 'none' ? 'block' : 'none';
-          const btn = document.getElementById('toggle-form');
-          if (btn) {
-            btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
+       document.getElementById('toggle-form')?.addEventListener('click', () => {
+         const form = document.getElementById('contact-form');
+         if (form) {
+           form.style.display = form.style.display === 'none' ? 'block' : 'none';
+           const btn = document.getElementById('toggle-form');
+           if (btn) {
+             btn.textContent = form.style.display === 'none' ? 'Mostrar Formulario' : 'Ocultar Formulario';
+           }
+         }
+       });
+
+
+
+
+      // Portfolio Section
+      const clientCards = document.querySelectorAll('.client-card');
+      const clientName = document.getElementById('client-name') as HTMLElement;
+      const clientChallenge = document.getElementById('client-challenge') as HTMLElement;
+      const clientSolution = document.getElementById('client-solution') as HTMLElement;
+      const clientResults = document.getElementById('client-results') as HTMLElement;
+
+      interface PortfolioItem {
+        name: string;
+        challenge: string;
+        solution: string;
+        results: { value: string; label: string }[];
+      }
+
+      const portfolioData: Record<string, PortfolioItem> = {
+        client1: {
+          name: 'Cliente 1',
+          challenge: 'Su visibilidad online era nula y no conseguían clientes a través de Google.',
+          solution: 'Desarrollamos una estrategia de SEO Local y optimizamos su web para la conversión.',
+          results: [
+            { value: '+150%', label: 'Aumento de tráfico orgánico' },
+            { value: 'Top 3', label: 'En búsquedas locales clave' },
+            { value: '+40%', label: 'En solicitudes de contacto' }
+          ]
+        },
+        client2: {
+          name: 'Cliente 2',
+          challenge: 'Necesitaban aumentar su presencia en redes sociales y engagement con su audiencia.',
+          solution: 'Implementamos una estrategia de contenido personalizado y gestión profesional de comunidades.',
+          results: [
+            { value: '+300%', label: 'Aumento en seguidores' },
+            { value: '+180%', label: 'Incremento en interacciones' },
+            { value: '+25%', label: 'En conversiones desde redes' }
+          ]
+        },
+        client3: {
+          name: 'Cliente 3',
+          challenge: 'Su sitio web no convertía visitantes en clientes potenciales.',
+          solution: 'Rediseñamos completamente la experiencia de usuario y optimizamos para conversiones.',
+          results: [
+            { value: '+200%', label: 'Aumento en conversiones' },
+            { value: '+120%', label: 'Mejora en tiempo de carga' },
+            { value: '+60%', label: 'Reducción en tasa de rebote' }
+          ]
+        },
+        client4: {
+          name: 'Cliente 4',
+          challenge: 'No aparecían en las primeras posiciones de búsqueda local.',
+          solution: 'Optimizamos su perfil de Google My Business y estrategia SEO local.',
+          results: [
+            { value: 'Top 5', label: 'Posición en búsquedas locales' },
+            { value: '+250%', label: 'Aumento en llamadas' },
+            { value: '+90%', label: 'Más visitas al local' }
+          ]
+        },
+        client5: {
+          name: 'Cliente 5',
+          challenge: 'Necesitaban una identidad digital coherente y moderna.',
+          solution: 'Creamos una estrategia de branding digital completa con web y redes sociales.',
+          results: [
+            { value: '+400%', label: 'Reconocimiento de marca' },
+            { value: '+150%', label: 'Tráfico a la web' },
+            { value: '+35%', label: 'Incremento en ventas' }
+          ]
+        }
+      };
+
+      clientCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const client = card.getAttribute('data-client');
+          if (client && portfolioData[client]) {
+            const data = portfolioData[client];
+
+            // Update content with fade effect
+            const content = document.getElementById('portfolio-content') as HTMLElement;
+            if (content) {
+              content.style.opacity = '0';
+              content.style.transform = 'translateY(20px)';
+              content.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
+            }
+            setTimeout(() => {
+              if (clientName) clientName.textContent = data.name;
+              if (clientChallenge) clientChallenge.textContent = data.challenge;
+              if (clientSolution) clientSolution.textContent = data.solution;
+
+              if (clientResults) {
+                clientResults.innerHTML = data.results.map(result => `
+                  <div class="bg-gray-800 p-6 rounded-lg text-center animate-count">
+                    <div class="text-3xl md:text-4xl font-bold text-orange-500 mb-2 counter" data-target="${result.value}">${result.value}</div>
+                    <div class="text-white text-sm">${result.label}</div>
+                  </div>
+                `).join('');
+              }
+
+              if (content) {
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+              }
+
+              // Trigger counter animation
+              setTimeout(() => {
+                animateCounters();
+              }, 100);
+            }, 300);
+          }
+        });
+      });
+
+      // Counter animation function
+      function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+          const target = counter.getAttribute('data-target');
+          if (target) {
+            const targetValue = parseInt(target.replace(/[^\d]/g, '')) || 0;
+            const isPercentage = target.includes('%');
+            const duration = 1000; // 1 second
+            const start = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let current = start;
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= targetValue) {
+                current = targetValue;
+                clearInterval(timer);
+              }
+              counter.textContent = isPercentage ? `${Math.floor(current)}%` : Math.floor(current).toString();
+            }, 16);
+          }
+        });
+      }
+
+      // Form validation and submission
+      document.getElementById('contact-form-element')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const messagesDiv = document.getElementById('form-messages') as HTMLDivElement;
+        const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+        const emailError = document.getElementById('email-error') as HTMLSpanElement;
+
+        // Clear previous messages
+        if (messagesDiv) messagesDiv.innerHTML = '';
+        if (emailError) emailError.textContent = '';
+
+        // Validate email
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          if (emailError) emailError.textContent = 'Por favor, ingresa un email válido.';
+          return;
+        }
+
+        // Check required fields
+        const requiredFields = ['servicio', 'name', 'email', 'message'];
+        for (const field of requiredFields) {
+          if (!formData.get(field)) {
+            if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Por favor, completa todos los campos requeridos.</p>';
+            return;
+          }
+        }
+
+        // Disable button
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Enviando...';
+        }
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok) {
+            // Success
+            form.style.display = 'none';
+            if (messagesDiv) messagesDiv.innerHTML = '<p class="text-green-500 text-lg font-semibold">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.</p>';
+          } else {
+            throw new Error('Error en el envío');
+          }
+        } catch {
+          // Error
+          if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Hubo un error al enviar el mensaje. Por favor, intenta de nuevo más tarde.</p>';
+        } finally {
+          // Re-enable button
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar';
           }
         }
       });
-
-
-
-
-     // Portfolio Section
-     const clientCards = document.querySelectorAll('.client-card');
-     const clientName = document.getElementById('client-name') as HTMLElement;
-     const clientChallenge = document.getElementById('client-challenge') as HTMLElement;
-     const clientSolution = document.getElementById('client-solution') as HTMLElement;
-     const clientResults = document.getElementById('client-results') as HTMLElement;
-
-     interface PortfolioItem {
-       name: string;
-       challenge: string;
-       solution: string;
-       results: { value: string; label: string }[];
-     }
-
-     const portfolioData: Record<string, PortfolioItem> = {
-       client1: {
-         name: 'Cliente 1',
-         challenge: 'Su visibilidad online era nula y no conseguían clientes a través de Google.',
-         solution: 'Desarrollamos una estrategia de SEO Local y optimizamos su web para la conversión.',
-         results: [
-           { value: '+150%', label: 'Aumento de tráfico orgánico' },
-           { value: 'Top 3', label: 'En búsquedas locales clave' },
-           { value: '+40%', label: 'En solicitudes de contacto' }
-         ]
-       },
-       client2: {
-         name: 'Cliente 2',
-         challenge: 'Necesitaban aumentar su presencia en redes sociales y engagement con su audiencia.',
-         solution: 'Implementamos una estrategia de contenido personalizado y gestión profesional de comunidades.',
-         results: [
-           { value: '+300%', label: 'Aumento en seguidores' },
-           { value: '+180%', label: 'Incremento en interacciones' },
-           { value: '+25%', label: 'En conversiones desde redes' }
-         ]
-       },
-       client3: {
-         name: 'Cliente 3',
-         challenge: 'Su sitio web no convertía visitantes en clientes potenciales.',
-         solution: 'Rediseñamos completamente la experiencia de usuario y optimizamos para conversiones.',
-         results: [
-           { value: '+200%', label: 'Aumento en conversiones' },
-           { value: '+120%', label: 'Mejora en tiempo de carga' },
-           { value: '+60%', label: 'Reducción en tasa de rebote' }
-         ]
-       },
-       client4: {
-         name: 'Cliente 4',
-         challenge: 'No aparecían en las primeras posiciones de búsqueda local.',
-         solution: 'Optimizamos su perfil de Google My Business y estrategia SEO local.',
-         results: [
-           { value: 'Top 5', label: 'Posición en búsquedas locales' },
-           { value: '+250%', label: 'Aumento en llamadas' },
-           { value: '+90%', label: 'Más visitas al local' }
-         ]
-       },
-       client5: {
-         name: 'Cliente 5',
-         challenge: 'Necesitaban una identidad digital coherente y moderna.',
-         solution: 'Creamos una estrategia de branding digital completa con web y redes sociales.',
-         results: [
-           { value: '+400%', label: 'Reconocimiento de marca' },
-           { value: '+150%', label: 'Tráfico a la web' },
-           { value: '+35%', label: 'Incremento en ventas' }
-         ]
-       }
-     };
-
-     clientCards.forEach(card => {
-       card.addEventListener('click', () => {
-         const client = card.getAttribute('data-client');
-         if (client && portfolioData[client]) {
-           const data = portfolioData[client];
-
-           // Update content with fade effect
-           const content = document.getElementById('portfolio-content') as HTMLElement;
-           if (content) {
-             content.style.opacity = '0';
-             content.style.transform = 'translateY(20px)';
-             content.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
-           }
-           setTimeout(() => {
-             if (clientName) clientName.textContent = data.name;
-             if (clientChallenge) clientChallenge.textContent = data.challenge;
-             if (clientSolution) clientSolution.textContent = data.solution;
-
-             if (clientResults) {
-               clientResults.innerHTML = data.results.map(result => `
-                 <div class="bg-gray-800 p-6 rounded-lg text-center animate-count">
-                   <div class="text-3xl md:text-4xl font-bold text-orange-500 mb-2 counter" data-target="${result.value}">${result.value}</div>
-                   <div class="text-white text-sm">${result.label}</div>
-                 </div>
-               `).join('');
-             }
-
-             if (content) {
-               content.style.opacity = '1';
-               content.style.transform = 'translateY(0)';
-             }
-
-             // Trigger counter animation
-             setTimeout(() => {
-               animateCounters();
-             }, 100);
-           }, 300);
-         }
-       });
-     });
-
-     // Counter animation function
-     function animateCounters() {
-       const counters = document.querySelectorAll('.counter');
-       counters.forEach(counter => {
-         const target = counter.getAttribute('data-target');
-         if (target) {
-           const targetValue = parseInt(target.replace(/[^\d]/g, '')) || 0;
-           const isPercentage = target.includes('%');
-           const duration = 1000; // 1 second
-           const start = 0;
-           const increment = targetValue / (duration / 16); // 60fps
-           let current = start;
-
-           const timer = setInterval(() => {
-             current += increment;
-             if (current >= targetValue) {
-               current = targetValue;
-               clearInterval(timer);
-             }
-             counter.textContent = isPercentage ? `${Math.floor(current)}%` : Math.floor(current).toString();
-           }, 16);
-         }
-       });
-     }
-
-     // Form validation and submission
-     document.getElementById('contact-form-element')?.addEventListener('submit', async function(e) {
-       e.preventDefault();
-       const form = e.target as HTMLFormElement;
-       const formData = new FormData(form);
-       const messagesDiv = document.getElementById('form-messages') as HTMLDivElement;
-       const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-       const emailError = document.getElementById('email-error') as HTMLSpanElement;
-
-       // Clear previous messages
-       if (messagesDiv) messagesDiv.innerHTML = '';
-       if (emailError) emailError.textContent = '';
-
-       // Validate email
-       const email = (document.getElementById('email') as HTMLInputElement).value;
-       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       if (!emailRegex.test(email)) {
-         if (emailError) emailError.textContent = 'Por favor, ingresa un email válido.';
-         return;
-       }
-
-       // Check required fields
-       const requiredFields = ['servicio', 'name', 'email', 'message'];
-       for (const field of requiredFields) {
-         if (!formData.get(field)) {
-           if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Por favor, completa todos los campos requeridos.</p>';
-           return;
-         }
-       }
-
-       // Disable button
-       if (submitBtn) {
-         submitBtn.disabled = true;
-         submitBtn.textContent = 'Enviando...';
-       }
-
-       try {
-         const response = await fetch('/', {
-           method: 'POST',
-           body: formData,
-         });
-
-         if (response.ok) {
-           // Success
-           form.style.display = 'none';
-           if (messagesDiv) messagesDiv.innerHTML = '<p class="text-green-500 text-lg font-semibold">¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.</p>';
-         } else {
-           throw new Error('Error en el envío');
-         }
-       } catch {
-         // Error
-         if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Hubo un error al enviar el mensaje. Por favor, intenta de nuevo más tarde.</p>';
-       } finally {
-         // Re-enable button
-         if (submitBtn) {
-           submitBtn.disabled = false;
-           submitBtn.textContent = 'Enviar';
-         }
-       }
-     });
-   </script>
-
- <style>
-   /* Scroll Animation Styles - Optimized for Performance */
-   .fade-in {
-     opacity: 0;
-     transform: translateY(20px);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .fade-in.animate {
-     opacity: 1;
-     transform: translateY(0);
-   }
-
-   .zoom-in {
-     opacity: 0;
-     transform: scale(0.95);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .zoom-in.animate {
-     opacity: 1;
-     transform: scale(1);
-   }
-
-   .slide-in-left {
-     opacity: 0;
-     transform: translateX(-30px);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .slide-in-left.animate {
-     opacity: 1;
-     transform: translateX(0);
-   }
-
-   .slide-in-right {
-     opacity: 0;
-     transform: translateX(30px);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .slide-in-right.animate {
-     opacity: 1;
-     transform: translateX(0);
-   }
-
-   .slide-in-up {
-     opacity: 0;
-     transform: translateY(30px);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .slide-in-up.animate {
-     opacity: 1;
-     transform: translateY(0);
-   }
-
-   .fade-in-up {
-     opacity: 0;
-     transform: translateY(20px);
-     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-   }
-
-   .fade-in-up.animate {
-     opacity: 1;
-     transform: translateY(0);
-   }
-
-   .fade-in-section {
-     opacity: 0;
-     transition: opacity 0.2s ease-out;
-   }
-
-   .fade-in-section.animate {
-     opacity: 1;
-   }
-
-   /* Staggered animation delays - Optimized for Speed */
-   .fade-in-up:nth-child(1) { transition-delay: 0.02s; }
-   .fade-in-up:nth-child(2) { transition-delay: 0.04s; }
-   .fade-in-up:nth-child(3) { transition-delay: 0.06s; }
-   .fade-in-up:nth-child(4) { transition-delay: 0.08s; }
-   .fade-in-up:nth-child(5) { transition-delay: 0.10s; }
-   .fade-in-up:nth-child(6) { transition-delay: 0.12s; }
-
-   /* Slide and Fade Reveal Effect - Optimized */
-   .slide-and-fade-reveal {
-     opacity: 0;
-     transform: translateY(60px) scale(0.95);
-     transition: all 0.25s ease-out;
-   }
-
-   .slide-and-fade-reveal.animate {
-     opacity: 1;
-     transform: translateY(0) scale(1);
-   }
-
-   /* Parallax effect */
-   .parallax-bg {
-     background-attachment: fixed;
-     background-size: cover;
-     background-position: center;
-     transform: translateZ(0);
-   }
-
-   @media (max-width: 768px) {
-     .parallax-bg {
-       background-attachment: scroll;
-     }
-   }
-
-   /* Parallax section with pulsing animation */
-   .parallax-section {
-     background-attachment: fixed;
-     background-size: cover;
-     background-position: center;
-     animation: pulse-background 6s ease-in-out infinite;
-   }
-
-   @keyframes pulse-background {
-     0%, 100% { filter: brightness(1); }
-     50% { filter: brightness(1.05); }
-   }
-
-   .pulsing-bg {
-     animation: pulse-background 6s ease-in-out infinite;
-   }
-
-   @media (max-width: 768px) {
-     .parallax-section {
-       background-attachment: scroll;
-     }
-   }
-
-   /* Text mask effect */
-   .text-mask-section {
-     position: relative;
-     overflow: hidden;
-   }
-
-   .text-mask-section .text-mask-title {
-     font-family: 'Courier New', monospace;
-     letter-spacing: 2px;
-     text-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
-   }
-
-   .text-mask-svg {
-     font-family: 'Courier New', monospace;
-     letter-spacing: 2px;
-   }
-
-   /* SVG Animation */
-   .animate-draw {
-     stroke-dasharray: 1000;
-     stroke-dashoffset: 1000;
-     animation: draw 2s ease-in-out forwards;
-   }
-
-   @keyframes draw {
-     to {
-       stroke-dashoffset: 0;
-     }
-   }
-
-   /* Logo carousel animation */
-   .animate-slide {
-     animation: slide 20s linear infinite;
-   }
-
-   @keyframes slide {
-     0% {
-       transform: translateX(0);
-     }
-     100% {
-       transform: translateX(-100%);
-     }
-   }
-
-   /* Client carousel animation */
-   .animate-carousel {
-     animation: carousel 25s linear infinite;
-   }
-
-   @keyframes carousel {
-     0% {
-       transform: translateX(0);
-     }
-     100% {
-       transform: translateX(-100%);
-     }
-   }
-
-   /* Counter animation */
-   .animate-count {
-     animation: countIn 0.5s ease-out;
-   }
-
-   @keyframes countIn {
-     0% {
-       opacity: 0;
-       transform: scale(0.8);
-     }
-     100% {
-       opacity: 1;
-       transform: scale(1);
-     }
-   }
-
-   /* Interactive Services Section */
-   .service-item.active {
-     background-color: rgba(255, 87, 51, 0.1);
-     border-left: 4px solid #FF5733;
-   }
-
-   .service-item.active span:first-child {
-     color: #FF5733;
-   }
-
-   /* Particle animations for founder section */
-   .particle {
-     position: absolute;
-     background: rgba(255, 87, 51, 0.3);
-     border-radius: 50%;
-     pointer-events: none;
-   }
-
-   .particle-1 {
-     width: 4px;
-     height: 4px;
-     top: 20%;
-     left: 10%;
-     animation: float 6s ease-in-out infinite;
-   }
-
-   .particle-2 {
-     width: 6px;
-     height: 6px;
-     top: 60%;
-     right: 15%;
-     animation: float 8s ease-in-out infinite reverse;
-   }
-
-   .particle-3 {
-     width: 3px;
-     height: 3px;
-     top: 40%;
-     left: 70%;
-     animation: float 7s ease-in-out infinite;
-   }
-
-   .particle-4 {
-     width: 5px;
-     height: 5px;
-     bottom: 30%;
-     right: 25%;
-     animation: float 9s ease-in-out infinite reverse;
-   }
-
-   .particle-5 {
-     width: 4px;
-     height: 4px;
-     top: 80%;
-     left: 40%;
-     animation: float 5s ease-in-out infinite;
-   }
-
-   .particle-6 {
-     width: 3px;
-     height: 3px;
-     top: 15%;
-     left: 20%;
-     animation: float 7s ease-in-out infinite;
-   }
-
-   .particle-7 {
-     width: 5px;
-     height: 5px;
-     top: 45%;
-     right: 30%;
-     animation: float 6s ease-in-out infinite reverse;
-   }
-
-   .particle-8 {
-     width: 4px;
-     height: 4px;
-     bottom: 25%;
-     left: 60%;
-     animation: float 8s ease-in-out infinite;
-   }
-
-   .particle-9 {
-     width: 3px;
-     height: 3px;
-     top: 70%;
-     right: 10%;
-     animation: float 9s ease-in-out infinite reverse;
-   }
-
-   .particle-10 {
-     width: 4px;
-     height: 4px;
-     bottom: 40%;
-     left: 15%;
-     animation: float 6.5s ease-in-out infinite;
-   }
-
-   @keyframes float {
-     0%, 100% {
-       opacity: 0.3;
-       transform: translateY(0px) scale(1);
-     }
-     50% {
-       opacity: 0.8;
-       transform: translateY(-20px) scale(1.2);
-     }
-   }
- </style>
+    </script>
+
+  <style>
+    /* Scroll Animation Styles - Optimized for Performance */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .zoom-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .slide-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .slide-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .slide-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .fade-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .fade-in-section.animate {
+      opacity: 1;
+    }
+
+    /* Staggered animation delays - Optimized for Speed */
+    .fade-in-up:nth-child(1) { transition-delay: 0.02s; }
+    .fade-in-up:nth-child(2) { transition-delay: 0.04s; }
+    .fade-in-up:nth-child(3) { transition-delay: 0.06s; }
+    .fade-in-up:nth-child(4) { transition-delay: 0.08s; }
+    .fade-in-up:nth-child(5) { transition-delay: 0.10s; }
+    .fade-in-up:nth-child(6) { transition-delay: 0.12s; }
+
+    /* Slide and Fade Reveal Effect - Optimized */
+    .slide-and-fade-reveal {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+      transition: all 0.25s ease-out;
+    }
+
+    .slide-and-fade-reveal.animate {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Parallax effect */
+    .parallax-bg {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      transform: translateZ(0);
+    }
+
+    @media (max-width: 768px) {
+      .parallax-bg {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Parallax section with pulsing animation */
+    .parallax-section {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      animation: pulse-background 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-background {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.05); }
+    }
+
+    .pulsing-bg {
+      animation: pulse-background 6s ease-in-out infinite;
+    }
+
+    @media (max-width: 768px) {
+      .parallax-section {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Text mask effect */
+    .text-mask-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .text-mask-section .text-mask-title {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
+    }
+
+    .text-mask-svg {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+    }
+
+    /* SVG Animation */
+    .animate-draw {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2s ease-in-out forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Logo carousel animation */
+    .animate-slide {
+      animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Client carousel animation */
+    .animate-carousel {
+      animation: carousel 25s linear infinite;
+    }
+
+    @keyframes carousel {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Counter animation */
+    .animate-count {
+      animation: countIn 0.5s ease-out;
+    }
+
+    @keyframes countIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Interactive Services Section */
+    .service-item.active {
+      background-color: rgba(255, 87, 51, 0.1);
+      border-left: 4px solid #FF5733;
+    }
+
+    .service-item.active span:first-child {
+      color: #FF5733;
+    }
+
+    /* Particle animations for founder section */
+    .particle {
+      position: absolute;
+      background: rgba(255, 87, 51, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .particle-1 {
+      width: 4px;
+      height: 4px;
+      top: 20%;
+      left: 10%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .particle-2 {
+      width: 6px;
+      height: 6px;
+      top: 60%;
+      right: 15%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .particle-3 {
+      width: 3px;
+      height: 3px;
+      top: 40%;
+      left: 70%;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .particle-4 {
+      width: 5px;
+      height: 5px;
+      bottom: 30%;
+      right: 25%;
+      animation: float 9s ease-in-out infinite reverse;
+    }
+
+    .particle-5 {
+      width: 4px;
+      height: 4px;
+      top: 80%;
+      left: 40%;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .particle-6 {
+      width: 3px;
+      height: 3px;
+      top: 15%;
+      left: 20%;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .particle-7 {
+      width: 5px;
+      height: 5px;
+      top: 45%;
+      right: 30%;
+      animation: float 6s ease-in-out infinite reverse;
+    }
+
+    .particle-8 {
+      width: 4px;
+      height: 4px;
+      bottom: 25%;
+      left: 60%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .particle-9 {
+      width: 3px;
+      height: 3px;
+      top: 70%;
+      right: 10%;
+      animation: float 9s ease-in-out infinite reverse;
+    }
+
+    .particle-10 {
+      width: 4px;
+      height: 4px;
+      bottom: 40%;
+      left: 15%;
+      animation: float 6.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: translateY(-20px) scale(1.2);
+      }
+    }
+  </style>
 </Layout>
