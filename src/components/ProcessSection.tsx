@@ -12,8 +12,8 @@ const ProcessSection: React.FC = () => {
       const rect = section.getBoundingClientRect();
       const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
 
-      // Reduced sensitivity: divide by 0.15 instead of 0.25 for faster transitions
-      const stepIndex = Math.floor(scrollProgress / 0.15);
+      // Reduced sensitivity: divide by 0.1 instead of 0.15 for faster transitions (20-30% faster)
+      const stepIndex = Math.floor(scrollProgress / 0.1);
       setActiveStep(Math.min(stepIndex, steps.length - 1));
     };
 
