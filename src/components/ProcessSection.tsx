@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ProcessSection: React.FC = () => {
-  const [_activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,8 +12,8 @@ const ProcessSection: React.FC = () => {
       const rect = section.getBoundingClientRect();
       const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
 
-      // Reduced sensitivity: divide by 0.1 instead of 0.15 for faster transitions (20-30% faster)
-      const stepIndex = Math.floor(scrollProgress / 0.1);
+      // Calculate which step should be active based on scroll progress
+      const stepIndex = Math.floor(scrollProgress * steps.length);
       setActiveStep(Math.min(stepIndex, steps.length - 1));
     };
 
@@ -88,34 +88,72 @@ const ProcessSection: React.FC = () => {
           Nuestro Proceso hacia el Éxito
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-6"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <div className="flex items-center space-x-4 flex-shrink-0">
-                <div className="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center">
-                  {step.icon}
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-orange-500">
-                  {step.number}
-                </div>
-              </div>
+        {/* Vertical Timeline */}
+        <div className="relative">
+          {/* Vertical connecting line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-400 to-orange-600 transform md:-translate-x-0.5"></div>
 
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold font-sans text-white mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-sans">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          <div className="space-y-16">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                className={`relative flex flex-col md:flex-row items-center w-full ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: activeStep >= index ? 1.05 : 1
+                }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                {/* Timeline dot */}
+                <div className={`absolute left-8 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-1/2 z-20 transition-all duration-500 ${
+                  activeStep >= index
+                    ? 'bg-orange-500 shadow-lg shadow-orange-500/50 scale-125'
+                    : 'bg-gray-600'
+                }`}></div>
+
+                {/* Content */}
+                <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                }`}>
+                  <div className={`bg-black/50 backdrop-blur-sm p-6 rounded-lg border transition-all duration-500 ${
+                    activeStep >= index
+                      ? 'border-orange-500/50 shadow-lg shadow-orange-500/20'
+                      : 'border-gray-700/50'
+                  }`}>
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
+                        activeStep >= index
+                          ? 'bg-orange-500/20 text-orange-400'
+                          : 'bg-gray-700/50 text-gray-400'
+                      }`}>
+                        {step.icon}
+                      </div>
+                      <div className={`text-3xl font-bold transition-all duration-500 ${
+                        activeStep >= index ? 'text-orange-400' : 'text-gray-500'
+                      }`}>
+                        {step.number}
+                      </div>
+                    </div>
+
+                    <h3 className={`text-xl md:text-2xl font-semibold font-sans mb-4 transition-all duration-500 ${
+                      activeStep >= index ? 'text-white' : 'text-gray-400'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className={`text-base md:text-lg leading-relaxed font-sans transition-all duration-500 ${
+                      activeStep >= index ? 'text-gray-300' : 'text-gray-500'
+                    }`}>
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

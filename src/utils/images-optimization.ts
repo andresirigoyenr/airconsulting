@@ -57,7 +57,7 @@ const config = {
     6016, // 6K
   ],
 
-  formats: ['image/webp'],
+  formats: ['image/webp', 'image/avif'],
 };
 
 const computeHeight = (width: number, aspectRatio: number) => {
@@ -212,6 +212,14 @@ const getBreakpoints = ({
 };
 
 /* ** */
+type GetImageOptions = {
+  src: ImageMetadata | string;
+  width: number;
+  height?: number;
+  format?: string;
+  inferSize?: boolean;
+};
+
 export const astroAssetsOptimizer: ImagesOptimizer = async (
   image,
   breakpoints,
@@ -225,7 +233,7 @@ export const astroAssetsOptimizer: ImagesOptimizer = async (
 
   return Promise.all(
     breakpoints.map(async (w: number) => {
-      const options: any = { src: image, width: w, ...(format ? { format: format } : {}) };
+      const options: GetImageOptions = { src: image, width: w, ...(format ? { format: format } : {}) };
       if (_height) {
         options.height = _height;
       } else {

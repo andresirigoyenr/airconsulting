@@ -18,34 +18,34 @@ const navItems = isEnglish ? [
 ---
 
 <header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-     <div class="flex items-center justify-between py-8">
-       <a href="/" class="flex items-center" id="logo-link">
-         <img src="/images/logo.png" alt="AIRconsulting - Agencia de marketing digital en Cádiz" class="h-20 w-auto animate-fade-in" />
-       </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between py-4 md:py-8">
+        <a href="/" class="flex items-center" id="logo-link">
+          <img src="/images/optimized/logo.webp" alt="AIRconsulting - Agencia de marketing digital en Cádiz" class="h-12 md:h-20 w-auto animate-fade-in" />
+        </a>
 
        <!-- Desktop Navigation -->
-       <nav class="hidden md:flex items-center space-x-8">
+       <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
          {navItems.map((item) => (
-           <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-xl font-light tracking-wider">{item.text}</a>
+           <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-lg lg:text-xl font-light tracking-wider">{item.text}</a>
          ))}
-         <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-xl">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
+         <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg lg:text-xl">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
        </nav>
 
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+      <button id="mobile-menu-btn" class="md:hidden text-white p-3 hover:bg-white/10 rounded-lg transition-colors duration-200" aria-label="Abrir menú">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/80 backdrop-blur-md hidden z-50 flex items-center justify-center">
-        <div class="flex flex-col space-y-8 text-center">
+      <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-md hidden z-50 flex items-center justify-center">
+        <div class="flex flex-col space-y-6 text-center px-6">
           {navItems.map((item) => (
-            <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-xl font-light tracking-wider" onclick="closeMobileMenu()">{item.text}</a>
+            <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-lg font-light tracking-wider py-2" onclick="closeMobileMenu()">{item.text}</a>
           ))}
-          <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-2xl" onclick="closeMobileMenu()">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
+          <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-xl py-2" onclick="closeMobileMenu()">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
         </div>
       </div>
 
