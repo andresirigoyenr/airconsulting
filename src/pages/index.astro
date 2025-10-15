@@ -93,6 +93,11 @@ const metadata = {
     </div>
   </section>
 
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
+
   <!-- Parte 1: Nuestra Filosofía - Sticky Layout -->
   <section id="sobre-nosotros" class="relative pt-36 pb-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
     <!-- Darkening layer for readability -->
@@ -109,7 +114,7 @@ const metadata = {
         <div class="space-y-16 lg:space-y-24 order-1 lg:order-2">
           <!-- Primera parte: Tu socio digital -->
           <div class="fade-in">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8 text-center lg:text-left">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8 text-left">
               Resultados Probados en España y Latinoamérica.
             </h2>
             <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose text-left">
@@ -122,14 +127,22 @@ const metadata = {
     </div>
   </section>
 
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
 
-  <section id="servicios" style="min-height: 600px;">
+  <section id="servicios">
     <ServicesSection client:visible />
   </section>
 
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
 
   <!-- Parte 2: Nuestra Metodología - Continuación del flujo -->
-  <section class="relative pt-36 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; min-height: 800px;">
+  <section class="relative pt-16 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; min-height: 800px;">
     <!-- Darkening layer for readability -->
     <div class="absolute inset-0 bg-black/85 z-10"></div>
 
@@ -147,9 +160,13 @@ const metadata = {
     </div>
   </section>
 
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
 
   <!-- Text Mask CTA Section -->
-  <section id="casos-exito" class="relative pt-44 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
+  <section id="casos-exito" class="relative pt-24 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
     <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
     <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 text-center">Resultados que Hablan por Sí Mismos</h2>
@@ -171,8 +188,12 @@ const metadata = {
   </svg>
 </section>
 
+<!-- Section Separator -->
+<div class="section-separator">
+  <div class="separator-line"></div>
+</div>
 
-  <!-- Parte 3: El Fundador - Final del flujo -->
+<!-- Parte 3: El Fundador - Final del flujo -->
   <section class="relative pt-36 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
     <!-- Darkening layer for readability -->
     <div class="absolute inset-0 bg-black/85 z-10"></div>
@@ -187,31 +208,57 @@ const metadata = {
     </div>
 
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <!-- Left Column: Image -->
-        <div class="fade-in order-2 lg:order-1">
-          <img src="/images/optimized/bgcode.webp" alt="Andrés Irigoyen, fundador y estratega digital de AIR Consulting en Cádiz" class="w-48 h-48 sm:w-64 sm:h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-2xl" loading="lazy" style="aspect-ratio: 1;" />
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">La Mente Detrás del Código</h2>
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">Toda gran estrategia necesita un rostro. Conoce a la persona que impulsa la visión y los resultados en AIR Consulting.</p>
+      </div>
+      <div class="founder-layout">
+        <!-- Mobile: Text first, then Card. Desktop: Card left, Text right -->
+        <div class="text-section order-1 md:order-2">
+          <div class="aurora-bg" id="aurora-bg"></div>
+          <div class="founder-text">
+            <h2 class="founder-name">Andrés Irigoyen R.</h2>
+            <p class="founder-title">Fundador & Estratega Digital</p>
+          </div>
         </div>
 
-        <!-- Right Column: Content -->
-        <div class="text-center lg:text-left order-1 lg:order-2">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 lg:mb-10 slide-in-up">
-            El Fundador
-          </h2>
-          <div class="fade-in">
-            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white mb-4">Andrés Irigoyen R.</h3>
-            <p class="text-orange-500 font-medium text-lg sm:text-xl lg:text-2xl mb-6 lg:mb-8">Fundador & Estratega Digital</p>
-            <p class="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed md:leading-loose mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0">
-              Apasionado por la tecnología y la comunicación. Mi misión es ayudar a las empresas locales a desplegar todo su potencial en el entorno digital.
-            </p>
-            <a href="https://www.linkedin.com/in/andres-irigoyen" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 lg:px-8 lg:py-4 border-2 border-orange-500 text-orange-500 font-semibold rounded-full transition-all duration-300 text-sm sm:text-base lg:text-lg min-h-[48px] min-w-[48px] flex items-center justify-center mx-auto lg:mx-0 w-auto hover:bg-orange-500 hover:text-white">
-              Conecta conmigo en LinkedIn →
-            </a>
+        <div class="contact-card order-2 md:order-1">
+          <div class="contact-card-content">
+            <img
+              src="/images/profilecard.jpg"
+              alt="Andrés Irigoyen - Fundador de AIR Consulting"
+              class="portrait-image"
+              loading="lazy"
+            />
+            <div class="contact-bar">
+              <div class="contact-avatar">
+                <img
+                  src="/images/profilecard.jpg"
+                  alt="Andrés Irigoyen mini avatar"
+                  loading="lazy"
+                />
+              </div>
+              <div class="contact-info">
+                <div class="contact-handle">@andresirigoyen</div>
+                <div class="contact-status">Online</div>
+              </div>
+              <button
+                class="contact-button"
+                type="button"
+                aria-label="Contact Andrés Irigoyen"
+              >
+                Contactar
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
 
 
 
@@ -325,6 +372,65 @@ const metadata = {
           }
         });
       });
+
+      // Aurora parallax effect
+      const auroraBg = document.getElementById('aurora-bg');
+      if (auroraBg) {
+        document.addEventListener('mousemove', (e) => {
+          const mouseX = e.clientX / window.innerWidth;
+          const mouseY = e.clientY / window.innerHeight;
+
+          const moveX = (mouseX - 0.5) * 20; // Adjust sensitivity
+          const moveY = (mouseY - 0.5) * 20;
+
+          auroraBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+      }
+
+      // Contact card 3D tilt effect - Only on desktop/tablet
+      const contactCard = document.querySelector('.contact-card-content') as HTMLElement;
+      if (contactCard && window.innerWidth >= 768) {
+        let rafId: number | null = null;
+        let isHovering = false;
+
+        const updateCardTransform = (e: MouseEvent) => {
+          if (!isHovering) return;
+
+          const rect = contactCard.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const mouseX = e.clientX - centerX;
+          const mouseY = e.clientY - centerY;
+
+          const rotateX = (mouseY / (rect.height / 2)) * -8; // Max 8deg tilt
+          const rotateY = (mouseX / (rect.width / 2)) * 8;
+
+          const brightness = Math.max(0.8, 1 - (Math.abs(mouseX) + Math.abs(mouseY)) / 300);
+
+          contactCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          contactCard.style.filter = `brightness(${brightness})`;
+        };
+
+        const handleMouseEnter = () => {
+          isHovering = true;
+          contactCard.style.transition = 'none';
+        };
+
+        const handleMouseLeave = () => {
+          isHovering = false;
+          contactCard.style.transition = 'transform 0.6s ease-out, filter 0.6s ease-out';
+          contactCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+          contactCard.style.filter = 'brightness(1)';
+        };
+
+        contactCard.addEventListener('mouseenter', handleMouseEnter);
+        contactCard.addEventListener('mouseleave', handleMouseLeave);
+        document.addEventListener('mousemove', (e) => {
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => updateCardTransform(e));
+        });
+      }
     });
 
 
@@ -839,6 +945,380 @@ const metadata = {
       50% {
         opacity: 0.8;
         transform: translateY(-20px) scale(1.2);
+      }
+    }
+
+    /* Section Separators */
+    .section-separator {
+      position: relative;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .separator-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.3) 20%, rgba(255, 87, 51, 0.6) 50%, rgba(255, 87, 51, 0.3) 80%, transparent 100%);
+      position: relative;
+    }
+
+    .separator-line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.8) 20%, rgba(255, 87, 51, 1) 50%, rgba(255, 87, 51, 0.8) 80%, transparent 100%);
+      animation: separator-shine 3s ease-in-out infinite;
+    }
+
+    @keyframes separator-shine {
+      0%, 100% {
+        left: -100%;
+      }
+      50% {
+        left: 100%;
+      }
+    }
+
+    /* Mobile Section Spacing Optimization */
+    @media (max-width: 768px) {
+      /* Reduce section padding for more compact mobile experience */
+      section[id] {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+      }
+
+      /* Special adjustments for specific sections */
+      section[id="inicio"] {
+        min-height: auto !important;
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+      }
+
+      section[id="servicios"] {
+        min-height: auto !important;
+        padding-bottom: 60px !important;
+      }
+
+      /* Fix Process Section excessive height */
+      section[class*="process-section"] {
+        min-height: auto !important;
+        height: auto !important;
+        padding-bottom: 60px !important;
+      }
+
+      section[id="contacto"] {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+      }
+
+      /* Mobile separators */
+      .section-separator {
+        height: 40px;
+      }
+
+      .separator-line {
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.2) 20%, rgba(255, 87, 51, 0.4) 50%, rgba(255, 87, 51, 0.2) 80%, transparent 100%);
+      }
+    }
+
+    /* Founder Section - Two Column Layout */
+    .founder-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .founder-layout {
+        flex-direction: row;
+        gap: 4rem;
+        padding: 0 2rem;
+      }
+    }
+
+    /* Left Column: Contact Card */
+    .contact-card {
+      flex: 0 0 400px;
+      position: relative;
+    }
+
+    .contact-card-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+      transition: transform 0.6s ease-out, filter 0.6s ease-out;
+    }
+
+    .contact-card-content::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, rgba(0, 255, 170, 0.3), rgba(0, 193, 255, 0.3), rgba(193, 0, 255, 0.3), rgba(255, 0, 193, 0.3));
+      border-radius: 22px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      filter: blur(8px);
+    }
+
+    /* Enable effects on desktop/tablet only */
+    @media (min-width: 768px) {
+      .contact-card:hover .contact-card-content::before {
+        opacity: 1;
+      }
+    }
+
+    .portrait-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .contact-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      flex-shrink: 0;
+    }
+
+    .contact-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-handle {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+    }
+
+    .contact-status {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .contact-button {
+      background: rgba(255, 87, 51, 0.9);
+      border: 1px solid rgba(255, 87, 51, 0.5);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-button:hover {
+      background: rgba(255, 87, 51, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 87, 51, 0.4);
+    }
+
+    /* Right Column: Text with Aurora Effect */
+    .text-section {
+      flex: 1;
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+    }
+
+    .aurora-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 255, 170, 0.3) 0%, rgba(0, 193, 255, 0.2) 25%, rgba(193, 0, 255, 0.15) 50%, rgba(255, 0, 193, 0.1) 75%, transparent 100%);
+      filter: blur(120px);
+      animation: aurora-breathe 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes aurora-breathe {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .founder-text {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .founder-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: white;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .founder-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .founder-layout {
+        gap: 2rem;
+        padding: 0 1rem;
+      }
+
+      .contact-card {
+        flex: 0 0 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .founder-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+      }
+
+      .contact-card {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .text-section {
+        text-align: center;
+        min-height: auto;
+        padding: 1rem 0;
+      }
+
+      .aurora-bg {
+        display: none;
+      }
+
+      .founder-text {
+        margin-top: 0;
+      }
+
+      .founder-name {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .founder-title {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .founder-layout {
+        padding: 0 0.5rem;
+        gap: 1rem;
+      }
+
+      .contact-card {
+        max-width: 280px;
+      }
+
+      .contact-card-content {
+        border-radius: 16px;
+      }
+
+      .portrait-image {
+        height: 220px;
+      }
+
+      .contact-bar {
+        padding: 10px 14px;
+        gap: 8px;
+      }
+
+      .contact-avatar {
+        width: 32px;
+        height: 32px;
+      }
+
+      .contact-handle {
+        font-size: 12px;
+      }
+
+      .contact-status {
+        font-size: 10px;
+      }
+
+      .contact-button {
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+
+      .text-section {
+        padding: 0.5rem 0;
+      }
+
+      .founder-name {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        margin-bottom: 0.3rem;
+      }
+
+      .founder-title {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
       }
     }
   </style>

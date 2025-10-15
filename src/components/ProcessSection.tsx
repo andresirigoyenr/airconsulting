@@ -73,98 +73,108 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="process-section relative py-32 pb-40 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      {/* Darkening layer for readability */}
-      <div className="absolute inset-0 bg-black/85 z-10"></div>
+    <>
+      <section className="process-section relative py-16 md:py-32 pb-20 md:pb-40 bg-black transition-all duration-250 fade-in-section overflow-hidden slide-and-fade-reveal" style={{ backgroundImage: 'url(\'/images/codigo.jpg\')', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* Darkening layer for readability */}
+        <div className="absolute inset-0 bg-black/85 z-10"></div>
 
-      {/* Animated background particles */}
-      <div className="absolute inset-0 z-5">
-        <div className="particle particle-6"></div>
-        <div className="particle particle-7"></div>
-        <div className="particle particle-8"></div>
-        <div className="particle particle-9"></div>
-        <div className="particle particle-10"></div>
-      </div>
+        {/* Animated background particles */}
+        <div className="absolute inset-0 z-5">
+          <div className="particle particle-6"></div>
+          <div className="particle particle-7"></div>
+          <div className="particle particle-8"></div>
+          <div className="particle particle-9"></div>
+          <div className="particle particle-10"></div>
+        </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Nuestro Proceso hacia el Éxito
-        </motion.h2>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Nuestro Proceso hacia el Éxito
+          </motion.h2>
 
-        {/* Vertical Timeline */}
-        <div className="relative">
-          {/* Vertical connecting line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-400 to-orange-600 transform md:-translate-x-0.5"></div>
+          {/* Vertical Timeline */}
+          <div className="relative">
+            {/* Vertical connecting line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-400 to-orange-600 transform md:-translate-x-0.5"></div>
 
-          <div className="space-y-16">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                className={`relative flex flex-col md:flex-row items-center w-full ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  scale: activeStep >= index ? 1.05 : 1
-                }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                {/* Timeline dot */}
-                <div className={`absolute left-8 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-1/2 z-20 transition-all duration-500 ${
-                  activeStep >= index
-                    ? 'bg-orange-500 shadow-lg shadow-orange-500/50 scale-125'
-                    : 'bg-gray-600'
-                }`}></div>
-
-                {/* Content */}
-                <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
-                }`}>
-                  <div className={`bg-black/50 backdrop-blur-sm p-6 rounded-lg border transition-all duration-500 ${
+            <div className="space-y-8 md:space-y-16">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  className={`relative flex flex-col md:flex-row items-center w-full ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: activeStep >= index ? 1.05 : 1
+                  }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  {/* Timeline dot */}
+                  <div className={`absolute left-8 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-1/2 z-20 transition-all duration-500 ${
                     activeStep >= index
-                      ? 'border-orange-500/50 shadow-lg shadow-orange-500/20'
-                      : 'border-gray-700/50'
-                  }`}>
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
-                        activeStep >= index
-                          ? 'bg-orange-500/20 text-orange-400'
-                          : 'bg-gray-700/50 text-gray-400'
-                      }`}>
-                        {step.icon}
-                      </div>
-                      <div className={`text-3xl font-bold transition-all duration-500 ${
-                        activeStep >= index ? 'text-orange-400' : 'text-gray-500'
-                      }`}>
-                        {step.number}
-                      </div>
-                    </div>
+                      ? 'bg-orange-500 shadow-lg shadow-orange-500/50 scale-125'
+                      : 'bg-gray-600'
+                  }`}></div>
 
-                    <h3 className={`text-xl md:text-2xl font-semibold font-sans mb-4 transition-all duration-500 ${
-                      activeStep >= index ? 'text-white' : 'text-gray-400'
+                  {/* Content */}
+                  <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                    index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                  }`}>
+                    <div className={`bg-black/50 backdrop-blur-sm p-6 rounded-lg border transition-all duration-500 ${
+                      activeStep >= index
+                        ? 'border-orange-500/50 shadow-lg shadow-orange-500/20'
+                        : 'border-gray-700/50'
                     }`}>
-                      {step.title}
-                    </h3>
-                    <p className={`text-base md:text-lg leading-relaxed font-sans transition-all duration-500 ${
-                      activeStep >= index ? 'text-gray-300' : 'text-gray-500'
-                    }`}>
-                      {step.description}
-                    </p>
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          activeStep >= index
+                            ? 'bg-orange-500/20 text-orange-400'
+                            : 'bg-gray-700/50 text-gray-400'
+                        }`}>
+                          {step.icon}
+                        </div>
+                        <div className={`text-3xl font-bold transition-all duration-500 ${
+                          activeStep >= index ? 'text-orange-400' : 'text-gray-500'
+                        }`}>
+                          {step.number}
+                        </div>
+                      </div>
+
+                      <h3 className={`text-xl md:text-2xl font-semibold font-sans mb-4 transition-all duration-500 ${
+                        activeStep >= index ? 'text-white' : 'text-gray-400'
+                      }`}>
+                        {step.title}
+                      </h3>
+                      <p className={`text-base md:text-lg leading-relaxed font-sans transition-all duration-500 ${
+                        activeStep >= index ? 'text-gray-300' : 'text-gray-500'
+                      }`}>
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <style>{`
+        @media (max-width: 768px) {
+          .process-section {
+            height: auto !important;
+            min-height: auto !important;
+          }
+        }
+      `}</style>
+    </>
   );
 };
 
