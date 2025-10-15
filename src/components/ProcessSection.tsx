@@ -5,16 +5,24 @@ const ProcessSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const section = document.querySelector('.process-section');
-      if (!section) return;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const section = document.querySelector('.process-section');
+          if (!section) return;
 
-      const rect = section.getBoundingClientRect();
-      const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
+          const rect = section.getBoundingClientRect();
+          const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
 
-      // Calculate which step should be active based on scroll progress
-      const stepIndex = Math.floor(scrollProgress * steps.length);
-      setActiveStep(Math.min(stepIndex, steps.length - 1));
+          // Calculate which step should be active based on scroll progress
+          const stepIndex = Math.floor(scrollProgress * steps.length);
+          setActiveStep(Math.min(stepIndex, steps.length - 1));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);

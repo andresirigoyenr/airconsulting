@@ -28,19 +28,110 @@ const { language, textDirection } = I18N;
 <!doctype html>
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
-    <CommonMeta />
+    <!-- Critical meta tags first -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIR Consulting</title>
+    <meta name="description" content="Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!">
+
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.pixabay.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Inline critical CSS for above-the-fold content -->
+    <style>
+      :root {
+        --aw-font-sans: 'Montserrat', sans-serif;
+        --aw-font-serif: 'Montserrat', sans-serif;
+        --aw-font-heading: 'Montserrat', sans-serif;
+        --aw-color-primary: rgb(255 165 0);
+        --aw-color-secondary: rgb(255 0 0);
+        --aw-color-accent: rgb(255 215 0);
+        --aw-color-text-heading: rgb(255 255 255);
+        --aw-color-text-default: rgb(255 255 255);
+        --aw-color-text-muted: rgb(200 200 200);
+        --aw-color-bg-page: rgb(0 0 0);
+        --aw-color-bg-page-dark: rgb(0 0 0);
+      }
+      html.dark {
+        --aw-color-bg-page: #000000;
+        --aw-color-text-default: #ffffff;
+        --aw-color-text-muted: #cccccc;
+      }
+      html.high-contrast {
+        --aw-color-bg-page: #000000;
+        --aw-color-text-default: #ffffff;
+        --aw-color-text-muted: #ffffff;
+        --aw-color-text-heading: #ffffff;
+        --aw-color-primary: #ffffff;
+        --aw-color-secondary: #ffffff;
+        --aw-color-accent: #ffffff;
+      }
+      .bg-page { background-color: var(--aw-color-bg-page); }
+      .bg-dark { background-color: var(--aw-color-bg-page-dark); }
+      .text-page { color: var(--aw-color-text-default); }
+      .text-muted { color: var(--aw-color-text-muted); }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        border: 1px solid rgb(156 163 175);
+        background-color: transparent;
+        font-weight: 500;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.625;
+        color: var(--aw-color-text-default);
+        transition: all 200ms ease-in;
+        padding: 0.875rem 1.5rem;
+        cursor: pointer;
+      }
+      .btn-primary {
+        font-weight: 600;
+        background-color: rgb(255 165 0);
+        color: white;
+        border-color: rgb(255 165 0);
+      }
+      .btn-secondary { }
+      .btn-tertiary {
+        border: none;
+        box-shadow: none;
+        color: var(--aw-color-text-muted);
+      }
+      /* Critical above-the-fold styles */
+      body { margin: 0; font-family: var(--aw-font-sans); background-color: var(--aw-color-bg-page); color: var(--aw-color-text-default); }
+      .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.2s ease-out, transform 0.2s ease-out; }
+      .fade-in.animate { opacity: 1; transform: translateY(0); }
+      .slide-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.2s ease-out, transform 0.2s ease-out; }
+      .slide-in-right.animate { opacity: 1; transform: translateX(0); }
+    </style>
+
+    <!-- Non-critical resources -->
     <Favicons />
     <CustomStyles />
     {/* <ApplyColorMode /> */}
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <CommonMeta />
+
     <ClientRouter fallback="swap" />
   </head>
   <body class="antialiased text-page bg-page tracking-tight scroll-smooth">
     <slot />
     <BasicScripts />
-    <CustomCursor client:load />
+    <CustomCursor client:idle />
+
+    <!-- Load non-critical CSS after initial render -->
+    <link rel="preload" as="style" href="/src/assets/styles/tailwind.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/assets/styles/tailwind.css"></noscript>
 
     <!-- <script src="//code.tidio.co/778le8yt1onvopogbc5xeu0hkcjq2ur6.js" async></script> -->
     </body>

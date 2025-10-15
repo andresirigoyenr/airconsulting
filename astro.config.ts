@@ -88,9 +88,22 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['astro'],
-            react: ['react', 'react-dom', 'framer-motion'],
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('framer-motion')) {
+                return 'react-vendor';
+              }
+              if (id.includes('astro')) {
+                return 'astro-vendor';
+              }
+              return 'vendor';
+            }
+            if (id.includes('components/AnimatedCodeBackground')) {
+              return 'animated-bg';
+            }
+            if (id.includes('components/ProcessSection') || id.includes('components/ServicesSection')) {
+              return 'sections';
+            }
           },
         },
       },

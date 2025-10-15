@@ -10,6 +10,17 @@ const AnimatedCodeBackground: React.FC = () => {
     let animationFrame: number;
     let lastTime = 0;
     let isHovering = false;
+    let cachedRect: DOMRect | null = null;
+    let rectCacheTime = 0;
+
+    const getCachedRect = () => {
+      const now = Date.now();
+      if (!cachedRect || now - rectCacheTime > 100) { // Cache for 100ms
+        cachedRect = background.getBoundingClientRect();
+        rectCacheTime = now;
+      }
+      return cachedRect;
+    };
 
     const handleMouseEnter = () => {
       isHovering = true;
@@ -25,7 +36,7 @@ const AnimatedCodeBackground: React.FC = () => {
       if (!isHovering || Date.now() - lastTime < 16) return; // ~60fps throttling
       lastTime = Date.now();
 
-      const rect = background.getBoundingClientRect();
+      const rect = getCachedRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
 
@@ -98,15 +109,15 @@ const AnimatedCodeBackground: React.FC = () => {
 
       <section id="services">
         <h2>Nuestros Servicios</h2>
-        <div class="service">
+        <div className="service">
           <h3>Desarrollo Web</h3>
           <p>Sitios web profesionales y responsivos</p>
         </div>
-        <div class="service">
+        <div className="service">
           <h3>SEO</h3>
           <p>Posicionamiento en motores de búsqueda</p>
         </div>
-        <div class="service">
+        <div className="service">
           <h3>Redes Sociales</h3>
           <p>Gestión profesional de comunidades</p>
         </div>
@@ -119,9 +130,9 @@ const AnimatedCodeBackground: React.FC = () => {
 
     <script>
       // JavaScript para interactividad
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {{
         console.log('AIR Consulting - Marketing Digital');
-      });
+      }});
     </script>
   </body>
 </html>`}
