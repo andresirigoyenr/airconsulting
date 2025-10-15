@@ -89,7 +89,7 @@ const ProcessSection: React.FC = () => {
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white text-center mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

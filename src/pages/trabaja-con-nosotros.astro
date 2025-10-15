@@ -1,0 +1,350 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Trabaja con nosotros | AIR Consulting',
+  ignoreTitleTemplate: true,
+  description: 'Únete a nuestro equipo en AIR Consulting. Buscamos talento apasionado por la tecnología y la estrategia digital. Envía tu CV y forma parte de proyectos innovadores.',
+  keywords: ['trabajar en AIR Consulting', 'oportunidades laborales', 'empleo agencia marketing digital', 'trabajo desarrollo web', 'unirse equipo AIR Consulting', 'carreras profesionales', 'empleo Cádiz', 'trabajo remoto España'],
+};
+---
+
+<Layout metadata={metadata}>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Oportunidades Laborales",
+    "description": "Únete a nuestro equipo en AIR Consulting. Buscamos talento apasionado por la tecnología y la estrategia digital.",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "AIR Consulting",
+      "sameAs": "https://airconsulting.es"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cádiz",
+        "addressRegion": "Andalucía",
+        "addressCountry": "ES"
+      }
+    }
+  }
+  </script>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen overflow-hidden bg-black">
+    <!-- Capa de oscurecimiento -->
+    <div class="absolute inset-0 bg-black/85 z-10"></div>
+
+    <!-- Contenido del Hero -->
+    <div class="relative z-20 flex items-center min-h-screen px-4 sm:px-6 py-20 md:py-0">
+      <div class="max-w-4xl mx-auto w-full text-center">
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 drop-shadow-lg uppercase leading-tight" style="font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1;">
+          Únete a Nuestro Equipo
+        </h1>
+        <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed drop-shadow-md max-w-3xl mx-auto">
+          En AIR Consulting, siempre estamos buscando talento apasionado por la tecnología y la estrategia digital. Si crees que puedes aportar valor a nuestro equipo y a nuestros clientes, nos encantaría conocerte.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
+
+  <!-- ¿Qué Buscamos? Section -->
+  <section class="relative pt-36 pb-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
+    <!-- Darkening layer for readability -->
+    <div class="absolute inset-0 bg-black/80 z-10"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">
+          ¿Qué Buscamos?
+        </h2>
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-4xl mx-auto">
+          Buscamos personas proactivas, creativas y con un fuerte deseo de aprender y crecer. Valoramos la capacidad de análisis, la comunicación transparente y el compromiso con los resultados.
+        </p>
+      </div>
+
+      <!-- Valores/Competencias -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">🚀</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Proactividad</h3>
+          <p class="text-gray-300">Iniciativa y capacidad para identificar oportunidades de mejora.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">🎨</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Creatividad</h3>
+          <p class="text-gray-300">Pensamiento innovador para resolver desafíos complejos.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">📈</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Compromiso</h3>
+          <p class="text-gray-300">Dedicación total a los objetivos y resultados del equipo.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">💬</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Comunicación</h3>
+          <p class="text-gray-300">Habilidad para expresar ideas de manera clara y efectiva.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">📊</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Análisis</h3>
+          <p class="text-gray-300">Capacidad para interpretar datos y tomar decisiones informadas.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
+          <div class="text-orange-400 text-4xl mb-4">🌱</div>
+          <h3 class="text-white font-semibold text-xl mb-3">Aprendizaje</h3>
+          <p class="text-gray-300">Actitud positiva hacia el crecimiento profesional continuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Separator -->
+  <div class="section-separator">
+    <div class="separator-line"></div>
+  </div>
+
+  <!-- Envíanos tu CV Section -->
+  <section class="pt-32 pb-24 lg:pt-44 lg:pb-40 bg-gray-100 fade-in-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center mb-6 slide-in-up">Envíanos tu CV</h2>
+      <p class="text-gray-600 text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-12 lg:mb-16 slide-in-up">
+        Si estás interesado en futuras oportunidades, puedes enviarnos tu currículum y una breve carta de presentación a nuestro correo electrónico: <a href="mailto:andres.irigoyen@gmail.com" class="text-orange-500 hover:text-orange-600 font-semibold">andres.irigoyen@gmail.com</a>
+      </p>
+      <div class="bg-white p-6 lg:p-8 rounded-lg shadow-lg slide-in-up">
+        <form id="cv-form" name="cv" class="space-y-4 lg:space-y-6">
+          <input type="hidden" name="form-name" value="cv" />
+          <div style="display:none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </div>
+          <div>
+            <label for="name" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Nombre completo</label>
+            <input type="text" name="name" id="name" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" />
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Email</label>
+            <input type="email" name="email" id="email" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" />
+            <span id="email-error" class="text-red-500 text-sm"></span>
+          </div>
+          <div>
+            <label for="position" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Posición de interés</label>
+            <select id="position" name="position" class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]">
+              <option value="">Selecciona una posición</option>
+              <option>Desarrollador Web</option>
+              <option>Especialista en Marketing Digital</option>
+              <option>SEO Specialist</option>
+              <option>Community Manager</option>
+              <option>Diseñador UX/UI</option>
+              <option>Consultor Digital</option>
+              <option>Otra</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Carta de presentación (opcional)</label>
+            <textarea name="message" id="message" class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md h-32 lg:h-40 focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" placeholder="Cuéntanos brevemente por qué te gustaría trabajar con nosotros..."></textarea>
+          </div>
+          <div>
+            <label for="cv-file" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Adjuntar CV (PDF, DOC, DOCX)</label>
+            <input type="file" name="cv-file" id="cv-file" accept=".pdf,.doc,.docx" class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" />
+          </div>
+          <div id="cv-form-messages" class="text-center"></div>
+          <div class="text-center">
+            <button type="submit" id="cv-submit-btn" class="px-8 lg:px-10 py-3 lg:py-4 bg-black border-2 border-white text-white font-bold rounded-full transition-all duration-300 shadow-md text-base lg:text-lg min-h-[48px] min-w-[48px] flex items-center justify-center w-4/5 max-w-xs mx-auto hover:bg-white hover:text-black hover:border-black">Enviar CV</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .fade-in-up, .fade-in-section, .zoom-in, .slide-and-fade-reveal');
+      animatedElements.forEach(el => observer.observe(el));
+
+      // Smooth scroll for anchor links
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          if (href) {
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
+    });
+
+    // CV Form validation and submission
+    document.getElementById('cv-form')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      const messagesDiv = document.getElementById('cv-form-messages') as HTMLDivElement;
+      const submitBtn = document.getElementById('cv-submit-btn') as HTMLButtonElement;
+      const emailError = document.getElementById('email-error') as HTMLSpanElement;
+
+      // Clear previous messages
+      if (messagesDiv) messagesDiv.innerHTML = '';
+      if (emailError) emailError.textContent = '';
+
+      // Validate email
+      const email = (document.getElementById('email') as HTMLInputElement).value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        if (emailError) emailError.textContent = 'Por favor, ingresa un email válido.';
+        return;
+      }
+
+      // Check required fields
+      const requiredFields = ['name', 'email'];
+      for (const field of requiredFields) {
+        if (!formData.get(field)) {
+          if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Por favor, completa todos los campos requeridos.</p>';
+          return;
+        }
+      }
+
+      // Disable button
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          if (messagesDiv) messagesDiv.innerHTML = '<p class="text-green-500 text-lg font-semibold">¡Gracias! Tu CV ha sido enviado. Nos pondremos en contacto contigo pronto.</p>';
+        } else {
+          throw new Error('Error en el envío');
+        }
+      } catch {
+        if (messagesDiv) messagesDiv.innerHTML = '<p class="text-red-500">Hubo un error al enviar el CV. Por favor, intenta de nuevo más tarde o envíalo directamente a nuestro email.</p>';
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar CV';
+        }
+      }
+    });
+  </script>
+
+  <style>
+    /* Scroll Animation Styles */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .fade-in.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .slide-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .fade-in-section.animate {
+      opacity: 1;
+    }
+
+    /* Section Separators */
+    .section-separator {
+      position: relative;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .separator-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.3) 20%, rgba(255, 87, 51, 0.6) 50%, rgba(255, 87, 51, 0.3) 80%, transparent 100%);
+      position: relative;
+    }
+
+    .separator-line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.8) 20%, rgba(255, 87, 51, 1) 50%, rgba(255, 87, 51, 0.8) 80%, transparent 100%);
+      animation: separator-shine 3s ease-in-out infinite;
+    }
+
+    @keyframes separator-shine {
+      0%, 100% {
+        left: -100%;
+      }
+      50% {
+        left: 100%;
+      }
+    }
+
+    /* Mobile Section Spacing Optimization */
+    @media (max-width: 768px) {
+      section[id] {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+      }
+
+      .section-separator {
+        height: 30px;
+      }
+
+      .separator-line {
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.2) 20%, rgba(255, 87, 51, 0.4) 50%, rgba(255, 87, 51, 0.2) 80%, transparent 100%);
+      }
+    }
+  </style>
+</Layout>
