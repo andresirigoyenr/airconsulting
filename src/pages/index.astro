@@ -1,9 +1,29 @@
 ---
 
 import Layout from '~/layouts/PageLayout.astro';
-import AnimatedCodeBackground from '~/components/AnimatedCodeBackground.tsx';
-import ProcessSection from '~/components/ProcessSection.tsx';
+import OrbBackground from '~/components/OrbBackground.tsx';
 import ServicesSection from '~/components/ServicesSection.tsx';
+import MagicBento from '~/components/MagicBento.jsx';
+import LetterGlitch from '~/components/LetterGlitch.jsx';
+import SplitText from '~/components/SplitText.tsx';
+import DomeGallery from '~/components/DomeGallery.jsx';
+import LogoLoop from '~/components/LogoLoop.tsx';
+import '~/components/MagicBento.css';
+
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
+
+const partnerLogos = [
+  { src: "/images/cnn.png", alt: "CNN", href: "https://cnn.com" },
+  { src: "/images/udi.png", alt: "UDI", href: "https://udi.cl/" },
+  { src: "/images/agenda.png", alt: "Agricola", href: "https://www.instagram.com/agenda_agricola/" },
+  { src: "/images/ucvtv.png", alt: "UCV TV", href: "https://ucvtv.cl/" },
+   { src: "/images/retorica.png", alt: "Retórica", href: "https://retorica.cl/" },
+    { src: "/images/chile.png", alt: "Gob Chile", href: "https://gob.cl/" },
+    { src: "/images/dmi.png", alt: "DMI", href: "https://www.instagram.com/dmiprojects/" },
+     { src: "/images/noticia.png", alt: "E.E.N", href: "https://www.instagram.com/estoesnoticiatv/" },
+];
 
 
 const metadata = {
@@ -15,6 +35,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <!-- StaggeredMenu removed -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,111 +80,101 @@ const metadata = {
     ]
   }
   </script>
-  <section id="inicio" class="relative min-h-screen md:min-h-screen overflow-hidden bg-black">
-    <!-- Fondo animado de código -->
-    <AnimatedCodeBackground client:idle />
+  <section id="inicio" class="relative h-screen overflow-hidden bg-black">
+    <!-- Orb Background -->
+    <div class="absolute inset-0 z-0">
+      <OrbBackground client:load />
+    </div>
     <!-- Capa de oscurecimiento -->
-    <div class="absolute inset-0 bg-black/85 z-10"></div>
+    <div class="absolute inset-0 bg-black/40 z-10"></div>
     <!-- Gradiente de transición -->
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-20"></div>
 
 
     <!-- Contenido del Hero -->
-    <div class="relative z-20 flex items-center min-h-screen px-4 sm:px-6 py-20 md:py-0">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto w-full items-center">
-        <!-- Lado Izquierdo: Contenido Principal -->
-        <div class="flex flex-col justify-center fade-in text-left">
-          <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 drop-shadow-lg uppercase leading-tight" style="font-size: clamp(2rem, 8vw, 4rem); line-height: 1.1;">
-            ESTRATEGIAS DIGITALES<br>QUE CRUZAN FRONTERAS
-          </h1>
-          <div class="flex flex-col sm:flex-row gap-6 justify-start">
-            <button style="background-color: #FF5733; color: white; padding: 16px 32px; border: 2px solid #FF5733; border-radius: 50px; font-size: 16px; cursor: pointer; min-height: 48px; width: 100%; max-width: 280px; font-weight: bold;" class="transition-all duration-300 shadow-lg hover:bg-white hover:text-orange-500">
-              Pide tu consultoría
-            </button>
-          </div>
-        </div>
-
-        <!-- Lado Derecho: Texto Descriptivo -->
-        <div class="flex flex-col justify-center text-left slide-in-right">
-          <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed drop-shadow-md max-w-lg lg:max-w-none md:leading-loose">
-            En AIR Consulting entendemos que no hay dos negocios iguales. Por eso, ofrecemos un conjunto de servicios diseñados para abordar tus desafíos y objetivos únicos. Nuestro equipo de expertos combina creatividad y datos para construir estrategias que, simplemente, funcionan.
+    <div class="relative z-20 flex items-center h-screen px-4 sm:px-6 py-20 md:py-0">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="flex flex-col justify-center items-center text-center fade-in">
+          <SplitText
+            text="ESTRATEGIAS DIGITALES QUE CRUZAN FRONTERAS"
+            tag="h1"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 drop-shadow-lg uppercase leading-tight"
+            delay={25}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 60 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-50px"
+            textAlign="center"
+            onLetterAnimationComplete={handleAnimationComplete}
+            client:load
+          />
+          <p class="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 drop-shadow-lg slide-in-up text-center max-w-4xl mx-auto leading-relaxed">
+            Desarrollo Web • Marketing Digital • SEO • Redes Sociales • Consultoría Estratégica
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section Separator -->
-  <div class="section-separator">
-    <div class="separator-line"></div>
-  </div>
-
-  <!-- Parte 1: Nuestra Filosofía - Sticky Layout -->
-  <section id="sobre-nosotros" class="relative pt-36 pb-32 fade-in-section" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
-    <!-- Darkening layer for readability -->
-    <div class="absolute inset-0 bg-black/80 z-10"></div>
-
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-        <!-- Columna Izquierda: Imagen Sticky -->
-        <div class="sticky top-36 zoom-in order-2 lg:order-1">
-          <img src="/images/optimized/bgcode.webp" alt="Andrés Irigoyen trabajando en desarrollo web y marketing digital en Cádiz" class="w-full h-auto rounded-lg shadow-lg" loading="lazy" style="aspect-ratio: 4/3;" />
-        </div>
-
-        <!-- Columna Derecha: Contenido que fluye -->
-        <div class="space-y-16 lg:space-y-24 order-1 lg:order-2">
-          <!-- Primera parte: Tu socio digital -->
-          <div class="fade-in">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8 text-left">
-              Resultados Probados en España y Latinoamérica.
-            </h2>
-            <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose text-left">
-              AIR Consulting nació de una convicción: las empresas y marcas de Cádiz merecen una presencia digital que no solo compita, sino que destaque a cualquier nivel. No somos simples ejecutores; somos estrategas y creativos que se sumergen en tu negocio para entenderlo como si fuera nuestro. Creemos en el trabajo bien hecho, en la comunicación transparente y en construir relaciones a largo plazo. Tu éxito es nuestra mejor carta de presentación.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Separator -->
-  <div class="section-separator">
-    <div class="separator-line"></div>
-  </div>
-
   <section id="servicios">
     <ServicesSection client:visible />
   </section>
 
-  <!-- Section Separator -->
-  <div class="section-separator">
-    <div class="separator-line"></div>
-  </div>
-
-  <!-- Parte 2: Nuestra Metodología - Continuación del flujo -->
-  <section class="relative pt-16 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; min-height: 800px;">
-    <!-- Darkening layer for readability -->
-    <div class="absolute inset-0 bg-black/85 z-10"></div>
-
-    <!-- Animated background particles -->
-    <div class="absolute inset-0 z-5">
-      <div class="particle particle-6"></div>
-      <div class="particle particle-7"></div>
-      <div class="particle particle-8"></div>
-      <div class="particle particle-9"></div>
-      <div class="particle particle-10"></div>
-    </div>
-
-    <div class="relative z-20">
-      <ProcessSection client:visible />
+  <!-- Nueva Sección: Partners -->
+  <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Partners</h2>
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
+          Colaboramos con las mejores empresas.
+        </p>
+      </div>
+      <div style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
+        <LogoLoop
+          logos={partnerLogos}
+          speed={120}
+          direction="left"
+          logoHeight={120}
+          gap={60}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          fadeOutColor="transparent"
+          ariaLabel="Partner logos"
+          client:load
+        />
+      </div>
     </div>
   </section>
 
-  <!-- Section Separator -->
-  <div class="section-separator">
-    <div class="separator-line"></div>
-  </div>
+
+  <!-- Nueva Sección: Metodología -->
+  <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Una Metodología Integral</h2>
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
+          Dividimos la complejidad en componentes estratégicos para garantizar resultados medibles.
+        </p>
+      </div>
+      <MagicBento
+        textAutoHide={true}
+        enableStars={true}
+        enableSpotlight={true}
+        enableBorderGlow={true}
+        enableTilt={true}
+        enableMagnetism={true}
+        clickEffect={true}
+        spotlightRadius={300}
+        particleCount={12}
+        glowColor="132, 0, 255"
+        client:load
+      />
+    </div>
+  </section>
 
   <!-- Text Mask CTA Section -->
   <section id="casos-exito" class="relative pt-24 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
@@ -173,9 +184,6 @@ const metadata = {
     <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
       Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
     </p>
-    <a href="#contacto" class="inline-block px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-black border-2 border-white text-white font-bold text-base sm:text-lg lg:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[48px] min-w-[48px] flex items-center justify-center w-4/5 max-w-xs mx-auto hover:bg-white hover:text-black hover:border-black" style="aspect-ratio: auto;">
-      Ver nuestros resultados
-    </a>
   </div>
   <!-- SVG Mask Definition -->
   <svg width="0" height="0">
@@ -188,24 +196,34 @@ const metadata = {
   </svg>
 </section>
 
-<!-- Section Separator -->
-<div class="section-separator">
-  <div class="separator-line"></div>
-</div>
+<!-- DomeGallery Section -->
+<section class="relative h-screen overflow-hidden bg-black">
+  <DomeGallery client:load />
+</section>
 
 <!-- Parte 3: El Fundador - Final del flujo -->
-  <section class="relative pt-36 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center;">
-    <!-- Darkening layer for readability -->
-    <div class="absolute inset-0 bg-black/85 z-10"></div>
+<section class="relative pt-36 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal">
+<!-- LetterGlitch Background -->
+<div class="absolute inset-0 z-0">
+  <LetterGlitch
+    glitchSpeed={50}
+    centerVignette={true}
+    outerVignette={false}
+    smooth={true}
+  />
+</div>
 
-    <!-- Animated background particles -->
-    <div class="absolute inset-0 z-5">
-      <div class="particle particle-6"></div>
-      <div class="particle particle-7"></div>
-      <div class="particle particle-8"></div>
-      <div class="particle particle-9"></div>
-      <div class="particle particle-10"></div>
-    </div>
+<!-- Darkening layer for readability -->
+<div class="absolute inset-0 bg-black/20 z-10"></div>
+
+  <!-- Animated background particles -->
+  <div class="absolute inset-0 z-15">
+    <div class="particle particle-6"></div>
+    <div class="particle particle-7"></div>
+    <div class="particle particle-8"></div>
+    <div class="particle particle-9"></div>
+    <div class="particle particle-10"></div>
+  </div>
 
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
@@ -255,10 +273,6 @@ const metadata = {
       </div>
     </div>
   </section>
-  <!-- Section Separator -->
-  <div class="section-separator" style="margin-top: -20px;">
-    <div class="separator-line"></div>
-  </div>
 
 
 
@@ -270,9 +284,6 @@ const metadata = {
       <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
         Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel con resultados medibles.
       </p>
-      <a href="#contacto" class="inline-block px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-black border-2 border-white text-white font-bold text-base sm:text-lg lg:text-xl rounded-full transition-all duration-300 slide-in-up min-h-[48px] min-w-[48px] flex items-center justify-center w-4/5 max-w-xs mx-auto hover:bg-white hover:text-black hover:border-black" style="aspect-ratio: auto;">
-        Hablemos de tu proyecto
-      </a>
     </div>
     <!-- SVG Mask Definition -->
     <svg width="0" height="0">
@@ -814,6 +825,10 @@ const metadata = {
       animation: carousel 25s linear infinite;
     }
 
+    .animate-carousel:hover {
+      animation-play-state: paused;
+    }
+
     @keyframes carousel {
       0% {
         transform: translateX(0);
@@ -822,6 +837,7 @@ const metadata = {
         transform: translateX(-100%);
       }
     }
+
 
     /* Counter animation */
     .animate-count {
@@ -1163,6 +1179,7 @@ const metadata = {
       min-height: 400px;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     .aurora-bg {
