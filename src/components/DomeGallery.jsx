@@ -27,7 +27,15 @@ const DEFAULT_IMAGES = [
     src: 'https://images.unsplash.com/photo-1752588975228-21f44630bb3c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'Textured surface'
   },
-  { src: 'https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large', alt: 'Social media image' }
+  { src: 'https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large', alt: 'Social media image' },
+  { src: '/images/mockupretorica.jpg', alt: 'Mockup Retorica' },
+  { src: '/images/mockupretoricamovil.jpg', alt: 'Mockup Retorica Movil' },
+  { src: '/images/mockupmodel.jpg', alt: 'Mockup Model' },
+  { src: '/images/mockupmodelmovil.jpg', alt: 'Mockup Model Movil' },
+  { src: '/images/ecommerce.jpg', alt: 'Ecommerce' },
+  { src: '/images/ecommerceipad.jpg', alt: 'Ecommerce iPad' },
+  { src: '/images/agenda.jpg', alt: 'Agenda' },
+  { src: '/images/agendamovil.jpg', alt: 'Agenda Movil' }
 ];
 
 const DEFAULTS = {
@@ -485,58 +493,85 @@ export default function DomeGallery({
       overlay.style.top = frameR.top - mainR.top + 'px';
       overlay.style.width = frameR.width + 'px';
       overlay.style.height = frameR.height + 'px';
-      overlay.style.opacity = '0';
+      overlay.style.opacity = '1';
       overlay.style.zIndex = '30';
       overlay.style.willChange = 'transform, opacity';
       overlay.style.transformOrigin = 'top left';
-      overlay.style.transition = `transform ${enlargeTransitionMs}ms ease, opacity ${enlargeTransitionMs}ms ease`;
+      overlay.style.transition = 'none';
       const rawSrc = parent.dataset.src || el.querySelector('img')?.src || '';
       const img = document.createElement('img');
       img.src = rawSrc;
       overlay.appendChild(img);
       viewerRef.current.appendChild(overlay);
-      const tx0 = tileR.left - frameR.left;
-      const ty0 = tileR.top - frameR.top;
-      const sx0 = tileR.width / frameR.width;
-      const sy0 = tileR.height / frameR.height;
-      overlay.style.transform = `translate(${tx0}px, ${ty0}px) scale(${sx0}, ${sy0})`;
-      requestAnimationFrame(() => {
-        overlay.style.opacity = '1';
-        overlay.style.transform = 'translate(0px, 0px) scale(1,1)';
-        rootRef.current?.setAttribute('data-enlarging', 'true');
-      });
-      const wantsResize = openedImageWidth || openedImageHeight;
-      if (wantsResize) {
-        const onFirstEnd = ev => {
-          if (ev.propertyName !== 'transform') return;
-          overlay.removeEventListener('transitionend', onFirstEnd);
-          const prevTransition = overlay.style.transition;
-          overlay.style.transition = 'none';
-          const tempWidth = openedImageWidth || `${frameR.width}px`;
-          const tempHeight = openedImageHeight || `${frameR.height}px`;
-          overlay.style.width = tempWidth;
-          overlay.style.height = tempHeight;
-          const newRect = overlay.getBoundingClientRect();
-          overlay.style.width = frameR.width + 'px';
-          overlay.style.height = frameR.height + 'px';
-          void overlay.offsetWidth;
-          overlay.style.transition = `left ${enlargeTransitionMs}ms ease, top ${enlargeTransitionMs}ms ease, width ${enlargeTransitionMs}ms ease, height ${enlargeTransitionMs}ms ease`;
-          const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
-          const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
-          requestAnimationFrame(() => {
-            overlay.style.left = `${centeredLeft}px`;
-            overlay.style.top = `${centeredTop}px`;
+      overlay.style.transform = 'translate(0px, 0px) scale(1,1)';
+      rootRef.current?.setAttribute('data-enlarging', 'true');
+
+      // Wait for image to load to get natural dimensions
+      img.onload = () => {
+        const naturalWidth = img.naturalWidth;
+        const naturalHeight = img.naturalHeight;
+        const wantsResize = openedImageWidth || openedImageHeight;
+        if (wantsResize) {
+          const onFirstEnd = ev => {
+            if (ev.propertyName !== 'transform') return;
+            overlay.removeEventListener('transitionend', onFirstEnd);
+            const prevTransition = overlay.style.transition;
+            overlay.style.transition = 'none';
+            const tempWidth = openedImageWidth || `${naturalWidth}px`;
+            const tempHeight = openedImageHeight || `${naturalHeight}px`;
             overlay.style.width = tempWidth;
             overlay.style.height = tempHeight;
-          });
-          const cleanupSecond = () => {
-            overlay.removeEventListener('transitionend', cleanupSecond);
-            overlay.style.transition = prevTransition;
+            const newRect = overlay.getBoundingClientRect();
+            overlay.style.width = frameR.width + 'px';
+            overlay.style.height = frameR.height + 'px';
+            void overlay.offsetWidth;
+            overlay.style.transition = `left ${enlargeTransitionMs}ms ease, top ${enlargeTransitionMs}ms ease, width ${enlargeTransitionMs}ms ease, height ${enlargeTransitionMs}ms ease`;
+            const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
+            const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
+            requestAnimationFrame(() => {
+              overlay.style.left = `${centeredLeft}px`;
+              overlay.style.top = `${centeredTop}px`;
+              overlay.style.width = tempWidth;
+              overlay.style.height = tempHeight;
+            });
+            const cleanupSecond = () => {
+              overlay.removeEventListener('transitionend', cleanupSecond);
+              overlay.style.transition = prevTransition;
+            };
+            overlay.addEventListener('transitionend', cleanupSecond, { once: true });
           };
-          overlay.addEventListener('transitionend', cleanupSecond, { once: true });
-        };
-        overlay.addEventListener('transitionend', onFirstEnd);
-      }
+          overlay.addEventListener('transitionend', onFirstEnd);
+        } else {
+          // Use natural dimensions if no custom size specified
+          const onFirstEnd = ev => {
+            if (ev.propertyName !== 'transform') return;
+            overlay.removeEventListener('transitionend', onFirstEnd);
+            const prevTransition = overlay.style.transition;
+            overlay.style.transition = 'none';
+            overlay.style.width = `${naturalWidth}px`;
+            overlay.style.height = `${naturalHeight}px`;
+            const newRect = overlay.getBoundingClientRect();
+            overlay.style.width = frameR.width + 'px';
+            overlay.style.height = frameR.height + 'px';
+            void overlay.offsetWidth;
+            overlay.style.transition = `left ${enlargeTransitionMs}ms ease, top ${enlargeTransitionMs}ms ease, width ${enlargeTransitionMs}ms ease, height ${enlargeTransitionMs}ms ease`;
+            const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
+            const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
+            requestAnimationFrame(() => {
+              overlay.style.left = `${centeredLeft}px`;
+              overlay.style.top = `${centeredTop}px`;
+              overlay.style.width = `${naturalWidth}px`;
+              overlay.style.height = `${naturalHeight}px`;
+            });
+            const cleanupSecond = () => {
+              overlay.removeEventListener('transitionend', cleanupSecond);
+              overlay.style.transition = prevTransition;
+            };
+            overlay.addEventListener('transitionend', cleanupSecond, { once: true });
+          };
+          overlay.addEventListener('transitionend', onFirstEnd);
+        }
+      };
     },
     [enlargeTransitionMs, lockScroll, openedImageHeight, openedImageWidth, segments]
   );
@@ -618,6 +653,16 @@ export default function DomeGallery({
                   onClick={onTileClick}
                   onPointerUp={onTilePointerUp}
                   onTouchEnd={onTileTouchEnd}
+                  style={{
+                    transition: 'filter 0.3s ease',
+                    filter: 'grayscale(100%)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(0%)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(100%)';
+                  }}
                 >
                   <img src={it.src} draggable={false} alt={it.alt} />
                 </div>

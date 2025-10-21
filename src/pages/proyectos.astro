@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InfiniteMenu from '../components/InfiniteMenu.jsx';
+
+const metadata = {
+  title: 'Proyectos - AIRconsulting',
+  description: 'Descubre nuestros proyectos destacados en desarrollo web, marketing digital y diseño.',
+};
+
+const items = [
+  {
+    image: '/images/retorica.png',
+    previewImage: '/images/reto.jpg',
+    link: 'https://www.retorica.cl',
+    title: 'Retorica',
+    description: 'Un diseño que habla por sí mismo'
+  },
+  {
+    image: 'https://picsum.photos/400/400?grayscale',
+    previewImage: 'https://picsum.photos/400/400?grayscale',
+    link: 'https://google.com/',
+    title: 'Proyecto 2',
+    description: 'Descripción del proyecto 2'
+  },
+  {
+    image: 'https://picsum.photos/500/500?grayscale',
+    previewImage: 'https://picsum.photos/500/500?grayscale',
+    link: 'https://google.com/',
+    title: 'Proyecto 3',
+    description: 'Descripción del proyecto 3'
+  },
+  {
+    image: 'https://picsum.photos/600/600?grayscale',
+    previewImage: 'https://picsum.photos/600/600?grayscale',
+    link: 'https://google.com/',
+    title: 'Proyecto 4',
+    description: 'Descripción del proyecto 4'
+  },
+  {
+    image: 'https://picsum.photos/700/700?grayscale',
+    previewImage: 'https://picsum.photos/700/700?grayscale',
+    link: 'https://google.com/',
+    title: 'Proyecto 5',
+    description: 'Descripción del proyecto 5'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <div style={{ height: '100vh', position: 'relative' }}>
+    <InfiniteMenu items={items} client:load />
+  </div>
+</Layout>

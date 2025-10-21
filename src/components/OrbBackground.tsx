@@ -10,12 +10,13 @@ const OrbBackground = () => {
       width: '100%',
       height: '100%',
       zIndex: 0,
-      overflow: 'hidden'
+      overflow: 'hidden',
+      opacity: 0.3
     }}>
       <Orb
         hue={0}
-        hoverIntensity={0.2}
-        rotateOnHover={true}
+        hoverIntensity={0.1}
+        rotateOnHover={false}
         forceHoverState={false}
       />
     </div>
