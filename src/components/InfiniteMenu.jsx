@@ -567,6 +567,7 @@ class ArcballControl {
   }
 }
 
+
 class InfiniteGridMenu {
   TARGET_FRAME_DURATION = 1000 / 60;
   SPHERE_RADIUS = 2;
@@ -717,7 +718,11 @@ class InfiniteGridMenu {
       images.forEach((img, i) => {
         const x = (i % this.atlasSize) * cellSize;
         const y = Math.floor(i / this.atlasSize) * cellSize;
-        ctx.drawImage(img, x, y, cellSize, cellSize);
+        // Reduce primary image size by drawing at smaller dimensions
+        const reducedSize = cellSize * 0.7; // 70% of original size
+        const offsetX = (cellSize - reducedSize) / 2;
+        const offsetY = (cellSize - reducedSize) / 2;
+        ctx.drawImage(img, x + offsetX, y + offsetY, reducedSize, reducedSize);
       });
 
       gl.bindTexture(gl.TEXTURE_2D, this.tex);
@@ -902,18 +907,18 @@ class InfiniteGridMenu {
 const defaultItems = [
   {
     image: 'https://picsum.photos/900/900?grayscale',
+    previewImage: '',
     link: 'https://google.com/',
     title: '',
     description: ''
   }
 ];
 
-export default function InfiniteMenu({ items = [] }) {
+export default function InfiniteMenu({ items = defaultItems }) {
   const canvasRef = useRef(null);
   const sketchRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
   const [isMoving, setIsMoving] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -922,7 +927,6 @@ export default function InfiniteMenu({ items = [] }) {
     const handleActiveItem = index => {
       const itemIndex = index % items.length;
       setActiveItem(items[itemIndex]);
-      setCurrentIndex(itemIndex);
     };
 
     if (canvas) {
@@ -946,109 +950,30 @@ export default function InfiniteMenu({ items = [] }) {
     };
   }, [items]);
 
-  const handleButtonClick = () => {
-    if (!activeItem?.link) return;
-    if (activeItem.link.startsWith('http')) {
-      window.open(activeItem.link, '_blank');
-    } else {
-      console.log('Internal route:', activeItem.link);
-    }
-  };
 
-  const goToPrevious = () => {
-    const newIndex = (currentIndex - 1 + items.length) % items.length;
-    setCurrentIndex(newIndex);
-    setActiveItem(items[newIndex]);
-    // Trigger the snapping effect
-    if (sketchRef.current) {
-      const targetDirection = vec3.normalize(vec3.create(), sketchRef.current.instancePositions[newIndex]);
-      sketchRef.current.control.snapTargetDirection = targetDirection;
-    }
-  };
 
-  const goToNext = () => {
-    const newIndex = (currentIndex + 1) % items.length;
-    setCurrentIndex(newIndex);
-    setActiveItem(items[newIndex]);
-    // Trigger the snapping effect
-    if (sketchRef.current) {
-      const targetDirection = vec3.normalize(vec3.create(), sketchRef.current.instancePositions[newIndex]);
-      sketchRef.current.control.snapTargetDirection = targetDirection;
-    }
-  };
 
-  const handleCanvasClick = () => {
-    if (activeItem?.previewImage || activeItem?.image) {
-      // Create modal for image preview
-      const modal = document.createElement('div');
-      modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        cursor: pointer;
-      `;
-
-      const img = document.createElement('img');
-      img.src = activeItem.previewImage || activeItem.image;
-      img.style.cssText = `
-        max-width: 70vw;
-        max-height: 70vh;
-        object-fit: contain;
-      `;
-
-      modal.appendChild(img);
-      modal.addEventListener('click', () => {
-        document.body.removeChild(modal);
-      });
-
-      document.body.appendChild(modal);
-    }
-  };
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       <canvas
         id="infinite-grid-menu-canvas"
         ref={canvasRef}
-        onClick={handleCanvasClick}
-        style={{ cursor: (activeItem?.previewImage || activeItem?.image) ? 'pointer' : 'grab' }}
+        style={{ cursor: 'grab' }}
       />
 
       {activeItem && (
         <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
-
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
-
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon">&#x2197;</p>
+          <div className="text-content">
+            <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
+            <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>{activeItem.description}</p>
           </div>
 
-          {/* Navigation buttons */}
-          <button
-            onClick={goToPrevious}
-            className={`nav-button nav-button-prev ${isMoving ? 'inactive' : 'active'}`}
-            aria-label="Previous project"
-          >
-            ‹
-          </button>
 
-          <button
-            onClick={goToNext}
-            className={`nav-button nav-button-next ${isMoving ? 'inactive' : 'active'}`}
-            aria-label="Next project"
-          >
-            ›
-          </button>
+
         </>
       )}
+
     </div>
   );
 }
