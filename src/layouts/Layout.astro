@@ -11,7 +11,7 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
-import CustomCursor from '~/components/CustomCursor.tsx';
+// import CustomCursor from '~/components/CustomCursor.tsx'; // Removed custom cursor
 
 import { ClientRouter } from 'astro:transitions';
 
@@ -31,8 +31,13 @@ const { language, textDirection } = I18N;
     <!-- Critical meta tags first -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIR Consulting</title>
-    <meta name="description" content="Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="ES-CA">
+    <meta name="geo.placename" content="Cádiz">
+    <meta name="geo.position" content="36.5271;-6.2886">
+    <meta name="ICBM" content="36.5271, -6.2886">
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href}>
 
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +48,19 @@ const { language, textDirection } = I18N;
     <!-- Preload critical font -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Preload critical images for main page -->
+    <link rel="preload" as="image" href="/images/logo.png" type="image/png">
+    <link rel="preload" as="image" href="/images/profilecard.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="/images/codigo.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="/images/bgcode.jpg" type="image/jpeg">
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.pixabay.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    <link rel="dns-prefetch" href="//code.tidio.co">
 
     <!-- Inline critical CSS for above-the-fold content -->
     <style>
@@ -111,6 +129,21 @@ const { language, textDirection } = I18N;
       .fade-in.animate { opacity: 1; transform: translateY(0); }
       .slide-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.2s ease-out, transform 0.2s ease-out; }
       .slide-in-right.animate { opacity: 1; transform: translateX(0); }
+
+      /* Performance optimizations */
+      .loading-skeleton {
+        background: linear-gradient(90deg, #333 25%, #555 50%, #333 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      /* Preload critical content */
+      .hero-bg { background-image: url('/images/bgcode.jpg'); }
+      .hero-logo { background-image: url('/images/logo.png'); }
     </style>
 
     <!-- Non-critical resources -->
@@ -122,12 +155,22 @@ const { language, textDirection } = I18N;
     <Analytics />
     <CommonMeta />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AIR Consulting">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@airconsulting">
+    <meta property="twitter:creator" content="@airconsulting">
+
     <ClientRouter fallback="swap" />
   </head>
   <body class="antialiased text-page bg-page tracking-tight scroll-smooth">
     <slot />
     <BasicScripts />
-    <CustomCursor client:idle />
+    <!-- CustomCursor removed -->
 
     <!-- Load non-critical CSS after initial render -->
     <link rel="preload" as="style" href="/src/assets/styles/tailwind.css" onload="this.onload=null;this.rel='stylesheet'">

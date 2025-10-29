@@ -4,7 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import OrbBackground from '~/components/OrbBackground.tsx';
 import ServicesSection from '~/components/ServicesSection.tsx';
 import MagicBento from '~/components/MagicBento.jsx';
-import LetterGlitch from '~/components/LetterGlitch.jsx';
 import SplitText from '~/components/SplitText.tsx';
 import DomeGallery from '~/components/DomeGallery.jsx';
 import LogoLoop from '~/components/LogoLoop.tsx';
@@ -15,14 +14,14 @@ const handleAnimationComplete = () => {
 };
 
 const partnerLogos = [
-  { src: "/images/cnn.png", alt: "CNN", href: "https://cnn.com" },
-  { src: "/images/udi.png", alt: "UDI", href: "https://udi.cl/" },
-  { src: "/images/agenda.png", alt: "Agricola", href: "https://www.instagram.com/agenda_agricola/" },
-  { src: "/images/ucvtv.png", alt: "UCV TV", href: "https://ucvtv.cl/" },
-   { src: "/images/retorica.png", alt: "Retórica", href: "https://retorica.cl/" },
-    { src: "/images/chile.png", alt: "Gob Chile", href: "https://gob.cl/" },
-    { src: "/images/dmi.png", alt: "DMI", href: "https://www.instagram.com/dmiprojects/" },
-     { src: "/images/noticia.png", alt: "E.E.N", href: "https://www.instagram.com/estoesnoticiatv/" },
+  { src: "/images/cnn.png", alt: "CNN - Cadena internacional de noticias", href: "https://cnn.com" },
+  { src: "/images/udi.png", alt: "UDI - Unión Demócrata Independiente Chile", href: "https://udi.cl/" },
+  { src: "/images/agenda.png", alt: "Agenda Agrícola - Revista especializada en agricultura", href: "https://www.instagram.com/agenda_agricola/" },
+  { src: "/images/ucvtv.png", alt: "UCV TV - Universidad Católica de Valparaíso", href: "https://ucvtv.cl/" },
+    { src: "/images/retorica.png", alt: "Retórica - Agencia de marketing político", href: "https://retorica.cl/" },
+     { src: "/images/chile.png", alt: "Gobierno de Chile - Portal oficial", href: "https://gob.cl/" },
+     { src: "/images/dmi.png", alt: "DMI Projects - Empresa de proyectos", href: "https://www.instagram.com/dmiprojects/" },
+      { src: "/images/noticia.png", alt: "Esto es Noticia TV - Canal de noticias", href: "https://www.instagram.com/estoesnoticiatv/" },
 ];
 
 
@@ -31,11 +30,36 @@ const metadata = {
   ignoreTitleTemplate: true,
   description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!',
   keywords: ['agencia marketing digital Cádiz', 'desarrollo web Cádiz', 'SEO Cádiz', 'redes sociales Cádiz', 'agencia de marketing para empresas en Chile', 'servicios de SEO internacional para Latinoamérica', 'desarrollo web para empresas de logística', 'estrategia digital para medios de comunicación', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager'],
+  openGraph: {
+    title: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting',
+    description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados.',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'AIR Consulting - Agencia de Marketing Digital'
+      }
+    ],
+    type: 'website',
+    locale: 'es_ES'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agencia de Marketing Digital | AIRconsulting',
+    description: 'Transformamos negocios en Cádiz y el mundo con estrategias de SEO y diseño web.',
+    images: ['/images/logo.png'],
+    handle: '@airconsulting',
+    site: '@airconsulting'
+  }
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- StaggeredMenu removed -->
+  <!-- Performance meta tags -->
+  <meta http-equiv="Cache-Control" content="max-age=31536000">
+  <meta name="turbo-cache-control" content="max-age=31536000">
+  <link rel="canonical" href="https://airconsulting.es/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,7 +101,56 @@ const metadata = {
     },
     "sameAs": [
       "https://www.linkedin.com/in/andres-irigoyen"
-    ]
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de AIR Consulting",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Desarrollo Web",
+            "description": "Sitios web modernos, responsivos y optimizados para SEO"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Marketing Digital",
+            "description": "Estrategias integrales de marketing online y gestión de redes sociales"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO",
+            "description": "Optimización para motores de búsqueda y posicionamiento web"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AIR Consulting",
+    "url": "https://airconsulting.es",
+    "description": "Agencia de marketing digital especializada en desarrollo web, SEO y estrategias digitales para España y Latinoamérica",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIR Consulting"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://airconsulting.es/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
   <section id="inicio" class="relative h-screen overflow-hidden bg-black">
@@ -112,7 +185,7 @@ const metadata = {
             client:load
           />
           <p class="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 drop-shadow-lg slide-in-up text-center max-w-4xl mx-auto leading-relaxed">
-            Desarrollo Web • Marketing Digital • SEO • Redes Sociales • Consultoría Estratégica
+            Desarrollo Web • Marketing Digital • SEO • Redes Sociales • Consultoría Estratégica • Agencia de Marketing Cádiz
           </p>
         </div>
       </div>
@@ -127,10 +200,10 @@ const metadata = {
   <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Partners</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Partners Estratégicos</h2>
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
-          Colaboramos con las mejores empresas.
-        </p>
+           Colaboramos con las mejores empresas de España y Latinoamérica en proyectos de marketing digital y desarrollo web.
+         </p>
       </div>
       <div style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
         <LogoLoop
@@ -155,9 +228,9 @@ const metadata = {
   <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Una Metodología Integral</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Metodología de Trabajo AIR Consulting</h2>
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
-          Dividimos la complejidad en componentes estratégicos para garantizar resultados medibles.
+          Nuestra metodología integral combina estrategia digital, desarrollo web profesional y marketing de resultados para empresas en España y Latinoamérica.
         </p>
       </div>
       <MagicBento
@@ -178,7 +251,7 @@ const metadata = {
 
   <!-- Text Mask CTA Section -->
   <section id="casos-exito" class="relative pt-24 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"></div>
+    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');" role="img" aria-label="Fondo de código de programación representando desarrollo web"></div>
     <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 text-center">Resultados que Hablan por Sí Mismos</h2>
     <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
@@ -201,149 +274,31 @@ const metadata = {
   <DomeGallery client:load />
 </section>
 
-<!-- Parte 3: El Fundador - Final del flujo -->
-<section class="relative pt-36 pb-32 fade-in-section overflow-hidden slide-and-fade-reveal">
-<!-- LetterGlitch Background -->
-<div class="absolute inset-0 z-0">
-  <LetterGlitch
-    glitchSpeed={50}
-    centerVignette={true}
-    outerVignette={false}
-    smooth={true}
-  />
-</div>
 
-<!-- Darkening layer for readability -->
-<div class="absolute inset-0 bg-black/20 z-10"></div>
-
-  <!-- Animated background particles -->
-  <div class="absolute inset-0 z-15">
-    <div class="particle particle-6"></div>
-    <div class="particle particle-7"></div>
-    <div class="particle particle-8"></div>
-    <div class="particle particle-9"></div>
-    <div class="particle particle-10"></div>
-  </div>
-
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">La Mente Detrás del Código</h2>
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose">Toda gran estrategia necesita un rostro. Conoce a la persona que impulsa la visión y los resultados en AIR Consulting.</p>
-      </div>
-      <div class="founder-layout">
-        <!-- Mobile: Text first, then Card. Desktop: Card left, Text right -->
-        <div class="text-section order-1 md:order-2">
-          <div class="aurora-bg" id="aurora-bg"></div>
-          <div class="founder-text">
-            <h2 class="founder-name">Andrés Irigoyen R.</h2>
-            <p class="founder-title">Fundador & Estratega Digital</p>
-          </div>
-        </div>
-
-        <div class="contact-card order-2 md:order-1">
-          <div class="contact-card-content">
-            <img
-              src="/images/profilecard.jpg"
-              alt="Andrés Irigoyen - Fundador de AIR Consulting"
-              class="portrait-image"
-              loading="lazy"
-            />
-            <div class="contact-bar">
-              <div class="contact-avatar">
-                <img
-                  src="/images/profilecard.jpg"
-                  alt="Andrés Irigoyen mini avatar"
-                  loading="lazy"
-                />
-              </div>
-              <div class="contact-info">
-                <div class="contact-handle">@andresirigoyen</div>
-                <div class="contact-status">Online</div>
-              </div>
-              <button
-                class="contact-button"
-                type="button"
-                aria-label="Contact Andrés Irigoyen"
-              >
-                Contactar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Text Mask CTA Section -->
-  <section class="relative pt-44 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask'); -webkit-mask: url('#text-mask');"></div>
-    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 text-center">Hablemos de tu Proyecto</h2>
-      <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
-        Cuéntanos tu idea y te ayudaremos a llevar tu empresa al siguiente nivel con resultados medibles.
-      </p>
-    </div>
-    <!-- SVG Mask Definition -->
-    <svg width="0" height="0">
-      <defs>
-        <mask id="text-mask">
-          <rect width="100%" height="100%" fill="black"/>
-          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">HABLEMOS DE DATOS</text>
-        </mask>
-      </defs>
-    </svg>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contacto" class="pt-32 pb-24 lg:pt-44 lg:pb-40 bg-gray-100 fade-in-section">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center mb-6 slide-in-up">Hablemos de tu proyecto</h2>
-      <p class="text-gray-600 text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-12 lg:mb-16 slide-in-up">
-        Envíanos tu idea y hagámosla realidad.
-      </p>
-      <div id="contact-form" class="bg-white p-6 lg:p-8 rounded-lg shadow-lg slide-in-up">
-        <form id="contact-form-element" name="contact" class="space-y-4 lg:space-y-6">
-          <input type="hidden" name="form-name" value="contact" />
-          <div style="display:none;">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-          </div>
-          <div>
-            <label for="servicio" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">¿Qué tipo de proyecto te interesa?</label>
-            <select id="servicio" name="servicio" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]">
-              <option value="">Selecciona el servicio que buscas</option>
-              <option>Desarrollo Web</option>
-              <option>Gestión de Redes Sociales</option>
-              <option>SEO</option>
-              <option>Marketing Digital</option>
-              <option>Consultoría Digital</option>
-              <option>Otros</option>
-            </select>
-          </div>
-          <div>
-            <label for="name" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Nombre</label>
-            <input type="text" name="name" id="name" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" />
-          </div>
-          <div>
-            <label for="email" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Email</label>
-            <input type="email" name="email" id="email" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]" />
-            <span id="email-error" class="text-red-500 text-sm"></span>
-          </div>
-          <div>
-            <label for="message" class="block text-gray-700 mb-2 lg:mb-3 font-semibold text-base lg:text-lg">Mensaje</label>
-            <textarea name="message" id="message" required class="w-full p-3 lg:p-4 border border-gray-300 text-gray-900 rounded-md h-32 lg:h-40 focus:outline-none focus:ring-2 focus:ring-orange-500 text-base lg:text-lg min-h-[44px]"></textarea>
-          </div>
-          <div id="form-messages" class="text-center"></div>
-          <div class="text-center">
-            <button type="submit" id="submit-btn" class="px-8 lg:px-10 py-3 lg:py-4 bg-black border-2 border-white text-white font-bold rounded-full transition-all duration-300 shadow-md text-base lg:text-lg min-h-[48px] min-w-[48px] flex items-center justify-center w-4/5 max-w-xs mx-auto hover:bg-white hover:text-black hover:border-black">Enviar solicitud</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
 
   <script>
+    // Performance optimizations for main page
+    // Preload critical components
+    const preloadCriticalResources = () => {
+      // Preload images that will be needed
+      const imagesToPreload = [
+        '/images/profilecard.jpg',
+        '/images/codigo.jpg',
+        '/images/bgcode.jpg',
+        '/images/logo.png'
+      ];
+
+      imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
+      // Preload critical components
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
+    };
+
     // Intersection Observer for scroll animations - Optimized
     const observerOptions = {
       threshold: 0.15,
@@ -358,8 +313,31 @@ const metadata = {
       });
     }, observerOptions);
 
+    // Cache management for faster reloads
+    const setupCaching = () => {
+      // Cache critical content in sessionStorage
+      if (typeof sessionStorage !== 'undefined') {
+        const cacheKey = 'air-mainpage-cache';
+        const cached = sessionStorage.getItem(cacheKey);
+
+        if (!cached) {
+          // Store critical content for faster reloads
+          const criticalContent = {
+            timestamp: Date.now(),
+            heroLoaded: false,
+            servicesLoaded: false
+          };
+          sessionStorage.setItem(cacheKey, JSON.stringify(criticalContent));
+        }
+      }
+    };
+
     // Observe all elements with animation classes
     document.addEventListener('DOMContentLoaded', () => {
+      // Initialize performance optimizations
+      preloadCriticalResources();
+      setupCaching();
+
       const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .fade-in-up, .fade-in-section, .zoom-in, .slide-and-fade-reveal');
       animatedElements.forEach(el => observer.observe(el));
 

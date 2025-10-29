@@ -37,6 +37,7 @@ const SplitText: React.FC<SplitTextProps> = ({
   tag = 'p',
   onLetterAnimationComplete
 }) => {
+  console.log('SplitText component rendering');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
   const animationCompletedRef = useRef(false);

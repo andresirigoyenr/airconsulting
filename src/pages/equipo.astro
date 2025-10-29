@@ -1,0 +1,386 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ProfileCard from '~/components/ProfileCard.jsx';
+
+const metadata = {
+  title: 'Equipo | AIR Consulting - Conoce Nuestro Equipo',
+  description: 'Conoce al equipo detrás de AIR Consulting. Andrés Irigoyen y su experiencia en marketing digital, desarrollo web y estrategias digitales para España y Latinoamérica.',
+  keywords: ['equipo AIR Consulting', 'Andrés Irigoyen', 'fundador agencia marketing', 'equipo desarrollo web Cádiz', 'consultores digitales España'],
+  openGraph: {
+    title: 'Equipo | AIR Consulting - Conoce Nuestro Equipo',
+    description: 'Conoce al equipo detrás de AIR Consulting. Andrés Irigoyen y su experiencia en marketing digital.',
+    images: [
+      {
+        url: '/images/profilecard.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Equipo AIR Consulting - Andrés Irigoyen'
+      }
+    ],
+    type: 'website',
+    locale: 'es_ES'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Equipo | AIR Consulting',
+    description: 'Conoce al equipo detrás de AIR Consulting.',
+    images: ['/images/profilecard.jpg'],
+    handle: '@airconsulting',
+    site: '@airconsulting'
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <link rel="canonical" href="https://airconsulting.es/equipo">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Andrés Irigoyen",
+      "jobTitle": "Fundador y Estratega Digital",
+      "description": "Con más de 8 años de experiencia en el mundo digital, Andrés fundó AIR Consulting con la visión de democratizar el acceso a estrategias digitales efectivas para empresas de todos los tamaños.",
+      "image": "https://airconsulting.es/images/profilecard.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/andres-irigoyen"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "AIR Consulting",
+        "url": "https://airconsulting.es"
+      },
+      "knowsAbout": [
+        "Marketing Digital",
+        "SEO",
+        "Desarrollo Web",
+        "Estrategias Digitales",
+        "Transformación Digital"
+      ]
+    }
+  }
+  </script>
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 overflow-hidden bg-black">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-black"></div>
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+        Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Equipo</span>
+      </h1>
+      <p class="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+        Las personas detrás de las estrategias que transforman negocios
+      </p>
+    </div>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="relative py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Fundador</h2>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          La visión y experiencia que impulsa AIR Consulting
+        </p>
+      </div>
+
+      <div class="founder-layout">
+        <div class="contact-card">
+          <ProfileCard
+            avatarUrl="/images/profilecard.jpg"
+            name="Andrés Irigoyen"
+            title="Fundador y Estratega Digital"
+            handle="@andresirigoyen"
+            status="Online"
+            contactText="Contactar"
+            behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)"
+            innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+            miniAvatarUrl="/images/profilecard.jpg"
+            onContactClick={() => window.open('mailto:info@airconsulting.es', '_blank')}
+            client:load
+            aria-label="Perfil de Andrés Irigoyen, fundador de AIR Consulting"
+          />
+        </div>
+        <div class="text-section">
+          <div id="aurora-bg" class="aurora-bg"></div>
+          <div class="founder-text">
+            <h3 class="founder-name">Andrés Irigoyen R.</h3>
+            <p class="founder-title">Fundador & Estratega Digital</p>
+            <div class="founder-description mt-6 text-gray-300 leading-relaxed">
+              <p class="mb-4">
+                Con más de 8 años de experiencia en el mundo digital, Andrés fundó AIR Consulting con la visión de democratizar el acceso a estrategias digitales efectivas para empresas de todos los tamaños.
+              </p>
+              <p class="mb-4">
+                Su experiencia internacional, trabajando tanto en España como en Chile, le ha permitido desarrollar un enfoque único que combina creatividad, tecnología y resultados medibles.
+              </p>
+              <p>
+                Especialista en transformación digital, marketing internacional y desarrollo de estrategias que cruzan fronteras.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Skills Section -->
+  <section class="relative py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Experience -->
+        <div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mb-8">Experiencia Profesional</h3>
+          <div class="space-y-6">
+            <div class="bg-black/30 p-6 rounded-lg border border-gray-700">
+              <h4 class="text-xl font-semibold text-white mb-2">Fundador & CEO</h4>
+              <p class="text-purple-400 mb-2">AIR Consulting (2020 - Presente)</p>
+              <p class="text-gray-300">Liderando estrategias digitales para empresas en España y Latinoamérica, especializándome en transformación digital y marketing internacional.</p>
+            </div>
+            <div class="bg-black/30 p-6 rounded-lg border border-gray-700">
+              <h4 class="text-xl font-semibold text-white mb-2">Consultor Digital Senior</h4>
+              <p class="text-purple-400 mb-2">Empresas Internacionales (2018 - 2020)</p>
+              <p class="text-gray-300">Desarrollo de estrategias de marketing digital para compañías multinacionales, con foco en mercados emergentes.</p>
+            </div>
+            <div class="bg-black/30 p-6 rounded-lg border border-gray-700">
+              <h4 class="text-xl font-semibold text-white mb-2">Desarrollador Web Full-Stack</h4>
+              <p class="text-purple-400 mb-2">Agencias Digitales (2016 - 2018)</p>
+              <p class="text-gray-300">Creación de soluciones web personalizadas y plataformas e-commerce para diversos sectores industriales.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mb-8">Especialidades</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-gradient-to-br from-purple-600/20 to-blue-600/20 p-4 rounded-lg border border-purple-500/30">
+              <h4 class="text-lg font-semibold text-white mb-2">SEO & SEM</h4>
+              <p class="text-gray-300 text-sm">Optimización para motores de búsqueda y estrategias de pago por clic.</p>
+            </div>
+            <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 p-4 rounded-lg border border-blue-500/30">
+              <h4 class="text-lg font-semibold text-white mb-2">Desarrollo Web</h4>
+              <p class="text-gray-300 text-sm">Sitios web modernos, rápidos y optimizados para conversión.</p>
+            </div>
+            <div class="bg-gradient-to-br from-cyan-600/20 to-green-600/20 p-4 rounded-lg border border-cyan-500/30">
+              <h4 class="text-lg font-semibold text-white mb-2">Marketing Digital</h4>
+              <p class="text-gray-300 text-sm">Estrategias integrales de marketing online y gestión de redes sociales.</p>
+            </div>
+            <div class="bg-gradient-to-br from-green-600/20 to-purple-600/20 p-4 rounded-lg border border-green-500/30">
+              <h4 class="text-lg font-semibold text-white mb-2">Consultoría Estratégica</h4>
+              <p class="text-gray-300 text-sm">Análisis de mercado y desarrollo de planes estratégicos personalizados.</p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h4 class="text-xl font-semibold text-white mb-4">Idiomas</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-sm border border-purple-500/30">Español (Nativo)</span>
+              <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-sm border border-blue-500/30">Inglés (Avanzado)</span>
+              <span class="bg-green-600/20 text-green-300 px-3 py-1 rounded-full text-sm border border-green-500/30">Portugués (Intermedio)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="relative py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="text-center md:text-left">
+          <h3 class="text-3xl font-bold text-white mb-6">Misión</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Democratizar el acceso a estrategias digitales efectivas, ayudando a empresas de todos los tamaños a competir en el mundo digital con herramientas profesionales y resultados medibles.
+          </p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="text-3xl font-bold text-white mb-6">Visión</h3>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Ser el puente entre la innovación tecnológica y el crecimiento empresarial, conectando España con Latinoamérica a través de soluciones digitales que transforman negocios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="relative py-20 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="text-3xl sm:text-4xl font-bold text-white mb-6">¿Listo para trabajar juntos?</h3>
+      <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+        Conoce mi experiencia y cómo puedo ayudar a tu empresa a crecer en el mundo digital.
+      </p>
+      <a href="mailto:info@airconsulting.es" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+        Contactar Ahora
+      </a>
+    </div>
+  </section>
+
+  <style>
+    /* Founder Section Styles */
+    .founder-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .founder-layout {
+        flex-direction: row;
+        gap: 4rem;
+        padding: 0 2rem;
+      }
+    }
+
+    .contact-card {
+      flex: 0 0 400px;
+      position: relative;
+    }
+
+    .text-section {
+      flex: 1;
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .aurora-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 255, 170, 0.3) 0%, rgba(0, 193, 255, 0.2) 25%, rgba(193, 0, 255, 0.15) 50%, rgba(255, 0, 193, 0.1) 75%, transparent 100%);
+      filter: blur(120px);
+      animation: aurora-breathe 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes aurora-breathe {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .founder-text {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .founder-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: white;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .founder-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .founder-description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .founder-layout {
+        gap: 2rem;
+        padding: 0 1rem;
+      }
+
+      .contact-card {
+        flex: 0 0 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .founder-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+      }
+
+      .contact-card {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .text-section {
+        text-align: center;
+        min-height: auto;
+        padding: 1rem 0;
+      }
+
+      .aurora-bg {
+        display: none;
+      }
+
+      .founder-text {
+        margin-top: 0;
+      }
+
+      .founder-name {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .founder-title {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: 0;
+      }
+
+      .founder-description {
+        font-size: 1rem;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .founder-layout {
+        padding: 0 0.5rem;
+        gap: 1rem;
+      }
+
+      .contact-card {
+        max-width: 280px;
+      }
+
+      .founder-name {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        margin-bottom: 0.3rem;
+      }
+
+      .founder-title {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
+      }
+    }
+  </style>
+</Layout>

@@ -84,6 +84,7 @@ const serviceData: Record<string, ServiceData> = {
 };
 
 const ServicesSection: React.FC = () => {
+  console.log('ServicesSection component rendering');
   const [activeService, setActiveService] = useState<string>('web');
 
   const handleServiceClick = (service: string) => {
@@ -100,19 +101,27 @@ const ServicesSection: React.FC = () => {
           {/* Left Side: Navigation (30%) */}
           <div className="lg:col-span-4 slide-in-left">
             <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Nuestros Servicios
+              Estrategia Digital
             </motion.h2>
+            <motion.p
+              className="text-xl text-gray-400 font-medium mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Rendimiento • Escalabilidad • Resultados
+            </motion.p>
             <div className="space-y-4">
               {Object.entries(serviceData).map(([key, data], index) => (
                 <motion.div
                   key={key}
                   className={`service-nav-item cursor-pointer p-4 rounded-lg transition-all duration-300 relative ${
-                    activeService === key ? 'bg-orange-500/10 border-l-4 border-orange-500' : 'hover:bg-orange-500/5'
+                    activeService === key ? '' : 'hover:bg-orange-500/5'
                   }`}
                   onClick={() => handleServiceClick(key)}
                   whileHover={{ scale: 1.02 }}
@@ -121,21 +130,17 @@ const ServicesSection: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <motion.div
-                    layoutId="active-nav-highlight"
-                    className="absolute inset-0 bg-orange-500/10 border-l-4 border-orange-500 rounded-lg"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    style={{ opacity: activeService === key ? 1 : 0 }}
-                  />
-                  <div className="flex items-center space-x-4 relative z-10">
+                  <span className={`absolute left-0 top-0 h-full w-1 transition-all duration-300 ${
+                    activeService === key ? 'bg-orange-500' : 'bg-transparent'
+                  }`} />
+                  <div className="flex items-center space-x-4 relative z-10 pl-2">
                     <span className={`text-2xl font-bold transition-colors duration-300 ${
-                      activeService === key ? 'text-orange-500' : 'text-gray-400 hover:text-orange-400'
+                      activeService === key ? 'text-white' : 'text-gray-400'
                     }`}>
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <span className={`text-lg md:text-xl transition-colors duration-300 ${
-                      activeService === key ? 'text-white' : 'text-gray-300 hover:text-white'
+                      activeService === key ? 'text-white' : 'text-gray-300'
                     }`}>
                       {data.title}
                     </span>

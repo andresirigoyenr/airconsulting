@@ -1,58 +1,66 @@
 ---
 
 
-const currentLocale = Astro.currentLocale;
-const isEnglish = currentLocale === 'en';
 
-const navItems = isEnglish ? [
-  { href: '#about', text: 'ABOUT US' },
-  { href: '#services', text: 'SERVICES' },
-  { href: '#case-studies', text: 'CASE STUDIES' },
-  { href: '/blog', text: 'BLOG' },
-] : [
-  { href: '#sobre-nosotros', text: 'SOBRE NOSOTROS' },
-  { href: '#servicios', text: 'SERVICIOS' },
-  { href: '#casos-exito', text: 'CASOS DE ÉXITO' },
-  { href: '/blog', text: 'BLOG' },
-];
 ---
 
-<header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md">
+<header id="header" class="fixed top-0 left-0 w-full z-50">
+  <!-- Top Bar - Logo Section -->
+  <div class="bg-black/95 backdrop-blur-md border-b border-gray-800/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex items-center justify-between py-4 md:py-8">
-        <a href="/" class="flex items-center" id="logo-link">
-          <img src="/images/logo.png" alt="AIRconsulting - Agencia de marketing digital en Cádiz" class="h-16 md:h-20 w-auto animate-fade-in" />
+      <div class="flex items-center justify-center py-3">
+        <a href="/" class="flex items-center" id="logo-link" title="AIR Consulting - Agencia de marketing digital en Cádiz">
+          <img src="/images/logo.png" alt="AIRconsulting - Agencia de marketing digital en Cádiz" class="h-12 md:h-16 w-auto animate-fade-in" />
         </a>
-
-       <!-- Desktop Navigation -->
-       <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
-         {navItems.map((item) => (
-           <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-lg lg:text-xl font-light tracking-wider">{item.text}</a>
-         ))}
-         <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg lg:text-xl">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
-       </nav>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white p-3 hover:bg-white/10 rounded-lg transition-colors duration-200" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-md hidden z-50 flex items-center justify-center">
-        <div class="flex flex-col space-y-6 text-center px-6">
-          {navItems.map((item) => (
-            <a href={item.href} class="text-gray-300 hover:text-orange-400 hover:underline transition-all duration-300 uppercase text-lg font-light tracking-wider py-2" onclick="closeMobileMenu()">{item.text}</a>
-          ))}
-          <a href={isEnglish ? '/' : '/en'} class="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-xl py-2" onclick="closeMobileMenu()">{isEnglish ? '🇪🇸' : '🇺🇸'}</a>
-        </div>
       </div>
-
     </div>
-
   </div>
 
+  <!-- Bottom Bar - Navigation Section -->
+  <div class="bg-black/90 backdrop-blur-md border-b border-gray-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between py-3">
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+          <a href="/" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm lg:text-base font-medium tracking-wide" data-target="/" title="Inicio - AIR Consulting">Inicio</a>
+          <a href="#servicios" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm lg:text-base font-medium tracking-wide" data-target="#servicios" title="Servicios de marketing digital">Servicios</a>
+          <a href="/portafolio" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm lg:text-base font-medium tracking-wide" data-target="/portafolio" title="Portafolio de proyectos">Portafolio</a>
+          <a href="/equipo" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm lg:text-base font-medium tracking-wide" data-target="/equipo" title="Conoce nuestro equipo">Equipo</a>
+          <a href="#contacto" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-sm lg:text-base font-medium tracking-wide" data-target="#contacto" title="Contacta con nosotros">Contacto</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="/trabaja-con-nosotros" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full font-medium text-sm hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105">
+            Trabaja con nosotros
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200" aria-label="Abrir menú">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/98 backdrop-blur-md hidden z-50 flex items-center justify-center">
+    <div class="flex flex-col space-y-8 text-center px-6">
+      <a href="/" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg font-medium tracking-wide py-2" onclick="closeMobileMenu()" data-target="/" title="Inicio - AIR Consulting">Inicio</a>
+      <a href="#servicios" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg font-medium tracking-wide py-2" onclick="closeMobileMenu()" data-target="#servicios" title="Servicios de marketing digital">Servicios</a>
+      <a href="/portafolio" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg font-medium tracking-wide py-2" onclick="closeMobileMenu()" data-target="/portafolio" title="Portafolio de proyectos">Portafolio</a>
+      <a href="/equipo" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg font-medium tracking-wide py-2" onclick="closeMobileMenu()" data-target="/equipo" title="Conoce nuestro equipo">Equipo</a>
+      <a href="#contacto" class="nav-link text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg font-medium tracking-wide py-2" onclick="closeMobileMenu()" data-target="#contacto" title="Contacta con nosotros">Contacto</a>
+      <div class="pt-4 border-t border-gray-700">
+        <a href="/trabaja-con-nosotros" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-medium text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 inline-block" onclick="closeMobileMenu()">
+          Trabaja con nosotros
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -86,12 +94,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Logo click to refresh page
+  // Smart navigation logic
+  const navLinks = document.querySelectorAll('.nav-link') as NodeListOf<HTMLAnchorElement>;
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = link.getAttribute('data-target');
+      if (!target) return;
+
+      // If it's an anchor link (starts with #)
+      if (target.startsWith('#')) {
+        // If we're not on the home page, redirect to home page with anchor
+        if (window.location.pathname !== '/') {
+          e.preventDefault();
+          window.location.href = '/' + target;
+        }
+        // If we're on home page, let the default anchor behavior work
+      }
+      // If it's a page link, let it work normally
+    });
+  });
+
+  // Logo click to go home
   const logoLink = document.getElementById('logo-link') as HTMLAnchorElement | null;
   if (logoLink) {
     logoLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.reload();
+      if (window.location.pathname !== '/') {
+        // If not on home page, prevent default and redirect
+        e.preventDefault();
+        window.location.href = '/';
+      }
+      // If on home page, let default behavior work
     });
   }
 });

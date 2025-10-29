@@ -2,6 +2,7 @@ import React from 'react';
 import Orb from './Orb';
 
 const OrbBackground = () => {
+  console.log('OrbBackground component rendering');
   return (
     <div style={{
       position: 'absolute',

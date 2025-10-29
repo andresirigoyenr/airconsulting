@@ -1,34 +1,37 @@
 site:
-  name: Retórica
-  site: 'https://www.retorica.cl'
+  name: AIR Consulting
+  site: 'http://airconsulting.vercel.app'
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId:  # Add if you have one
+  googleSiteVerificationId:  Add your Google Search Console verification code
 
 # Default SEO metadata
 metadata:
   title:
-    default: Retórica - Eventos y Marketing
-    template: '%s | Retórica'
-  description: "Retórica: Especialistas en eventos exclusivos, festivales, fiestas, graduaciones y marketing de alto impacto. Crea experiencias inolvidables con nosotros."
+    default: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting'
+    template: '%s | AIR Consulting'
+  description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!'
+  keywords: ['agencia marketing digital Cádiz', 'desarrollo web Cádiz', 'SEO Cádiz', 'redes sociales Cádiz', 'agencia de marketing para empresas en Chile', 'servicios de SEO internacional para Latinoamérica', 'desarrollo web para empresas de logística', 'estrategia digital para medios de comunicación', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager']
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Retórica
+    site_name: AIR Consulting
     images:
-      - url: '/images/1.png'
+      - url: '/images/logo.png'
         width: 1200
         height: 628
+        alt: 'AIR Consulting - Agencia de Marketing Digital'
     type: website
+    locale: es_ES
   twitter:
-    handle: '@retorica'  # Update with actual handle
-    site: '@retorica'
+    handle: '@airconsulting'  # Update with actual handle
+    site: '@airconsulting'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: es
   textDirection: ltr
 
 apps:
