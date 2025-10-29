@@ -7,16 +7,24 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
+      text: 'Nosotros',
+      href: getPermalink('/#nosotros'),
+    },
+    {
       text: 'Servicios',
       href: getPermalink('/#servicios'),
     },
     {
-      text: 'Equipo',
-      href: getPermalink('/equipo'),
+      text: 'Portafolio',
+      href: getPermalink('/#portafolio'),
     },
     {
-      text: 'Portafolio',
-      href: getPermalink('/portafolio'),
+      text: 'Testimonios',
+      href: getPermalink('/#testimonios'),
+    },
+    {
+      text: 'Equipo',
+      href: getPermalink('/equipo'),
     },
     {
       text: 'Blog',

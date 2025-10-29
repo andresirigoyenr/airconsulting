@@ -84,7 +84,6 @@ const serviceData: Record<string, ServiceData> = {
 };
 
 const ServicesSection: React.FC = () => {
-  console.log('ServicesSection component rendering');
   const [activeService, setActiveService] = useState<string>('web');
 
   const handleServiceClick = (service: string) => {

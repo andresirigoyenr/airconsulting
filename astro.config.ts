@@ -85,36 +85,36 @@ export default defineConfig({
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
   },
   vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              if (id.includes('react') || id.includes('framer-motion')) {
-                return 'react-vendor';
-              }
-              if (id.includes('astro')) {
-                return 'astro-vendor';
-              }
-              return 'vendor';
-            }
-            if (id.includes('components/AnimatedCodeBackground')) {
-              return 'animated-bg';
-            }
-            if (id.includes('components/ProcessSection') || id.includes('components/ServicesSection')) {
-              return 'sections';
-            }
-          },
-        },
-      },
-    },
-    resolve: {
-      alias: {
-        '~': path.resolve(__dirname, './src'),
-      },
-    },
-    optimizeDeps: {
-      include: ['framer-motion'],
-    },
-  },
+   build: {
+     rollupOptions: {
+       output: {
+         manualChunks: (id) => {
+           if (id.includes('node_modules')) {
+             if (id.includes('react') || id.includes('framer-motion')) {
+               return 'react-vendor';
+             }
+             if (id.includes('astro')) {
+               return 'astro-vendor';
+             }
+             return 'vendor';
+           }
+           if (id.includes('components/AnimatedCodeBackground')) {
+             return 'animated-bg';
+           }
+           if (id.includes('components/ProcessSection') || id.includes('components/ServicesSection')) {
+             return 'sections';
+           }
+         },
+       },
+     },
+   },
+   resolve: {
+     alias: {
+       '~': path.resolve(__dirname, './src'),
+     },
+   },
+   optimizeDeps: {
+     include: ['framer-motion', 'gsap', '@gsap/react', 'ogl', '@use-gesture/react'],
+   },
+ },
 });

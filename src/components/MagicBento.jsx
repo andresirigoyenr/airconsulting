@@ -520,7 +520,6 @@ const MagicBento = ({
   clickEffect = true,
   enableMagnetism = true
 }) => {
-  console.log('MagicBento component rendering');
   const gridRef = useRef(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;

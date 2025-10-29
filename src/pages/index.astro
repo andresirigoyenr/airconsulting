@@ -1,5 +1,4 @@
 ---
-
 import Layout from '~/layouts/PageLayout.astro';
 import OrbBackground from '~/components/OrbBackground.tsx';
 import ServicesSection from '~/components/ServicesSection.tsx';
@@ -7,6 +6,10 @@ import MagicBento from '~/components/MagicBento.jsx';
 import SplitText from '~/components/SplitText.tsx';
 import DomeGallery from '~/components/DomeGallery.jsx';
 import LogoLoop from '~/components/LogoLoop.tsx';
+import TestimonialsSection from '~/components/TestimonialsSection.tsx';
+import AboutSection from '~/components/AboutSection.tsx';
+import PortfolioSection from '~/components/PortfolioSection.tsx';
+import ContactSection from '~/components/ContactSection.tsx';
 import '~/components/MagicBento.css';
 
 const handleAnimationComplete = () => {
@@ -18,12 +21,11 @@ const partnerLogos = [
   { src: "/images/udi.png", alt: "UDI - Unión Demócrata Independiente Chile", href: "https://udi.cl/" },
   { src: "/images/agenda.png", alt: "Agenda Agrícola - Revista especializada en agricultura", href: "https://www.instagram.com/agenda_agricola/" },
   { src: "/images/ucvtv.png", alt: "UCV TV - Universidad Católica de Valparaíso", href: "https://ucvtv.cl/" },
-    { src: "/images/retorica.png", alt: "Retórica - Agencia de marketing político", href: "https://retorica.cl/" },
-     { src: "/images/chile.png", alt: "Gobierno de Chile - Portal oficial", href: "https://gob.cl/" },
-     { src: "/images/dmi.png", alt: "DMI Projects - Empresa de proyectos", href: "https://www.instagram.com/dmiprojects/" },
-      { src: "/images/noticia.png", alt: "Esto es Noticia TV - Canal de noticias", href: "https://www.instagram.com/estoesnoticiatv/" },
+  { src: "/images/retorica.png", alt: "Retórica - Agencia de marketing político", href: "https://retorica.cl/" },
+  { src: "/images/chile.png", alt: "Gobierno de Chile - Portal oficial", href: "https://gob.cl/" },
+  { src: "/images/dmi.png", alt: "DMI Projects - Empresa de proyectos", href: "https://www.instagram.com/dmiprojects/" },
+  { src: "/images/noticia.png", alt: "Esto es Noticia TV - Canal de noticias", href: "https://www.instagram.com/estoesnoticiatv/" },
 ];
-
 
 const metadata = {
   title: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting',
@@ -56,7 +58,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Performance meta tags -->
   <meta http-equiv="Cache-Control" content="max-age=31536000">
   <meta name="turbo-cache-control" content="max-age=31536000">
   <link rel="canonical" href="https://airconsulting.es/">
@@ -154,17 +155,12 @@ const metadata = {
   }
   </script>
   <section id="inicio" class="relative h-screen overflow-hidden bg-black">
-    <!-- Orb Background -->
     <div class="absolute inset-0 z-0">
-      <OrbBackground client:load />
+      <OrbBackground client:visible />
     </div>
-    <!-- Capa de oscurecimiento -->
     <div class="absolute inset-0 bg-black/40 z-10"></div>
-    <!-- Gradiente de transición -->
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black z-20"></div>
 
-
-    <!-- Contenido del Hero -->
     <div class="relative z-20 flex items-center h-screen px-4 sm:px-6 py-20 md:py-0">
       <div class="max-w-7xl mx-auto w-full">
         <div class="flex flex-col justify-center items-center text-center fade-in">
@@ -182,7 +178,7 @@ const metadata = {
             rootMargin="-50px"
             textAlign="center"
             onLetterAnimationComplete={handleAnimationComplete}
-            client:load
+            client:visible
           />
           <p class="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 drop-shadow-lg slide-in-up text-center max-w-4xl mx-auto leading-relaxed">
             Desarrollo Web • Marketing Digital • SEO • Redes Sociales • Consultoría Estratégica • Agencia de Marketing Cádiz
@@ -193,17 +189,22 @@ const metadata = {
   </section>
 
   <section id="servicios">
-    <ServicesSection client:visible />
+    <ServicesSection client:load />
   </section>
 
-  <!-- Nueva Sección: Partners -->
+  <!-- About Section -->
+  <AboutSection client:visible />
+
+  <!-- Portfolio Section -->
+  <PortfolioSection client:visible />
+
   <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-20">
         <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Partners Estratégicos</h2>
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
            Colaboramos con las mejores empresas de España y Latinoamérica en proyectos de marketing digital y desarrollo web.
-         </p>
+        </p>
       </div>
       <div style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
         <LogoLoop
@@ -217,14 +218,13 @@ const metadata = {
           fadeOut
           fadeOutColor="transparent"
           ariaLabel="Partner logos"
-          client:load
+          client:visible
         />
       </div>
     </div>
   </section>
 
 
-  <!-- Nueva Sección: Metodología -->
   <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-20">
@@ -244,21 +244,20 @@ const metadata = {
         spotlightRadius={300}
         particleCount={12}
         glowColor="132, 0, 255"
-        client:load
+        client:visible
       />
     </div>
   </section>
 
-  <!-- Text Mask CTA Section -->
   <section id="casos-exito" class="relative pt-24 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');" role="img" aria-label="Fondo de código de programación representando desarrollo web"></div>
+    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"
+    role="img" aria-label="Fondo de código de programación representando desarrollo web"></div>
     <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
       <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 text-center">Resultados que Hablan por Sí Mismos</h2>
     <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
       Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
     </p>
   </div>
-  <!-- SVG Mask Definition -->
   <svg width="0" height="0">
     <defs>
       <mask id="text-mask-results">
@@ -269,12 +268,14 @@ const metadata = {
   </svg>
 </section>
 
-<!-- DomeGallery Section -->
 <section class="relative h-screen overflow-hidden bg-black">
-  <DomeGallery client:load />
+<DomeGallery client:visible />
 </section>
 
+<TestimonialsSection client:visible />
 
+  <!-- Contact Section -->
+  <ContactSection client:visible />
 
   <script>
     // Performance optimizations for main page
@@ -287,12 +288,10 @@ const metadata = {
         '/images/bgcode.jpg',
         '/images/logo.png'
       ];
-
       imagesToPreload.forEach(src => {
         const img = new Image();
         img.src = src;
       });
-
       // Preload critical components
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js').catch(() => {});
@@ -304,7 +303,6 @@ const metadata = {
       threshold: 0.15,
       rootMargin: '0px 0px -30px 0px'
     };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -312,7 +310,6 @@ const metadata = {
         }
       });
     }, observerOptions);
-
     // Cache management for faster reloads
     const setupCaching = () => {
       // Cache critical content in sessionStorage
@@ -331,7 +328,6 @@ const metadata = {
         }
       }
     };
-
     // Observe all elements with animation classes
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize performance optimizations
@@ -384,23 +380,18 @@ const metadata = {
 
         const updateCardTransform = (e: MouseEvent) => {
           if (!isHovering) return;
-
           const rect = contactCard.getBoundingClientRect();
           const centerX = rect.left + rect.width / 2;
           const centerY = rect.top + rect.height / 2;
-
           const mouseX = e.clientX - centerX;
           const mouseY = e.clientY - centerY;
-
           const rotateX = (mouseY / (rect.height / 2)) * -8; // Max 8deg tilt
           const rotateY = (mouseX / (rect.width / 2)) * 8;
-
           const brightness = Math.max(0.8, 1 - (Math.abs(mouseX) + Math.abs(mouseY)) / 300);
 
           contactCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           contactCard.style.filter = `brightness(${brightness})`;
         };
-
         const handleMouseEnter = () => {
           isHovering = true;
           contactCard.style.transition = 'none';
@@ -421,9 +412,6 @@ const metadata = {
         });
       }
     });
-
-
-
 
 
       // Portfolio Section
@@ -492,7 +480,6 @@ const metadata = {
           ]
         }
       };
-
       clientCards.forEach(card => {
         card.addEventListener('click', () => {
           const client = card.getAttribute('data-client');
@@ -533,7 +520,6 @@ const metadata = {
           }
         });
       });
-
       // Counter animation function
       function animateCounters() {
         const counters = document.querySelectorAll('.counter');
@@ -600,7 +586,6 @@ const metadata = {
             method: 'POST',
             body: formData,
           });
-
           if (response.ok) {
             // Success
             form.style.display = 'none';
@@ -1065,7 +1050,7 @@ const metadata = {
       left: -2px;
       right: -2px;
       bottom: -2px;
-      background: linear-gradient(45deg, rgba(0, 255, 170, 0.3), rgba(0, 193, 255, 0.3), rgba(193, 0, 255, 0.3), rgba(255, 0, 193, 0.3));
+      background: radial-gradient(ellipse at center, rgba(0, 255, 170, 0.3) 0%, rgba(0, 193, 255, 0.2) 25%, rgba(193, 0, 255, 0.15) 50%, rgba(255, 0, 193, 0.1) 75%, transparent 100%);
       border-radius: 22px;
       z-index: -1;
       opacity: 0;

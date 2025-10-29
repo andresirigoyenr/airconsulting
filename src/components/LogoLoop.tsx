@@ -176,7 +176,6 @@ export const LogoLoop = memo<LogoLoopProps>(
     className,
     style
   }) => {
-    console.log('LogoLoop component rendering');
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const seqRef = useRef<HTMLUListElement>(null);

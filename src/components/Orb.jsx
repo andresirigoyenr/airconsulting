@@ -164,7 +164,6 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
   `;
 
   useEffect(() => {
-    console.log('Orb component mounted');
     const container = ctnDom.current;
     if (!container) return;
 
