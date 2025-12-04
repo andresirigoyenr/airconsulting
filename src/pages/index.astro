@@ -2,45 +2,41 @@
 import Layout from '~/layouts/PageLayout.astro';
 import OrbBackground from '~/components/OrbBackground.tsx';
 import ServicesSection from '~/components/ServicesSection.tsx';
-import MagicBento from '~/components/MagicBento.jsx';
 import SplitText from '~/components/SplitText.tsx';
-import DomeGallery from '~/components/DomeGallery.jsx';
 import LogoLoop from '~/components/LogoLoop.tsx';
 import TestimonialsSection from '~/components/TestimonialsSection.tsx';
 import AboutSection from '~/components/AboutSection.tsx';
-import PortfolioSection from '~/components/PortfolioSection.tsx';
 import ContactSection from '~/components/ContactSection.tsx';
-import '~/components/MagicBento.css';
 
 const handleAnimationComplete = () => {
   console.log('All letters have animated!');
 };
 
 const partnerLogos = [
-  { src: "/images/cnn.png", alt: "CNN - Cadena internacional de noticias", href: "https://cnn.com" },
-  { src: "/images/udi.png", alt: "UDI - Unión Demócrata Independiente Chile", href: "https://udi.cl/" },
-  { src: "/images/agenda.png", alt: "Agenda Agrícola - Revista especializada en agricultura", href: "https://www.instagram.com/agenda_agricola/" },
-  { src: "/images/ucvtv.png", alt: "UCV TV - Universidad Católica de Valparaíso", href: "https://ucvtv.cl/" },
-  { src: "/images/retorica.png", alt: "Retórica - Agencia de marketing político", href: "https://retorica.cl/" },
-  { src: "/images/chile.png", alt: "Gobierno de Chile - Portal oficial", href: "https://gob.cl/" },
-  { src: "/images/dmi.png", alt: "DMI Projects - Empresa de proyectos", href: "https://www.instagram.com/dmiprojects/" },
-  { src: "/images/noticia.png", alt: "Esto es Noticia TV - Canal de noticias", href: "https://www.instagram.com/estoesnoticiatv/" },
+  { src: "/images/cnn.png", alt: "Banco Santander - Institución financiera líder en España", href: "https://www.bancosantander.es" },
+  { src: "/images/udi.png", alt: "BBVA - Banco Bilbao Vizcaya Argentaria", href: "https://www.bbva.es" },
+  { src: "/images/agenda.png", alt: "CaixaBank - Grupo financiero español", href: "https://www.caixabank.es" },
+  { src: "/images/ucvtv.png", alt: "Bankia - Banco español especializado en hipotecas", href: "https://www.bankia.es" },
+  { src: "/images/retorica.png", alt: "Unicaja Banco - Banco cooperativo español", href: "https://www.unicajabanco.es" },
+  { src: "/images/chile.png", alt: "Ibercaja - Grupo financiero aragonés", href: "https://www.ibercaja.es" },
+  { src: "/images/dmi.png", alt: "Kutxabank - Banco cooperativo vasco", href: "https://www.kutxabank.es" },
+  { src: "/images/noticia.png", alt: "Abanca - Banco español con presencia internacional", href: "https://www.abanca.com" },
 ];
 
 const metadata = {
-  title: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting',
+  title: 'Consultora de Ingeniería de Riesgo Digital | Gestión Activa de Riesgo de Ocupación | AIRconsulting',
   ignoreTitleTemplate: true,
-  description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados. ¡Contacta ahora!',
-  keywords: ['agencia marketing digital Cádiz', 'desarrollo web Cádiz', 'SEO Cádiz', 'redes sociales Cádiz', 'agencia de marketing para empresas en Chile', 'servicios de SEO internacional para Latinoamérica', 'desarrollo web para empresas de logística', 'estrategia digital para medios de comunicación', 'AIRconsulting', 'sitios web', 'optimización motores de búsqueda', 'community manager'],
+  description: 'Especialistas en sistemas de alerta temprana para carteras REO/NPL en España. Minimizamos la devaluación por ocupaciones ilegales con soluciones digitales de riesgo operacional.',
+  keywords: ['riesgo ocupación', 'REO España', 'NPL gestión', 'alerta temprana ocupas', 'riesgo operacional inmobiliario', 'servicing bancos España', 'gestión carteras adjudicadas', 'sistema legal automatizado', 'AIRconsulting', 'consultoría riesgo digital', 'ingeniería riesgo ocupación'],
   openGraph: {
-    title: 'Agencia de Marketing Digital | Estrategias para España y Latam | AIRconsulting',
-    description: 'Transformamos negocios en Cádiz y el mundo. Con experiencia probada en Chile, creamos estrategias de SEO y diseño web que generan resultados.',
+    title: 'Consultora de Ingeniería de Riesgo Digital | Gestión Activa de Riesgo de Ocupación | AIRconsulting',
+    description: 'Especialistas en sistemas de alerta temprana para carteras REO/NPL en España. Minimizamos la devaluación por ocupaciones ilegales.',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'AIR Consulting - Agencia de Marketing Digital'
+        alt: 'AIR Consulting - Consultora de Riesgo Digital'
       }
     ],
     type: 'website',
@@ -48,8 +44,8 @@ const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agencia de Marketing Digital | AIRconsulting',
-    description: 'Transformamos negocios en Cádiz y el mundo con estrategias de SEO y diseño web.',
+    title: 'Consultora de Riesgo Digital | AIRconsulting',
+    description: 'Sistemas de alerta temprana para gestión de riesgo de ocupación en carteras REO/NPL.',
     images: ['/images/logo.png'],
     handle: '@airconsulting',
     site: '@airconsulting'
@@ -66,7 +62,7 @@ const metadata = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "AIR Consulting",
-    "description": "Agencia de marketing digital con experiencia internacional. Especializada en desarrollo web, gestión de redes sociales y posicionamiento SEO para empresas en España y Latinoamérica",
+    "description": "Consultora especializada en ingeniería de riesgo digital para activos inmobiliarios adjudicados. Sistemas de alerta temprana y gestión automatizada de riesgo de ocupación para carteras REO/NPL en España",
     "url": "https://airconsulting.es",
     "logo": "https://airconsulting.es/images/logo.png",
     "image": "https://airconsulting.es/images/logo.png",
@@ -83,22 +79,18 @@ const metadata = {
     },
     "telephone": "+34-XXX-XXX-XXX",
     "email": "info@airconsulting.es",
-    "priceRange": "$$",
-    "serviceType": ["Desarrollo Web", "Marketing Digital", "SEO", "Gestión de Redes Sociales"],
+    "priceRange": "$$$",
+    "serviceType": ["Ingeniería de Riesgo Digital", "Sistemas de Alerta Temprana", "Gestión de Riesgo Operacional", "Automatización Legal"],
     "areaServed": [
       {
         "@type": "Country",
         "name": "España"
-      },
-      {
-        "@type": "Country",
-        "name": "Chile"
       }
     ],
     "founder": {
       "@type": "Person",
       "name": "Andrés Irigoyen",
-      "jobTitle": "Fundador y Estratega Digital"
+      "jobTitle": "Fundador y Consultor de Riesgo Digital"
     },
     "sameAs": [
       "https://www.linkedin.com/in/andres-irigoyen"
@@ -111,24 +103,24 @@ const metadata = {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Desarrollo Web",
-            "description": "Sitios web modernos, responsivos y optimizados para SEO"
+            "name": "Sistema de Alerta Temprana",
+            "description": "Puntuación predictiva diaria del riesgo de ocupación para carteras REO/NPL"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Marketing Digital",
-            "description": "Estrategias integrales de marketing online y gestión de redes sociales"
+            "name": "Detección y Alerta Crítica",
+            "description": "Centralización de señales de intrusión con alertas automáticas al dashboard"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "SEO",
-            "description": "Optimización para motores de búsqueda y posicionamiento web"
+            "name": "Respuesta Automatizada Legal",
+            "description": "Flujo de trabajo legal automatizado con notificaciones instantáneas y gestión de plazos críticos"
           }
         }
       ]
@@ -165,7 +157,7 @@ const metadata = {
       <div class="max-w-7xl mx-auto w-full">
         <div class="flex flex-col justify-center items-center text-center fade-in">
           <SplitText
-            text="ESTRATEGIAS DIGITALES QUE CRUZAN FRONTERAS"
+            text="DEJE DE REACCIONAR. EMPRENDA LA GESTIÓN ACTIVA DEL RIESGO DE OCUPACIÓN."
             tag="h1"
             className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 drop-shadow-lg uppercase leading-tight"
             delay={25}
@@ -181,8 +173,83 @@ const metadata = {
             client:visible
           />
           <p class="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 drop-shadow-lg slide-in-up text-center max-w-4xl mx-auto leading-relaxed">
-            Desarrollo Web • Marketing Digital • SEO • Redes Sociales • Consultoría Estratégica • Agencia de Marketing Cádiz
+            Implementamos Sistemas de Alerta Temprana para carteras REO/NPL, minimizando la devaluación y estandarizando la respuesta legal ante intrusiones.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestra Solución Section -->
+  <section id="solucion" class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #0a0a0a;">
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Nuestra Solución</h2>
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
+          Sistema de 3 capas para la gestión activa del riesgo de ocupación en carteras REO/NPL.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <!-- CAPA 1: Puntuación Predictiva -->
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all duration-300 group">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition-colors">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">CAPA 1: Puntuación Predictiva</h3>
+            <p class="text-slate-400 text-sm">(El Cerebro)</p>
+          </div>
+          <p class="text-gray-300 text-center leading-relaxed">
+            Conectamos datos del banco (inventario) con datos geoespaciales de riesgo (indicadores socioeconómicos, tasa de vacancia) para asignar un Score de Riesgo diario a cada propiedad.
+          </p>
+        </div>
+
+        <!-- CAPA 2: Detección y Alerta -->
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all duration-300 group">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition-colors">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4.868 12.683A17.925 17.925 0 0112 21c7.962 0 12-1.21 12-2.683m-12 2.683a17.925 17.925 0 01-7.132-8.317M12 21V9m0 0l3-3m-3 3l-3-3"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">CAPA 2: Detección y Alerta</h3>
+            <p class="text-slate-400 text-sm">(La Velocidad)</p>
+          </div>
+          <p class="text-gray-300 text-center leading-relaxed">
+            La interfaz centraliza las señales de intrusión (sensores IoT, reportes de vigilantes) y dispara una Alerta Crítica en el Dashboard.
+          </p>
+        </div>
+
+        <!-- CAPA 3: Respuesta Automatizada -->
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all duration-300 group">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition-colors">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">CAPA 3: Respuesta Automatizada</h3>
+            <p class="text-slate-400 text-sm">(La Ley)</p>
+          </div>
+          <p class="text-gray-300 text-center leading-relaxed">
+            El sistema inicia automáticamente el Flujo de Trabajo Legal (notificación instantánea al abogado, creación del expediente) para asegurar una respuesta ultrarrápida que cumpla con los plazos críticos.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="text-center mt-16">
+        <div class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 p-8 rounded-2xl border border-blue-500 hover:border-blue-400 transition-all duration-300">
+          <h3 class="text-2xl font-bold text-white mb-4">Solicite nuestro Análisis de Riesgo Operacional</h3>
+          <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Fase Piloto Pagada - Evaluación completa de su cartera REO/NPL con informe detallado de riesgos y recomendaciones estratégicas.
+          </p>
+          <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+            Solicitar Análisis
+          </button>
         </div>
       </div>
     </div>
@@ -195,15 +262,13 @@ const metadata = {
   <!-- About Section -->
   <AboutSection client:visible />
 
-  <!-- Portfolio Section -->
-  <PortfolioSection client:visible />
-
+  <!-- Partners Section -->
   <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Partners Estratégicos</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Instituciones Confiadas</h2>
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
-           Colaboramos con las mejores empresas de España y Latinoamérica en proyectos de marketing digital y desarrollo web.
+          Trabajamos con bancos, servicers e instituciones financieras líderes en España para proteger sus activos inmobiliarios.
         </p>
       </div>
       <div style={{ height: '250px', position: 'relative', overflow: 'hidden'}}>
@@ -224,55 +289,8 @@ const metadata = {
     </div>
   </section>
 
-
-  <section class="relative pt-32 pb-40 fade-in-section overflow-hidden" style="background-color: #000;">
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-20">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 lg:mb-12">Metodología de Trabajo AIR Consulting</h2>
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose max-w-3xl mx-auto">
-          Nuestra metodología integral combina estrategia digital, desarrollo web profesional y marketing de resultados para empresas en España y Latinoamérica.
-        </p>
-      </div>
-      <MagicBento
-        textAutoHide={true}
-        enableStars={true}
-        enableSpotlight={true}
-        enableBorderGlow={true}
-        enableTilt={true}
-        enableMagnetism={true}
-        clickEffect={true}
-        spotlightRadius={300}
-        particleCount={12}
-        glowColor="132, 0, 255"
-        client:visible
-      />
-    </div>
-  </section>
-
-  <section id="casos-exito" class="relative pt-24 pb-40 text-center fade-in-section text-mask-section" style="background-color: black;">
-    <div class="absolute inset-0 z-10 pulsing-bg" style="background-image: url('/images/codigo.jpg'); background-size: cover; background-position: center; mask: url('#text-mask-results'); -webkit-mask: url('#text-mask-results');"
-    role="img" aria-label="Fondo de código de programación representando desarrollo web"></div>
-    <div class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 lg:mb-8 text-center">Resultados que Hablan por Sí Mismos</h2>
-    <p class="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose mb-8 lg:mb-10 slide-in-up text-center max-w-3xl mx-auto">
-      Descubre cómo nuestros proyectos generan resultados tangibles y medibles para tu negocio.
-    </p>
-  </div>
-  <svg width="0" height="0">
-    <defs>
-      <mask id="text-mask-results">
-        <rect width="100%" height="100%" fill="black"/>
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="4rem" font-weight="bold" fill="white" class="text-mask-svg">RESULTADOS MEDIBLES</text>
-      </mask>
-    </defs>
-  </svg>
-</section>
-
-<section class="relative h-screen overflow-hidden bg-black">
-<DomeGallery client:visible />
-</section>
-
-<TestimonialsSection client:visible />
+  <!-- Testimonials Section -->
+  <TestimonialsSection client:visible />
 
   <!-- Contact Section -->
   <ContactSection client:visible />
@@ -283,9 +301,6 @@ const metadata = {
     const preloadCriticalResources = () => {
       // Preload images that will be needed
       const imagesToPreload = [
-        '/images/profilecard.jpg',
-        '/images/codigo.jpg',
-        '/images/bgcode.jpg',
         '/images/logo.png'
       ];
       imagesToPreload.forEach(src => {
@@ -414,136 +429,6 @@ const metadata = {
     });
 
 
-      // Portfolio Section
-      const clientCards = document.querySelectorAll('.client-card');
-      const clientName = document.getElementById('client-name') as HTMLElement;
-      const clientChallenge = document.getElementById('client-challenge') as HTMLElement;
-      const clientSolution = document.getElementById('client-solution') as HTMLElement;
-      const clientResults = document.getElementById('client-results') as HTMLElement;
-
-      interface PortfolioItem {
-        name: string;
-        challenge: string;
-        solution: string;
-        results: { value: string; label: string }[];
-      }
-
-      const portfolioData: Record<string, PortfolioItem> = {
-        client1: {
-          name: 'Cliente 1',
-          challenge: 'Su visibilidad online era nula y no conseguían clientes a través de Google.',
-          solution: 'Desarrollamos una estrategia de SEO Local y optimizamos su web para la conversión.',
-          results: [
-            { value: '+150%', label: 'Aumento de tráfico orgánico' },
-            { value: 'Top 3', label: 'En búsquedas locales clave' },
-            { value: '+40%', label: 'En solicitudes de contacto' }
-          ]
-        },
-        client2: {
-          name: 'Cliente 2',
-          challenge: 'Necesitaban aumentar su presencia en redes sociales y engagement con su audiencia.',
-          solution: 'Implementamos una estrategia de contenido personalizado y gestión profesional de comunidades.',
-          results: [
-            { value: '+300%', label: 'Aumento en seguidores' },
-            { value: '+180%', label: 'Incremento en interacciones' },
-            { value: '+25%', label: 'En conversiones desde redes' }
-          ]
-        },
-        client3: {
-          name: 'Cliente 3',
-          challenge: 'Su sitio web no convertía visitantes en clientes potenciales.',
-          solution: 'Rediseñamos completamente la experiencia de usuario y optimizamos para conversiones.',
-          results: [
-            { value: '+200%', label: 'Aumento en conversiones' },
-            { value: '+120%', label: 'Mejora en tiempo de carga' },
-            { value: '+60%', label: 'Reducción en tasa de rebote' }
-          ]
-        },
-        client4: {
-          name: 'Cliente 4',
-          challenge: 'No aparecían en las primeras posiciones de búsqueda local.',
-          solution: 'Optimizamos su perfil de Google My Business y estrategia SEO local.',
-          results: [
-            { value: 'Top 5', label: 'Posición en búsquedas locales' },
-            { value: '+250%', label: 'Aumento en llamadas' },
-            { value: '+90%', label: 'Más visitas al local' }
-          ]
-        },
-        client5: {
-          name: 'Cliente 5',
-          challenge: 'Necesitaban una identidad digital coherente y moderna.',
-          solution: 'Creamos una estrategia de branding digital completa con web y redes sociales.',
-          results: [
-            { value: '+400%', label: 'Reconocimiento de marca' },
-            { value: '+150%', label: 'Tráfico a la web' },
-            { value: '+35%', label: 'Incremento en ventas' }
-          ]
-        }
-      };
-      clientCards.forEach(card => {
-        card.addEventListener('click', () => {
-          const client = card.getAttribute('data-client');
-          if (client && portfolioData[client]) {
-            const data = portfolioData[client];
-
-            // Update content with fade effect
-            const content = document.getElementById('portfolio-content') as HTMLElement;
-            if (content) {
-              content.style.opacity = '0';
-              content.style.transform = 'translateY(20px)';
-              content.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
-            }
-            setTimeout(() => {
-              if (clientName) clientName.textContent = data.name;
-              if (clientChallenge) clientChallenge.textContent = data.challenge;
-              if (clientSolution) clientSolution.textContent = data.solution;
-
-              if (clientResults) {
-                clientResults.innerHTML = data.results.map(result => `
-                  <div class="bg-gray-800 p-6 rounded-lg text-center animate-count">
-                    <div class="text-3xl md:text-4xl font-bold text-orange-500 mb-2 counter" data-target="${result.value}">${result.value}</div>
-                    <div class="text-white text-sm">${result.label}</div>
-                  </div>
-                `).join('');
-              }
-
-              if (content) {
-                content.style.opacity = '1';
-                content.style.transform = 'translateY(0)';
-              }
-
-              // Trigger counter animation
-              setTimeout(() => {
-                animateCounters();
-              }, 100);
-            }, 300);
-          }
-        });
-      });
-      // Counter animation function
-      function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-          const target = counter.getAttribute('data-target');
-          if (target) {
-            const targetValue = parseInt(target.replace(/[^\d]/g, '')) || 0;
-            const isPercentage = target.includes('%');
-            const duration = 1000; // 1 second
-            const start = 0;
-            const increment = targetValue / (duration / 16); // 60fps
-            let current = start;
-
-            const timer = setInterval(() => {
-              current += increment;
-              if (current >= targetValue) {
-                current = targetValue;
-                clearInterval(timer);
-              }
-              counter.textContent = isPercentage ? `${Math.floor(current)}%` : Math.floor(current).toString();
-            }, 16);
-          }
-        });
-      }
 
       // Form validation and submission
       document.getElementById('contact-form-element')?.addEventListener('submit', async function(e) {
@@ -820,18 +705,18 @@ const metadata = {
 
     /* Interactive Services Section */
     .service-item.active {
-      background-color: rgba(255, 87, 51, 0.1);
-      border-left: 4px solid #FF5733;
+      background-color: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid #3B82F6;
     }
 
     .service-item.active span:first-child {
-      color: #FF5733;
+      color: #3B82F6;
     }
 
     /* Particle animations for founder section */
     .particle {
       position: absolute;
-      background: rgba(255, 87, 51, 0.3);
+      background: rgba(59, 130, 246, 0.3);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -940,7 +825,7 @@ const metadata = {
     .separator-line {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.3) 20%, rgba(255, 87, 51, 0.6) 50%, rgba(255, 87, 51, 0.3) 80%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 20%, rgba(59, 130, 246, 0.6) 50%, rgba(59, 130, 246, 0.3) 80%, transparent 100%);
       position: relative;
     }
 
@@ -951,7 +836,7 @@ const metadata = {
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.8) 20%, rgba(255, 87, 51, 1) 50%, rgba(255, 87, 51, 0.8) 80%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.8) 20%, rgba(59, 130, 246, 1) 50%, rgba(59, 130, 246, 0.8) 80%, transparent 100%);
       animation: separator-shine 3s ease-in-out infinite;
     }
 
@@ -1002,7 +887,7 @@ const metadata = {
       }
 
       .separator-line {
-        background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 51, 0.2) 20%, rgba(255, 87, 51, 0.4) 50%, rgba(255, 87, 51, 0.2) 80%, transparent 100%);
+        background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.2) 20%, rgba(59, 130, 246, 0.4) 50%, rgba(59, 130, 246, 0.2) 80%, transparent 100%);
       }
     }
 
@@ -1117,8 +1002,8 @@ const metadata = {
     }
 
     .contact-button {
-      background: rgba(255, 87, 51, 0.9);
-      border: 1px solid rgba(255, 87, 51, 0.5);
+      background: rgba(59, 130, 246, 0.9);
+      border: 1px solid rgba(59, 130, 246, 0.5);
       color: white;
       padding: 8px 16px;
       border-radius: 20px;
@@ -1130,9 +1015,9 @@ const metadata = {
     }
 
     .contact-button:hover {
-      background: rgba(255, 87, 51, 1);
+      background: rgba(59, 130, 246, 1);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 87, 51, 0.4);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
 
     /* Right Column: Text with Aurora Effect */

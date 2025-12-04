@@ -4,31 +4,31 @@ import { motion } from 'framer-motion';
 const AboutSection: React.FC = () => {
   const stats = [
     { number: '5+', label: 'Años de Experiencia' },
-    { number: '500+', label: 'Proyectos Completados' },
-    { number: '50+', label: 'Empresas Satisfechas' },
-    { number: '24/7', label: 'Soporte Continuo' }
+    { number: '100M+', label: 'Activos Protegidos' },
+    { number: '15+', label: 'Instituciones Financieras' },
+    { number: '99.9%', label: 'Tiempo de Actividad' }
   ];
 
   const values = [
     {
-      icon: '🚀',
-      title: 'Innovación',
-      description: 'Utilizamos las últimas tecnologías y tendencias para mantenernos a la vanguardia del marketing digital.'
+      icon: '🛡️',
+      title: 'Prevención Proactiva',
+      description: 'Identificamos riesgos antes de que se conviertan en problemas, minimizando pérdidas y maximizando la protección de activos.'
     },
     {
-      icon: '🎯',
-      title: 'Resultados',
-      description: 'Nos enfocamos en métricas concretas y objetivos medibles para garantizar el éxito de tu negocio.'
+      icon: '⚡',
+      title: 'Respuesta Ultrarrápida',
+      description: 'Sistemas automatizados que responden en minutos, no en días, asegurando el cumplimiento de plazos críticos legales.'
     },
     {
-      icon: '🤝',
-      title: 'Transparencia',
-      description: 'Mantenemos una comunicación abierta y honesta, con reportes detallados de todos nuestros procesos.'
+      icon: '📊',
+      title: 'Business Intelligence',
+      description: 'Análisis predictivo basado en datos geoespaciales y socioeconómicos para decisiones estratégicas fundamentadas.'
     },
     {
-      icon: '🌍',
-      title: 'Alcance Global',
-      description: 'Conectamos empresas locales con mercados internacionales, expandiendo tu presencia global.'
+      icon: '🏛️',
+      title: 'Confianza Institucional',
+      description: 'Trabajamos con bancos y servicers, cumpliendo los más altos estándares de seguridad y confidencialidad financiera.'
     }
   ];
 
@@ -36,8 +36,8 @@ const AboutSection: React.FC = () => {
     <section id="nosotros" className="relative py-32 bg-black overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/30 to-black" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-400/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
@@ -50,12 +50,12 @@ const AboutSection: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Sobre
-            <span className="block bg-gradient-to-r from-orange-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-slate-400 bg-clip-text text-transparent">
               AIR Consulting
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            Somos una agencia de marketing digital especializada en transformar negocios a través de estrategias innovadoras y resultados medibles.
+            Somos consultores especializados en ingeniería de riesgo digital para activos inmobiliarios adjudicados, protegiendo carteras REO/NPL contra ocupaciones ilegales.
           </p>
         </motion.div>
 
@@ -74,13 +74,13 @@ const AboutSection: React.FC = () => {
               </h3>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  Fundada en 2019 por Andrés Irigoyen, AIR Consulting nació de la visión de conectar el talento chileno con el mercado español y latinoamericano. Con más de 5 años de experiencia, hemos evolucionado de una pequeña agencia local a un referente regional en marketing digital.
+                  Fundada en 2019 por Andrés Irigoyen, AIR Consulting se especializa en la gestión de riesgo operacional para el sector financiero inmobiliario. Nuestra experiencia combina tecnología avanzada con conocimiento profundo del mercado de activos adjudicados en España.
                 </p>
                 <p>
-                  Nuestra experiencia internacional nos permite entender las particularidades culturales y de mercado de España y Latinoamérica, ofreciendo soluciones personalizadas que realmente funcionan en cada contexto.
+                  Hemos desarrollado sistemas propietarios que integran datos geoespaciales, inteligencia artificial y automatización legal para proporcionar soluciones de alerta temprana que protegen carteras de millones de euros contra el riesgo de ocupación.
                 </p>
                 <p>
-                  Hoy, somos un equipo multidisciplinario de expertos en desarrollo web, SEO, marketing digital y transformación digital, comprometidos con el éxito de nuestros clientes.
+                  Nuestro equipo de ingenieros, analistas de riesgo y consultores legales trabaja exclusivamente con bancos, servicers e instituciones financieras, garantizando la máxima confidencialidad y cumplimiento normativo.
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@ const AboutSection: React.FC = () => {
                   viewport={{ once: true }}
                   className="text-center p-6 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-800/50 rounded-2xl"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
                     {stat.number}
                   </div>
                   <div className="text-gray-400 text-sm font-medium">
@@ -127,7 +127,7 @@ const AboutSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group p-6 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-lg border border-gray-800/50 rounded-2xl hover:border-orange-500/30 transition-all duration-300"
+                    className="group p-6 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-lg border border-gray-800/50 rounded-2xl hover:border-blue-500/30 transition-all duration-300"
                   >
                     <div className="flex items-start space-x-4">
                       <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
@@ -157,16 +157,16 @@ const AboutSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="max-w-4xl mx-auto p-8 md:p-12 bg-gradient-to-br from-orange-500/10 to-purple-500/10 backdrop-blur-lg border border-orange-500/20 rounded-3xl">
+          <div className="max-w-4xl mx-auto p-8 md:p-12 bg-gradient-to-br from-blue-600/10 to-slate-400/10 backdrop-blur-lg border border-blue-500/20 rounded-3xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Nuestra Misión
             </h3>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-              "Transformar negocios locales en referentes globales a través de estrategias digitales innovadoras, conectando el talento chileno con mercados internacionales y generando resultados que marquen la diferencia."
+              "Proteger el valor de los activos inmobiliarios adjudicados mediante sistemas de alerta temprana y gestión automatizada del riesgo de ocupación, asegurando la estabilidad financiera de las instituciones y la recuperación máxima de las carteras REO/NPL."
             </p>
             <div className="flex items-center justify-center space-x-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-purple-500 rounded-full flex items-center justify-center">
-                <span className="text-2xl">✨</span>
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-slate-400 rounded-full flex items-center justify-center">
+                <span className="text-2xl">🛡️</span>
               </div>
               <div className="text-left">
                 <div className="text-white font-semibold">Andrés Irigoyen</div>

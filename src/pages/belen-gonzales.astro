@@ -1,0 +1,229 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Belen Gonzales | Experta en Arquitectura - AIR Consulting',
+  description: 'Conoce a Belen Gonzales, experta en arquitectura con 12 años de experiencia. Originaria de Chile y actualmente viviendo en Dinamarca.',
+  keywords: ['Belen Gonzales', 'arquitectura', 'experta arquitectura', 'Chile', 'Dinamarca', 'AIR Consulting'],
+  openGraph: {
+    title: 'Belen Gonzales | Experta en Arquitectura',
+    description: 'Belen Gonzales, arquitecta con 12 años de experiencia, originaria de Chile y residente en Dinamarca.',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Belen Gonzales - Experta en Arquitectura'
+      }
+    ],
+    type: 'website',
+    locale: 'es_ES'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Belen Gonzales | Experta en Arquitectura',
+    description: 'Conoce a Belen Gonzales, experta en arquitectura.',
+    images: ['/images/logo.png']
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <link rel="canonical" href="https://airconsulting.es/belen-gonzales">
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 overflow-hidden bg-black">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-black"></div>
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+        Belen <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Gonzales</span>
+      </h1>
+      <p class="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+        Experta en Arquitectura
+      </p>
+    </div>
+  </section>
+
+  <!-- Biography Section -->
+  <section class="relative py-20 bg-black">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Biografía</h2>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          Una trayectoria dedicada a la innovación y el diseño arquitectónico
+        </p>
+      </div>
+
+      <div class="bg-gray-900/50 p-8 rounded-lg border border-gray-700">
+        <div class="prose prose-lg prose-invert max-w-none">
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Belen Gonzales es una experta en arquitectura con 12 años de experiencia en el campo. Originaria de Chile, actualmente reside en Dinamarca, donde continúa desarrollando proyectos innovadores que combinan sostenibilidad, funcionalidad y estética.
+          </p>
+
+          <h3 class="text-2xl font-bold text-white mb-4">Experiencia Profesional</h3>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Con una sólida formación académica y una pasión por el diseño, Belen ha trabajado en diversos proyectos internacionales, desde residencias privadas hasta complejos comerciales y espacios públicos. Su enfoque se centra en la integración de tecnologías modernas con principios tradicionales de arquitectura.
+          </p>
+
+          <h3 class="text-2xl font-bold text-white mb-4">Especialidades</h3>
+          <ul class="text-gray-300 leading-relaxed mb-6 list-disc list-inside">
+            <li>Diseño sostenible y eco-amigable</li>
+            <li>Arquitectura residencial y comercial</li>
+            <li>Planificación urbana e integración comunitaria</li>
+            <li>Uso de tecnologías BIM para modelado 3D</li>
+          </ul>
+
+          <h3 class="text-2xl font-bold text-white mb-4">Orígenes y Actual Residencia</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Nacida en Chile, Belen ha llevado su expertise a nivel internacional, estableciéndose en Dinamarca donde colabora con equipos multidisciplinarios en proyectos que promueven la calidad de vida y el respeto por el medio ambiente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="relative py-20 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-6">¿Interesado en colaborar?</h3>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+          Conoce más sobre los servicios de arquitectura y diseño que ofrecemos. Envíanos un mensaje y conversemos sobre tu proyecto.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-lg border border-gray-800/50 rounded-3xl p-8 md:p-10">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                Nombre *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                placeholder="Tu nombre completo"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                placeholder="tu@email.com"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">
+              Asunto *
+            </label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+            >
+              <option value="">Selecciona un asunto</option>
+              <option value="consultoria">Consultoría Arquitectónica</option>
+              <option value="proyecto">Nuevo Proyecto</option>
+              <option value="colaboracion">Colaboración Profesional</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+              Mensaje *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
+              placeholder="Cuéntanos sobre tu proyecto o consulta..."
+            ></textarea>
+          </div>
+
+          <div class="flex items-start">
+            <input
+              id="privacy"
+              name="privacy"
+              type="checkbox"
+              required
+              class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+            />
+            <label for="privacy" class="ml-2 block text-sm text-gray-300">
+              Acepto la <a href="/privacy" class="text-purple-400 hover:text-purple-300 underline">política de privacidad</a> y el tratamiento de mis datos personales.
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+          >
+            Enviar mensaje
+          </button>
+
+          <div id="form-message" class="hidden p-4 rounded-xl"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form') as HTMLFormElement;
+      const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+        // Disable button and show loading
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              'form-name': 'belen-contact',
+              ...Object.fromEntries(formData)
+            }).toString()
+          });
+
+          if (response.ok) {
+            messageDiv.className = 'p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400';
+            messageDiv.textContent = '¡Gracias! Tu mensaje ha sido enviado. Me pondré en contacto contigo pronto.';
+            form.reset();
+          } else {
+            throw new Error('Error en el envío');
+          }
+        } catch {
+          messageDiv.className = 'p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400';
+          messageDiv.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo más tarde.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar mensaje';
+          messageDiv.classList.remove('hidden');
+        }
+      });
+    });
+  </script>
+</Layout>

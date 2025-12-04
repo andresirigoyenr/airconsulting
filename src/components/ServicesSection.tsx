@@ -11,70 +11,70 @@ interface ServiceData {
 }
 
 const serviceData: Record<string, ServiceData> = {
-  web: {
-    title: 'Desarrollo Web Profesional',
-    description: 'Creamos sitios web profesionales, responsivos y optimizados para conversiones. Desde landing pages hasta plataformas e-commerce completas.',
-    incluye: ['Diseño UX/UI personalizado', 'Desarrollo responsive', 'Optimización SEO técnica', 'Integración con CMS'],
-    link: 'Explorar Proyectos Web →',
+  analisis: {
+    title: 'Análisis de Riesgo Operacional',
+    description: 'Evaluación completa de carteras REO/NPL con identificación de propiedades de alto riesgo de ocupación. Análisis predictivo basado en datos geoespaciales y socioeconómicos.',
+    incluye: ['Evaluación de cartera completa', 'Score de riesgo predictivo', 'Mapa de calor de vulnerabilidades', 'Informe ejecutivo detallado'],
+    link: 'Solicitar Análisis →',
     href: '#contacto',
     visual: (
-      <div className="w-32 h-32 mx-auto bg-orange-500 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
         <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
         </svg>
       </div>
     )
   },
-  social: {
-    title: 'Gestión de Redes Sociales',
-    description: 'Gestionamos tus redes sociales con estrategias personalizadas, contenido engaging y community management profesional.',
-    incluye: ['Estrategia de contenido mensual', 'Community management', 'Publicidad en redes sociales', 'Análisis de rendimiento'],
-    link: 'Explorar Estrategias Social →',
+  sistema: {
+    title: 'Sistema de Alerta Temprana',
+    description: 'Plataforma digital que centraliza señales de intrusión y dispara alertas críticas en tiempo real. Integración con sensores IoT y reportes de campo.',
+    incluye: ['Dashboard de alertas en tiempo real', 'Integración IoT y sensores', 'Notificaciones automáticas', 'Protocolos de respuesta inmediata'],
+    link: 'Implementar Sistema →',
     href: '#contacto',
     visual: (
-      <div className="w-32 h-32 mx-auto bg-orange-500 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
         <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
         </svg>
       </div>
     )
   },
-  seo: {
-    title: 'Posicionamiento en Buscadores (SEO)',
-    description: 'Posicionamos tu negocio en los primeros resultados de Google con estrategias SEO avanzadas y análisis de datos.',
-    incluye: ['Auditoría técnica completa', 'Optimización On-Page', 'Estrategia de contenido SEO', 'SEO Local y GMB'],
-    link: 'Explorar Servicios SEO →',
+  automatizacion: {
+    title: 'Automatización Legal',
+    description: 'Flujo de trabajo legal automatizado que asegura respuesta ultrarrápida ante ocupaciones. Notificaciones instantáneas y gestión de plazos críticos.',
+    incluye: ['Creación automática de expedientes', 'Notificación inmediata a abogados', 'Seguimiento de plazos legales', 'Integración con despachos jurídicos'],
+    link: 'Automatizar Procesos →',
     href: '#contacto',
     visual: (
-      <div className="w-32 h-32 mx-auto bg-orange-500 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
         <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path>
         </svg>
       </div>
     )
   },
-  marketing: {
-    title: 'Marketing Digital Integral',
-    description: 'Estrategias completas de marketing digital que incluyen publicidad en redes sociales, email marketing, y análisis de rendimiento para maximizar tu ROI.',
-    incluye: ['Campañas publicitarias', 'Email marketing automation', 'Análisis de datos y ROI', 'Optimización de conversiones'],
-    link: 'Descubre Nuestro Marketing →',
+  consultoria: {
+    title: 'Consultoría de Riesgo Digital',
+    description: 'Asesoramiento estratégico para implementar sistemas de gestión de riesgo operacional en instituciones financieras y servicers.',
+    incluye: ['Evaluación de procesos actuales', 'Diseño de estrategia de riesgo', 'Implementación de mejores prácticas', 'Capacitación del equipo'],
+    link: 'Consultar Estrategia →',
     href: '#contacto',
     visual: (
-      <div className="w-32 h-32 mx-auto bg-orange-500 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
         <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L9 4.618 2.447 2.106A1 1 0 001 3v11a1 1 0 001 1h14a1 1 0 001-1V3zM4 5.618L9 7.618l5-2V15H4V5.618z" clipRule="evenodd"></path>
         </svg>
       </div>
     )
   },
-  consulting: {
-    title: 'Consultoría Digital Estratégica',
-    description: 'Asesoramiento experto para transformar tu negocio digitalmente. Análisis de mercado, planificación estratégica y recomendaciones personalizadas.',
-    incluye: ['Análisis de mercado digital', 'Planificación estratégica', 'Auditoría digital completa', 'Recomendaciones personalizadas'],
-    link: 'Solicita Consultoría →',
+  integracion: {
+    title: 'Integración de Sistemas',
+    description: 'Conexión perfecta entre sistemas bancarios, plataformas de riesgo y herramientas legales para una gestión unificada del riesgo de ocupación.',
+    incluye: ['APIs y conectores personalizados', 'Integración con core bancario', 'Sincronización de datos en tiempo real', 'Mantenimiento y soporte técnico'],
+    link: 'Integrar Sistemas →',
     href: '#contacto',
     visual: (
-      <div className="w-32 h-32 mx-auto bg-orange-500 rounded-full flex items-center justify-center">
+      <div className="w-32 h-32 mx-auto bg-blue-600 rounded-full flex items-center justify-center">
         <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
@@ -84,7 +84,7 @@ const serviceData: Record<string, ServiceData> = {
 };
 
 const ServicesSection: React.FC = () => {
-  const [activeService, setActiveService] = useState<string>('web');
+  const [activeService, setActiveService] = useState<string>('analisis');
 
   const handleServiceClick = (service: string) => {
     setActiveService(service);
@@ -105,7 +105,7 @@ const ServicesSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Estrategia Digital
+              Servicios de Riesgo Digital
             </motion.h2>
             <motion.p
               className="text-xl text-gray-400 font-medium mb-12"
@@ -113,14 +113,14 @@ const ServicesSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Rendimiento • Escalabilidad • Resultados
+              Prevención • Detección • Respuesta Automatizada
             </motion.p>
             <div className="space-y-4">
               {Object.entries(serviceData).map(([key, data], index) => (
                 <motion.div
                   key={key}
                   className={`service-nav-item cursor-pointer p-4 rounded-lg transition-all duration-300 relative ${
-                    activeService === key ? '' : 'hover:bg-orange-500/5'
+                    activeService === key ? '' : 'hover:bg-blue-500/5'
                   }`}
                   onClick={() => handleServiceClick(key)}
                   whileHover={{ scale: 1.02 }}
@@ -130,7 +130,7 @@ const ServicesSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
                   <span className={`absolute left-0 top-0 h-full w-1 transition-all duration-300 ${
-                    activeService === key ? 'bg-orange-500' : 'bg-transparent'
+                    activeService === key ? 'bg-blue-600' : 'bg-transparent'
                   }`} />
                   <div className="flex items-center space-x-4 relative z-10 pl-2">
                     <span className={`text-2xl font-bold transition-colors duration-300 ${
@@ -187,7 +187,7 @@ const ServicesSection: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <h4 className="text-xl font-semibold text-orange-500 mb-4">Incluye:</h4>
+                  <h4 className="text-xl font-semibold text-blue-400 mb-4">Incluye:</h4>
                   <ul className="space-y-3">
                     {currentData.incluye.map((item, index) => (
                       <motion.li
@@ -197,7 +197,7 @@ const ServicesSection: React.FC = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
                       >
-                        <span className="text-orange-500 text-lg">✓</span>
+                        <span className="text-blue-400 text-lg">✓</span>
                         <span className="text-base sm:text-lg">{item}</span>
                       </motion.li>
                     ))}
@@ -207,7 +207,7 @@ const ServicesSection: React.FC = () => {
                 {/* CTA Button */}
                 <motion.a
                   href={currentData.href}
-                  className="inline-block px-8 py-4 bg-orange-500 text-white font-semibold rounded-full transition-all duration-300 hover:bg-orange-600 hover:scale-105"
+                  className="inline-block px-8 py-4 bg-blue-600 text-white font-semibold rounded-full transition-all duration-300 hover:bg-blue-500 hover:scale-105"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
